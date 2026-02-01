@@ -95,6 +95,7 @@ class DWTSDataPreprocessor:
 
         for season in sorted(self.main_df["season"].unique()):
             season_df = self.main_df[self.main_df["season"] == season].copy()
+            season_num_contestants = int(len(season_df))
 
             # 获取该季度的周数
             week_cols = [
@@ -102,13 +103,14 @@ class DWTSDataPreprocessor:
                 for col in season_df.columns
                 if "week" in col and "avg_judge_score" in col
             ]
-            max_week = len(week_cols)
+            max_week = int(len(week_cols)) if len(week_cols) > 0 else 1
 
             # 重置state记忆
             state_memory = {}
 
             for week in range(1, max_week + 1):
                 week_str = f"week{week}"
+                week_pct = float(week) / float(max_week) if max_week > 0 else 0.0
 
                 # 该周所有选手（包括即将被淘汰的）
                 active_contestants = season_df[
@@ -267,6 +269,11 @@ class DWTSDataPreprocessor:
                         "season": season,
                         "week": week,
                         "num_contestants": len(active_contestants),
+                        "week_pct": float(week_pct),
+                        "contestants_pct": float(len(active_contestants))
+                        / float(season_num_contestants)
+                        if season_num_contestants > 0
+                        else 0.0,
                         # 静态特征
                         "age": float(personal_info["age_A"]),
                         "fame": float(personal_info["Frame_A"]),
@@ -653,7 +660,7 @@ def train_dwts_model(weekly_df, num_epochs=1000, lr=0.001, method="rank", weight
         "sharpness",
         "prev_rank",
     ]
-    context_features = ["is_all_star", "no_elim", "multi_elim"]
+    context_features = ["is_all_star", "no_elim", "multi_elim", "week_pct", "contestants_pct"]
 
     # 打印特征统计
     print("\n=== Feature Statistics ===")
@@ -757,6 +764,7 @@ def train_unified_model(
     fan_utility: str = "mlp",
     focal_gamma: float | None = None,
     skip_unsupervised_weeks: bool = True,
+    feature_noise_std: float | None = None,
 ):
     """训练统一模型（只有一套参数，按 season 自动选组合方式）。"""
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -775,7 +783,7 @@ def train_unified_model(
         "sharpness",
         "prev_rank",
     ]
-    context_features = ["is_all_star", "no_elim", "multi_elim"]
+    context_features = ["is_all_star", "no_elim", "multi_elim", "week_pct", "contestants_pct"]
 
     num_contestants = int(weekly_df["contestant_idx"].max()) + 1
     model = UnifiedDWTSModel(
@@ -869,8 +877,23 @@ def train_unified_model(
             contestant_idx,
             eliminated_mask,
         ) in batches:
+            if feature_noise_std is not None and float(feature_noise_std) > 0.0:
+                s = float(feature_noise_std)
+                x_static_in = x_static + s * torch.randn_like(x_static)
+                x_dynamic_in = x_dynamic + s * torch.randn_like(x_dynamic)
+                x_context_in = x_context + s * torch.randn_like(x_context)
+            else:
+                x_static_in = x_static
+                x_dynamic_in = x_dynamic
+                x_context_in = x_context
+
             combined_scores, _, _ = model(
-                x_static, x_dynamic, x_context, judge_scores, contestant_idx, season
+                x_static_in,
+                x_dynamic_in,
+                x_context_in,
+                judge_scores,
+                contestant_idx,
+                season,
             )
             loss = criterion(combined_scores, eliminated_mask, no_elim)
 
@@ -906,6 +929,7 @@ def train_unified_ensemble(
     weight_decay: float = 0.001,
     fan_utility: str = "mlp",
     focal_gamma: float | None = None,
+    feature_noise_std: float | None = None,
 ):
     """Train multiple unified models with different random seeds (bagging by init)."""
     if ensemble_size <= 0:
@@ -932,6 +956,7 @@ def train_unified_ensemble(
             fan_utility=fan_utility,
             focal_gamma=focal_gamma,
             skip_unsupervised_weeks=True,
+            feature_noise_std=feature_noise_std,
         )
         models.append(model)
     return models
@@ -967,7 +992,7 @@ def evaluate_predictions_unified_ensemble(weekly_df: pd.DataFrame, models: list[
         "sharpness",
         "prev_rank",
     ]
-    context_features = ["is_all_star", "no_elim", "multi_elim"]
+    context_features = ["is_all_star", "no_elim", "multi_elim", "week_pct", "contestants_pct"]
 
     total = 0
     hit_sum = 0.0
@@ -1041,6 +1066,126 @@ def evaluate_predictions_unified_ensemble(weekly_df: pd.DataFrame, models: list[
     return {"hit_rate": overall_hit, "exact_match": overall_exact, "weeks": total}
 
 
+def evaluate_predictions_unified_dual_ensemble(
+    weekly_df: pd.DataFrame,
+    models_rank: list[nn.Module],
+    models_percentage: list[nn.Module],
+):
+    """
+    Evaluate using two ensembles:
+      - models_rank for seasons using rank combination
+      - models_percentage for seasons using percentage combination
+
+    This is useful when different loss settings (e.g., focal gamma) work better for different rules.
+    """
+    if len(models_rank) == 0 or len(models_percentage) == 0:
+        raise ValueError("Both models_rank and models_percentage must be non-empty.")
+
+    device = next(models_rank[0].parameters()).device
+    for m in models_rank[1:]:
+        if next(m.parameters()).device != device:
+            raise ValueError("All models_rank must be on the same device.")
+    for m in models_percentage:
+        if next(m.parameters()).device != device:
+            raise ValueError("All models_percentage must be on the same device as models_rank.")
+
+    for m in models_rank:
+        m.eval()
+    for m in models_percentage:
+        m.eval()
+
+    static_features = [
+        "age_normalized",
+        "fame_normalized",
+        "gender",
+        "industry",
+        "experience",
+        "is_hetero",
+    ]
+    dynamic_features = [
+        "state_normalized",
+        "max_score_normalized",
+        "sharpness",
+        "prev_rank",
+    ]
+    context_features = ["is_all_star", "no_elim", "multi_elim", "week_pct", "contestants_pct"]
+
+    total = 0
+    hit_sum = 0.0
+    exact_match = 0
+
+    weeks_rank = 0
+    weeks_pct = 0
+    hit_sum_rank = 0.0
+    hit_sum_pct = 0.0
+
+    with torch.no_grad():
+        for season_week, group in weekly_df.groupby("season_week"):
+            if len(group) < 2:
+                continue
+            if float(group["no_elim"].values[0]) == 1.0:
+                continue
+
+            actual_elim_idx = group[group["is_eliminated"] == 1].index
+            if len(actual_elim_idx) == 0:
+                continue
+            k = int(len(actual_elim_idx))
+
+            season = int(group["season"].values[0])
+            method = UnifiedDWTSModel.choose_method_by_season(season)
+            models = models_rank if method == "rank" else models_percentage
+            if method == "rank":
+                weeks_rank += 1
+            else:
+                weeks_pct += 1
+
+            x_static = torch.tensor(group[static_features].values, dtype=torch.float32).to(device)
+            x_dynamic = torch.tensor(group[dynamic_features].values, dtype=torch.float32).to(device)
+            x_context = torch.tensor(group[context_features].values, dtype=torch.float32).to(device)
+            judge_scores = torch.tensor(group["judge_score"].values, dtype=torch.float32).to(device)
+            contestant_idx = torch.tensor(group["contestant_idx"].values, dtype=torch.long).to(device)
+
+            scores = []
+            for m in models:
+                combined_scores, _, _ = m(
+                    x_static, x_dynamic, x_context, judge_scores, contestant_idx, season
+                )
+                scores.append(combined_scores)
+            avg_scores = torch.stack(scores, dim=0).mean(dim=0)
+
+            pred_positions = torch.argsort(avg_scores)[:k].tolist()
+            predicted_elim_idx = set(group.index[pred_positions].tolist())
+            actual_set = set(actual_elim_idx.tolist())
+            hits = len(predicted_elim_idx & actual_set)
+            hit_rate = hits / k if k > 0 else 0.0
+            is_exact = 1 if hits == k else 0
+
+            total += 1
+            hit_sum += hit_rate
+            exact_match += is_exact
+            if method == "rank":
+                hit_sum_rank += hit_rate
+            else:
+                hit_sum_pct += hit_rate
+
+    overall_hit = hit_sum / total if total > 0 else 0.0
+    overall_exact = exact_match / total if total > 0 else 0.0
+    rank_hit = hit_sum_rank / weeks_rank if weeks_rank > 0 else 0.0
+    pct_hit = hit_sum_pct / weeks_pct if weeks_pct > 0 else 0.0
+
+    print("\n" + "=" * 60)
+    print("DUAL-ENSEMBLE EVALUATION RESULTS")
+    print("=" * 60)
+    print(f"Rank ensemble size: {len(models_rank)}")
+    print(f"Percentage ensemble size: {len(models_percentage)}")
+    print(f"HitRate@|E_w|: {overall_hit:.2%} (weeks={total})")
+    print(f"ExactMatch@|E_w|: {overall_exact:.2%} (weeks={total})")
+    print(f"  - Rank weeks HitRate: {rank_hit:.2%} (weeks={weeks_rank})")
+    print(f"  - Percentage weeks HitRate: {pct_hit:.2%} (weeks={weeks_pct})")
+
+    return {"hit_rate": overall_hit, "exact_match": overall_exact, "weeks": total}
+
+
 def predict_fan_votes_unified_ensemble(weekly_df: pd.DataFrame, models: list[nn.Module]):
     """
     Produce per-row ensemble fan-vote probability mean/std and combined-score mean/std.
@@ -1071,7 +1216,7 @@ def predict_fan_votes_unified_ensemble(weekly_df: pd.DataFrame, models: list[nn.
         "sharpness",
         "prev_rank",
     ]
-    context_features = ["is_all_star", "no_elim", "multi_elim"]
+    context_features = ["is_all_star", "no_elim", "multi_elim", "week_pct", "contestants_pct"]
 
     out = weekly_df.copy()
     out["predicted_fan_vote_mean"] = np.nan
@@ -1190,7 +1335,7 @@ def predict_fan_votes(model, weekly_df, method="rank"):
         "sharpness",
         "prev_rank",
     ]
-    context_features = ["is_all_star", "no_elim", "multi_elim"]
+    context_features = ["is_all_star", "no_elim", "multi_elim", "week_pct", "contestants_pct"]
 
     predictions = []
 
@@ -1241,7 +1386,7 @@ def predict_fan_votes_unified(model, weekly_df):
         "sharpness",
         "prev_rank",
     ]
-    context_features = ["is_all_star", "no_elim", "multi_elim"]
+    context_features = ["is_all_star", "no_elim", "multi_elim", "week_pct", "contestants_pct"]
 
     predictions = []
     methods = []
@@ -1303,7 +1448,7 @@ def counterfactual_analysis(model, weekly_df):
         "sharpness",
         "prev_rank",
     ]
-    context_features = ["is_all_star", "no_elim", "multi_elim"]
+    context_features = ["is_all_star", "no_elim", "multi_elim", "week_pct", "contestants_pct"]
 
     records = []
 
@@ -1567,7 +1712,7 @@ def evaluate_predictions_unified(weekly_df, model):
         "sharpness",
         "prev_rank",
     ]
-    context_features = ["is_all_star", "no_elim", "multi_elim"]
+    context_features = ["is_all_star", "no_elim", "multi_elim", "week_pct", "contestants_pct"]
 
     total = 0
     hit_sum = 0.0
@@ -1720,7 +1865,7 @@ def compare_elimination_methods(weekly_df, model):
         "sharpness",
         "prev_rank",
     ]
-    context_features = ["is_all_star", "no_elim", "multi_elim"]
+    context_features = ["is_all_star", "no_elim", "multi_elim", "week_pct", "contestants_pct"]
 
     rows = []
     with torch.no_grad():
@@ -1898,3 +2043,28 @@ if __name__ == "__main__":
     comparison_results = compare_elimination_methods(weekly_df, model)
     comparison_results.to_csv("method_comparison_results.csv", index=False)
     print("\nDetailed comparison saved to method_comparison_results.csv")
+
+    # Optional: one-shot dual-ensemble benchmark (best-effort in-sample improvement)
+    # Comment out if you don't want the extra training time.
+    print("\n=== Dual-ensemble (focal gamma rule-specific) ===")
+    models_rank = train_unified_ensemble(
+        weekly_df,
+        ensemble_size=3,
+        num_epochs=60,
+        lr=0.003,
+        hidden=64,
+        dropout=0.15,
+        fan_utility="mlp",
+        focal_gamma=1.0,
+    )
+    models_pct = train_unified_ensemble(
+        weekly_df,
+        ensemble_size=3,
+        num_epochs=60,
+        lr=0.003,
+        hidden=64,
+        dropout=0.15,
+        fan_utility="mlp",
+        focal_gamma=2.0,
+    )
+    _ = evaluate_predictions_unified_dual_ensemble(weekly_df, models_rank, models_pct)
