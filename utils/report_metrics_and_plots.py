@@ -337,6 +337,394 @@ def plot_entropy_heatmap(
     plt.close(fig)
 
 
+def plot_boundary_certainty_heatmap(
+    boundary_table: pd.DataFrame,
+    outpath: Path,
+    value_col: str = "week_elim_boundary_certainty",
+    title: str = "Elimination-Boundary Certainty Heatmap (Bootstrap)",
+) -> None:
+    """
+    Heatmap for the week-level elimination-boundary certainty (0..1).
+    Designed for paper figures: warm/soft palette, low contrast, uniform ticks.
+    """
+    import matplotlib.pyplot as plt
+    from matplotlib import colors as mcolors
+    from matplotlib.colors import LinearSegmentedColormap
+    import matplotlib
+
+    if not {"season", "week", value_col}.issubset(set(boundary_table.columns)):
+        raise ValueError(f"Need columns season, week, {value_col} for heatmap.")
+
+    seasons_raw = boundary_table["season"].dropna().astype(int)
+    weeks_raw = boundary_table["week"].dropna().astype(int)
+    if len(seasons_raw) == 0 or len(weeks_raw) == 0:
+        raise ValueError("No seasons/weeks available for boundary heatmap.")
+
+    season_min = int(seasons_raw.min())
+    season_max = int(seasons_raw.max())
+    week_min = int(weeks_raw.min())
+    week_max = int(weeks_raw.max())
+
+    seasons = list(range(season_min, season_max + 1))
+    weeks = list(range(week_min, week_max + 1))
+
+    grid = np.full((len(seasons), len(weeks)), np.nan, dtype=float)
+    s_to_i = {s: i for i, s in enumerate(seasons)}
+    w_to_j = {w: j for j, w in enumerate(weeks)}
+
+    for _, row in boundary_table.iterrows():
+        if pd.isna(row.get("season")) or pd.isna(row.get("week")) or pd.isna(row.get(value_col)):
+            continue
+        s = int(row["season"])
+        w = int(row["week"])
+        v = float(row[value_col])
+        if s in s_to_i and w in w_to_j:
+            grid[s_to_i[s], w_to_j[w]] = v
+
+    masked = np.ma.masked_invalid(grid)
+
+    plt.rcParams.update(
+        {
+            "figure.dpi": 120,
+            "savefig.dpi": 300,
+            "axes.titlesize": 14,
+            "axes.labelsize": 12,
+            "font.size": 11,
+        }
+    )
+
+    fig, ax = plt.subplots(figsize=(12, 7))
+
+    def _truncate_cmap(base, lo: float = 0.12, hi: float = 0.72, n: int = 256):
+        base = matplotlib.colormaps.get_cmap(base) if isinstance(base, str) else base
+        colors = base(np.linspace(lo, hi, n))
+        return LinearSegmentedColormap.from_list(f"{base.name}_trunc", colors)
+
+    # Warm, soft palette with reduced contrast (avoid very dark reds).
+    norm = mcolors.Normalize(vmin=0.0, vmax=1.0)
+    warm_cmap = _truncate_cmap("YlOrRd", lo=0.05, hi=0.75)
+    warm_cmap.set_bad(color=(1.0, 1.0, 1.0, 0.0))
+
+    im = ax.imshow(
+        masked,
+        aspect="auto",
+        interpolation="nearest",
+        cmap=warm_cmap,
+        norm=norm,
+        alpha=0.92,
+    )
+
+    ax.set_title(title)
+    ax.set_xlabel("Week")
+    ax.set_ylabel("Season")
+
+    ax.set_xticks(list(range(len(weeks))))
+    ax.set_xticklabels([str(w) for w in weeks])
+
+    # Seasons: show 1,4,7,... every 3 seasons (evenly spaced by imshow construction).
+    sel_y = [i for i, s in enumerate(seasons) if (int(s) - 1) % 3 == 0]
+    ax.set_yticks(sel_y)
+    ax.set_yticklabels([str(seasons[i]) for i in sel_y])
+    ax.tick_params(axis="y", labelsize=10)
+
+    cbar = fig.colorbar(im, ax=ax, fraction=0.03, pad=0.02)
+    cbar.set_label("Boundary certainty (0=uncertain, 1=confident)")
+    cbar.set_ticks([0.0, 0.25, 0.5, 0.75, 1.0])
+
+    fig.tight_layout()
+    fig.savefig(outpath, bbox_inches="tight")
+    plt.close(fig)
+
+
+def plot_boundary_margin_violin_by_week(
+    boot_pred: pd.DataFrame,
+    outpath: Path,
+    margin_col: str = "boundary_margin_mean",
+    week_col: str = "week",
+    k_col: str = "week_elim_k",
+    title: str = "Boundary Margin Distribution by Week",
+) -> None:
+    """
+    Visualize how close contestants are to the elimination cutoff.
+
+    margin = combined_score_mean - cutoff_mean
+      - margin < 0 : below cutoff (more likely eliminated)
+      - margin > 0 : above cutoff (safer)
+
+    Uses a violin plot per week (1..max week). Requires bootstrap outputs that
+    include the cutoff and margin columns.
+    """
+    import matplotlib.pyplot as plt
+    import matplotlib
+
+    needed = {week_col, margin_col, k_col}
+    if not needed.issubset(set(boot_pred.columns)):
+        raise ValueError(f"Need columns {sorted(needed)} for boundary-margin plot.")
+
+    df = boot_pred.copy()
+    df = df.dropna(subset=[week_col, margin_col, k_col])
+    df = df[df[k_col].astype(float) > 0]  # only weeks with elimination boundary
+    if len(df) == 0:
+        raise ValueError("No rows with valid elimination boundary (k>0).")
+
+    # One row per contestant-week.
+    if {"contestant_id", "season_week"}.issubset(df.columns):
+        df = df.drop_duplicates(["contestant_id", "season_week"])
+
+    weeks_all = sorted(df[week_col].astype(int).unique().tolist())
+    weeks_used: list[int] = []
+    data: list[np.ndarray] = []
+    neg_rates: list[float] = []
+    neg_counts: list[int] = []
+    totals: list[int] = []
+    for w in weeks_all:
+        vals = df.loc[df[week_col].astype(int) == w, margin_col].astype(float).to_numpy()
+        vals = vals[np.isfinite(vals)]
+        if len(vals) == 0:
+            continue
+        weeks_used.append(int(w))
+        data.append(vals)
+        tot = int(len(vals))
+        neg = int((vals < 0).sum())
+        totals.append(tot)
+        neg_counts.append(neg)
+        neg_rates.append(float(neg / tot))
+
+    if len(data) == 0:
+        raise ValueError("No finite margin values available for plotting.")
+
+    plt.rcParams.update(
+        {
+            "figure.dpi": 120,
+            "savefig.dpi": 300,
+            "axes.titlesize": 14,
+            "axes.labelsize": 12,
+            "font.size": 11,
+        }
+    )
+
+    fig, ax = plt.subplots(figsize=(11, 5.5))
+
+    cmap = matplotlib.colormaps.get_cmap("YlOrRd")
+    face = cmap(0.50)
+    edge = cmap(0.70)
+
+    parts = ax.violinplot(
+        data,
+        positions=weeks_used,
+        widths=0.85,
+        showmeans=False,
+        showmedians=True,
+        showextrema=False,
+        bw_method=0.25,
+    )
+
+    for body in parts["bodies"]:
+        body.set_facecolor(face)
+        body.set_edgecolor(edge)
+        body.set_alpha(0.55)
+        body.set_linewidth(0.8)
+
+    if "cmedians" in parts:
+        parts["cmedians"].set_color(edge)
+        parts["cmedians"].set_linewidth(1.2)
+
+    # Zero margin reference line (cutoff).
+    ax.axhline(0.0, color="#8a3b12", linewidth=1.0, alpha=0.55, label="Cutoff (margin = 0)")
+
+    ax.set_title(title)
+    ax.set_xlabel("Week")
+    ax.set_ylabel("Margin = combined_score_mean - cutoff_mean")
+    ax.set_xticks(weeks_used)
+    ax.legend(loc="lower right", frameon=False, fontsize=9)
+    ax.set_xlim(min(weeks_used) - 0.7, max(weeks_used) + 0.7)
+
+    # Zoom to the boundary region so the negative side isn't dominated by rare large positive outliers.
+    # Use robust (asymmetric) quantiles on the raw margin distribution.
+    all_vals = np.concatenate(data, axis=0)
+    q_lo = float(np.nanquantile(all_vals, 0.02)) if len(all_vals) else -1.0
+    q_hi = float(np.nanquantile(all_vals, 0.98)) if len(all_vals) else 1.0
+    # Ensure 0 is inside the view and add a small pad.
+    pad = 0.10 * float(max(abs(q_lo), abs(q_hi), 1e-3))
+    y_min = min(q_lo - pad, -0.1)
+    y_max = max(q_hi + pad, 0.1)
+    # Add a small extra gap at the bottom so the figure doesn't feel "flush".
+    yr = float(y_max - y_min) if np.isfinite(y_max - y_min) else 1.0
+    y_min = y_min - 0.06 * yr
+    ax.set_ylim(y_min, y_max)
+
+    # Shade the "elimination side" (margin < 0) to make interpretation immediate.
+    ax.axhspan(ax.get_ylim()[0], 0.0, color="#8a3b12", alpha=0.06, zorder=0)
+
+    # Overlay the (usually small) negative tail explicitly so it is visible even when rare.
+    rng = np.random.default_rng(0)
+    for w, vals in zip(weeks_used, data):
+        neg_vals = vals[vals < 0]
+        if len(neg_vals) == 0:
+            continue
+        jitter = rng.normal(0.0, 0.04, size=len(neg_vals))
+        ax.scatter(
+            np.full_like(neg_vals, float(w)) + jitter,
+            neg_vals,
+            s=10,
+            marker="v",
+            color="#8a3b12",
+            alpha=0.65,
+            linewidths=0.0,
+            zorder=3,
+        )
+
+    def _pct_label(r: float) -> str:
+        pct = 100.0 * float(r)
+        if pct < 0.5:
+            return "<0.5%"
+        if pct < 10.0:
+            return f"{pct:.1f}%"
+        return f"{pct:.0f}%"
+
+    for w, r, neg, tot in zip(weeks_used, neg_rates, neg_counts, totals):
+        ax.text(
+            w,
+            0.98,
+            f"{_pct_label(r)}\n({neg}/{tot})" if neg > 0 else "0%\n(0/{})".format(tot),
+            transform=ax.get_xaxis_transform(),
+            ha="center",
+            va="top",
+            fontsize=8,
+            color="#5b1f00",
+            alpha=0.85,
+        )
+
+    fig.tight_layout()
+    fig.savefig(outpath, bbox_inches="tight")
+    plt.close(fig)
+
+
+def plot_contestant_uncertainty_ciwidth(
+    contestant_uncertainty: pd.DataFrame,
+    outpath: Path,
+    metric_col: str = "mean_CI_width_P",
+    min_weeks: int = 4,
+    top_n: int = 10,
+    title: str = "Contestant-Level Uncertainty (Mean 95% CI Width)",
+) -> None:
+    """
+    Paper-friendly figure:
+      - left: distribution of contestant uncertainty
+      - right: top/bottom N examples (to avoid a huge table)
+    """
+    import matplotlib.pyplot as plt
+    import matplotlib
+
+    need = {"contestant_id", metric_col, "T_i"}
+    if not need.issubset(set(contestant_uncertainty.columns)):
+        raise ValueError(f"Need columns {sorted(need)} for contestant uncertainty plot.")
+
+    df = contestant_uncertainty.copy()
+    df = df.dropna(subset=[metric_col, "T_i"])
+    df = df[df["T_i"].astype(int) >= int(min_weeks)]
+    if len(df) == 0:
+        raise ValueError("No contestants after filtering; try lowering min_weeks.")
+
+    metric = df[metric_col].astype(float).to_numpy()
+    metric = metric[np.isfinite(metric)]
+    if len(metric) == 0:
+        raise ValueError("No finite uncertainty metric values to plot.")
+
+    cmap = matplotlib.colormaps.get_cmap("YlOrRd")
+    face = cmap(0.45)
+    edge = cmap(0.70)
+
+    plt.rcParams.update(
+        {
+            "figure.dpi": 120,
+            "savefig.dpi": 300,
+            "axes.titlesize": 14,
+            "axes.labelsize": 12,
+            "font.size": 11,
+        }
+    )
+
+    fig = plt.figure(figsize=(12.5, 5.8))
+    gs = fig.add_gridspec(1, 2, width_ratios=[3.2, 1.8], wspace=0.05)
+    ax = fig.add_subplot(gs[0, 0])
+    axr = fig.add_subplot(gs[0, 1])
+
+    # Robust x-range to avoid a long tail dominating the axis.
+    x_hi = float(np.nanquantile(metric, 0.98))
+    x_hi = max(x_hi, float(np.nanmax(metric)))
+    x_hi = float(np.nanmax(metric)) if not np.isfinite(x_hi) else x_hi
+    x_hi = max(x_hi, 1e-6)
+
+    bins = 28
+    ax.hist(metric, bins=bins, color=face, edgecolor=edge, alpha=0.55)
+
+    med = float(np.nanmedian(metric))
+    q75 = float(np.nanquantile(metric, 0.75))
+    ax.axvline(med, color="#8a3b12", linewidth=1.2, alpha=0.75, label=f"median={med:.3g}")
+    ax.axvline(q75, color="#8a3b12", linewidth=1.0, alpha=0.45, linestyle="--", label=f"75%={q75:.3g}")
+
+    ax.set_title(title)
+    ax.set_xlabel(metric_col)
+    ax.set_ylabel("Number of contestants")
+    ax.set_xlim(0.0, x_hi * 1.05)
+    ax.legend(loc="upper right", frameon=False, fontsize=9)
+
+    # Right panel: show top/bottom examples
+    df_sorted = df.sort_values(metric_col, ascending=False).copy()
+    top = df_sorted.head(int(top_n)).copy()
+    bottom = df_sorted.tail(int(top_n)).sort_values(metric_col, ascending=True).copy()
+
+    def _pretty_name(cid: str) -> str:
+        s = str(cid)
+        parts = s.split("_")
+        celeb = parts[0] if len(parts) > 0 else s
+        season = parts[-1] if len(parts) > 0 else ""
+        out = f"{celeb} (S{season})" if season.isdigit() else celeb
+        return (out[:22] + "…") if len(out) > 23 else out
+
+    def _rows(dfi: pd.DataFrame) -> list[list[str]]:
+        rows = []
+        for _, r in dfi.iterrows():
+            rows.append(
+                [
+                    _pretty_name(r["contestant_id"]),
+                    f"{float(r[metric_col]):.3g}",
+                    str(int(r["T_i"])),
+                ]
+            )
+        return rows
+
+    axr.axis("off")
+    axr.text(0.0, 0.98, f"Examples (T_i ≥ {int(min_weeks)})", ha="left", va="top", fontsize=11, color="#5b1f00")
+
+    axr.text(0.0, 0.90, "Most uncertain (Top)", ha="left", va="top", fontsize=10, color="#5b1f00")
+    tab1 = axr.table(
+        cellText=_rows(top),
+        colLabels=["Contestant", "CI width", "T_i"],
+        colLoc="left",
+        cellLoc="left",
+        bbox=[0.0, 0.50, 1.0, 0.38],
+    )
+    tab1.auto_set_font_size(False)
+    tab1.set_fontsize(8.5)
+
+    axr.text(0.0, 0.44, "Most certain (Bottom)", ha="left", va="top", fontsize=10, color="#5b1f00")
+    tab2 = axr.table(
+        cellText=_rows(bottom),
+        colLabels=["Contestant", "CI width", "T_i"],
+        colLoc="left",
+        cellLoc="left",
+        bbox=[0.0, 0.04, 1.0, 0.38],
+    )
+    tab2.auto_set_font_size(False)
+    tab2.set_fontsize(8.5)
+
+    fig.tight_layout()
+    fig.savefig(outpath, bbox_inches="tight")
+    plt.close(fig)
+
+
 def plot_tau_heatmap(
     tau_table: pd.DataFrame,
     outpath: Path,
@@ -721,6 +1109,8 @@ def main() -> None:
 
         # Week-level boundary confidence table (if available)
         week_boundary_path = None
+        boundary_heatmap_png = None
+        margin_violin_png = None
         if "week_elim_boundary_certainty" in boot_pred.columns:
             week_boundary = (
                 boot_pred[
@@ -741,6 +1131,28 @@ def main() -> None:
                 .sort_values(["season", "week"])
             )
             week_boundary_path = _safe_write_csv(week_boundary, outdir / "bootstrap_boundary_by_season_week.csv")
+            try:
+                boundary_heatmap_png = outdir / "boundary_certainty_heatmap.png"
+                plot_boundary_certainty_heatmap(
+                    boundary_table=week_boundary,
+                    outpath=boundary_heatmap_png,
+                    value_col="week_elim_boundary_certainty",
+                    title="Elimination-Boundary Certainty Heatmap (Bootstrap)",
+                )
+            except Exception:
+                boundary_heatmap_png = None
+            try:
+                margin_violin_png = outdir / "boundary_margin_violin_by_week.png"
+                plot_boundary_margin_violin_by_week(
+                    boot_pred=boot_pred,
+                    outpath=margin_violin_png,
+                    margin_col="boundary_margin_mean",
+                    week_col="week",
+                    k_col="week_elim_k",
+                    title="Boundary Margin Distribution by Week (Bootstrap)",
+                )
+            except Exception:
+                margin_violin_png = None
 
         # Contestant-level uncertainty summary (CI width + CV + elim probability)
         contestant_uncertainty_path = None
@@ -776,6 +1188,18 @@ def main() -> None:
                 }
             )
             contestant_uncertainty_path = _safe_write_csv(cu, outdir / "contestant_uncertainty.csv")
+            # Paper figure: distribution + top/bottom examples (avoid huge tables).
+            try:
+                plot_contestant_uncertainty_ciwidth(
+                    contestant_uncertainty=cu,
+                    outpath=outdir / "contestant_uncertainty_ciwidth.png",
+                    metric_col="mean_CI_width_P",
+                    min_weeks=4,
+                    top_n=10,
+                    title="Contestant-Level Uncertainty (Mean 95% CI Width)",
+                )
+            except Exception:
+                pass
 
         # ANOVA: does uncertainty vary by week number?
         # Week-level uncertainty is entropy_norm(P_w); run ANOVA across week groups.
@@ -802,6 +1226,76 @@ def main() -> None:
                     outdir / "anova_boundary_certainty_by_week.txt",
                     encoding="utf-8",
                 )
+
+    # If a boundary table already exists (e.g., generated earlier), render a heatmap without rerunning bootstrap.
+    boundary_existing = outdir / "bootstrap_boundary_by_season_week.csv"
+    boundary_heatmap_existing = outdir / "boundary_certainty_heatmap.png"
+    if boundary_existing.exists() and not boundary_heatmap_existing.exists():
+        try:
+            bdf = pd.read_csv(boundary_existing)
+            plot_boundary_certainty_heatmap(
+                boundary_table=bdf,
+                outpath=boundary_heatmap_existing,
+                value_col="week_elim_boundary_certainty",
+                title="Elimination-Boundary Certainty Heatmap (Bootstrap)",
+            )
+        except Exception:
+            pass
+
+    # Margin-by-week plot from existing bootstrap predictions (if present).
+    # Prefer the most recent safe-write output if the main file was locked.
+    # Try to overwrite the canonical filename; fall back to *_new.png if locked.
+    margin_violin_out = outdir / "boundary_margin_violin_by_week.png"
+    if True:
+        boot_candidates = [
+            outdir / "bootstrap_predictions_new.csv",
+            outdir / "bootstrap_predictions.csv",
+        ]
+        for cand in boot_candidates:
+            if not cand.exists():
+                continue
+            try:
+                bpred = pd.read_csv(cand)
+                if {"boundary_margin_mean", "week", "week_elim_k"}.issubset(set(bpred.columns)):
+                    try:
+                        plot_boundary_margin_violin_by_week(
+                            boot_pred=bpred,
+                            outpath=margin_violin_out,
+                            margin_col="boundary_margin_mean",
+                            week_col="week",
+                            k_col="week_elim_k",
+                            title="Boundary Margin Distribution by Week (Bootstrap)",
+                        )
+                    except Exception:
+                        # If the file is locked/open, write a side-by-side file.
+                        plot_boundary_margin_violin_by_week(
+                            boot_pred=bpred,
+                            outpath=outdir / "boundary_margin_violin_by_week_new.png",
+                            margin_col="boundary_margin_mean",
+                            week_col="week",
+                            k_col="week_elim_k",
+                            title="Boundary Margin Distribution by Week (Bootstrap)",
+                        )
+                break
+            except Exception:
+                continue
+
+    # Contestant uncertainty plot from existing file (if present).
+    cu_path = outdir / "contestant_uncertainty.csv"
+    cu_png = outdir / "contestant_uncertainty_ciwidth.png"
+    if cu_path.exists() and not cu_png.exists():
+        try:
+            cu = pd.read_csv(cu_path)
+            plot_contestant_uncertainty_ciwidth(
+                contestant_uncertainty=cu,
+                outpath=cu_png,
+                metric_col="mean_CI_width_P",
+                min_weeks=4,
+                top_n=10,
+                title="Contestant-Level Uncertainty (Mean 95% CI Width)",
+            )
+        except Exception:
+            pass
 
     outputs = ReportOutputs(
         outdir=outdir,
@@ -833,6 +1327,12 @@ def main() -> None:
         print(f"- Bootstrap predictions: {outdir / 'bootstrap_predictions.csv'}")
         if (outdir / 'bootstrap_linear_params.csv').exists():
             print(f"- Bootstrap params: {outdir / 'bootstrap_linear_params.csv'}")
+        if (outdir / "bootstrap_boundary_by_season_week.csv").exists():
+            print(f"- Bootstrap boundary: {outdir / 'bootstrap_boundary_by_season_week.csv'}")
+        if (outdir / "boundary_certainty_heatmap.png").exists():
+            print(f"- Boundary heatmap: {outdir / 'boundary_certainty_heatmap.png'}")
+        if (outdir / "boundary_margin_violin_by_week.png").exists():
+            print(f"- Boundary margin plot: {outdir / 'boundary_margin_violin_by_week.png'}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,2 @@
+ANOVA: week_elim_boundary_certainty ~ week
+{'F': 3.899508436001251, 'df1': 10, 'df2': 251, 'p_value': 6.090409855041834e-05}
