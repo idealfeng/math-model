@@ -1,0 +1,336 @@
+season,week,n_eliminated,zero_eliminate,multi_eliminate,is_finals,eliminated_names
+1,1,0,1,0,0,None
+1,2,1,0,0,0,Trista Sutter
+1,3,1,0,0,0,Evander Holyfield
+1,4,1,0,0,0,Rachel Hunter
+1,5,1,0,0,0,Joey McIntyre
+1,6,0,1,0,1,None
+2,1,1,0,0,0,Kenny Mayne
+2,2,1,0,0,0,Tatum O'Neal
+2,3,1,0,0,0,Giselle Fernandez
+2,4,1,0,0,0,Master P
+2,5,1,0,0,0,Tia Carrere
+2,6,1,0,0,0,George Hamilton
+2,7,1,0,0,0,Lisa Rinna
+2,8,0,1,0,1,None
+3,1,1,0,0,0,Tucker Carlson
+3,2,1,0,0,0,Shanna Moakler
+3,3,1,0,0,0,Harry Hamlin
+3,4,1,0,0,0,Vivica A. Fox
+3,5,2,0,1,0,"Willa Ford, Sara Evans"
+3,6,0,1,0,0,None
+3,7,1,0,0,0,Jerry Springer
+3,8,1,0,0,0,Monique Coleman
+3,9,1,0,0,0,Joey Lawrence
+3,10,0,1,0,1,None
+4,1,0,1,0,0,None
+4,2,1,0,0,0,Paulina Porizkova
+4,3,1,0,0,0,Shandi Finnessey
+4,4,1,0,0,0,Leeza Gibbons
+4,5,1,0,0,0,Clyde Drexler
+4,6,1,0,0,0,Heather Mills
+4,7,1,0,0,0,John Ratzenberger
+4,8,1,0,0,0,Billy Ray Cyrus
+4,9,1,0,0,0,Ian Ziering
+4,10,0,1,0,1,None
+5,1,1,0,0,0,Josie Maran
+5,2,1,0,0,0,Albert Reed
+5,3,1,0,0,0,Wayne Newton
+5,4,1,0,0,0,Floyd Mayweather Jr. 
+5,5,1,0,0,0,Mark Cuban
+5,6,1,0,0,0,Sabrina Bryan
+5,7,1,0,0,0,Jane Seymour
+5,8,1,0,0,0,Cameron Mathison
+5,9,1,0,0,0,Jennie Garth
+5,10,0,1,0,1,None
+6,1,0,1,0,0,None
+6,2,2,0,1,0,"Monica Seles, Penn Jillette"
+6,3,1,0,0,0,Steve Guttenberg
+6,4,1,0,0,0,Adam Carolla
+6,5,1,0,0,0,Priscilla Presley
+6,6,1,0,0,0,Marlee Matlin
+6,7,1,0,0,0,Shannon Elizabeth
+6,8,1,0,0,0,Mario
+6,9,1,0,0,0,Marissa Jaret Winokur
+6,10,0,1,0,1,None
+7,1,2,0,1,0,"Ted McGinley, Jeffrey Ross"
+7,2,2,0,1,0,"Misty May-Treanor, Kim Kardashian"
+7,3,0,1,0,0,None
+7,4,1,0,0,0,Rocco DiSpirito
+7,5,1,0,0,0,Toni Braxton
+7,6,1,0,0,0,Cloris Leachman
+7,7,1,0,0,0,Susan Lucci
+7,8,1,0,0,0,Maurice Greene
+7,9,1,0,0,0,Cody Linley
+7,10,0,1,0,1,None
+8,1,0,1,0,0,None
+8,2,1,0,0,0,Belinda Carlisle
+8,3,1,0,0,0,Denise Richards
+8,4,2,0,1,0,"Steve Wozniak, Holly Madison"
+8,5,1,0,0,0,David Alan Grier
+8,6,1,0,0,0,Steve-O
+8,7,1,0,0,0,Lawrence Taylor
+8,8,1,0,0,0,Chuck Wicks
+8,9,1,0,0,0,Lil' Kim
+8,10,1,0,0,0,Ty Murray
+8,11,0,1,0,1,None
+9,1,2,0,1,0,"Ashley Hamiliton, Macy Gray"
+9,2,1,0,0,0,Kathy Ireland
+9,3,2,0,1,0,"Debi Mazar, Tom DeLay"
+9,4,1,0,0,0,Chuck Liddell
+9,5,1,0,0,0,Natalie Coughlin
+9,6,2,0,1,0,"Melissa Joan Hart, Louie Vito"
+9,7,2,0,1,0,"Mark Dacascos, Michael Irvin"
+9,8,1,0,0,0,Aaron Carter
+9,9,1,0,0,0,Joanna Krupa
+9,10,0,1,0,1,None
+10,1,0,1,0,0,None
+10,2,1,0,0,0,Shannen Doherty
+10,3,1,0,0,0,Buzz Aldrin
+10,4,1,0,0,0,Aiden Turner
+10,5,1,0,0,0,Kate Gosselin
+10,6,1,0,0,0,Jake Pavelka
+10,7,1,0,0,0,Pamela Anderson
+10,8,1,0,0,0,Niecy Nash
+10,9,1,0,0,0,Chad Ochocinco
+10,10,0,1,0,1,None
+11,1,1,0,0,0,David Hasselhoff
+11,2,1,0,0,0,Michael Bolton
+11,3,1,0,0,0,Margaret Cho
+11,4,1,0,0,0,The Situation
+11,5,1,0,0,0,Florence Henderson
+11,6,1,0,0,0,Audrina Patridge
+11,7,1,0,0,0,Rick Fox
+11,8,1,0,0,0,Kurt Warner
+11,9,1,0,0,0,Brandy
+11,10,0,1,0,1,None
+12,1,0,1,0,0,None
+12,2,1,0,0,0,Mike Catherwood
+12,3,1,0,0,0,Wendy Williams
+12,4,1,0,0,0,Sugar Ray Leonard
+12,5,1,0,0,0,Petra Nemcova
+12,6,1,0,0,0,Chris Jericho
+12,7,1,0,0,0,Kendra Wilkinson
+12,8,1,0,0,0,Romeo
+12,9,1,0,0,0,Ralph Macchio
+12,10,0,1,0,1,None
+13,1,1,0,0,0,Metta World Peace (Ron)
+13,2,1,0,0,0,Elisabetta Canalis
+13,3,1,0,0,0,Kristin Cavallari
+13,4,1,0,0,0,Chynna Phillips
+13,5,1,0,0,0,Carson Kressley
+13,6,1,0,0,0,Chaz Bono
+13,7,1,0,0,0,David Arquette
+13,8,1,0,0,0,Nancy Grace
+13,9,1,0,0,0,Hope Solo
+13,10,0,1,0,1,None
+14,1,0,1,0,0,None
+14,2,1,0,0,0,Martina Navratilova
+14,3,1,0,0,0,Jack Wagner
+14,4,1,0,0,0,Sherri Sheperd
+14,5,1,0,0,0,Gavin DeGraw
+14,6,1,0,0,0,Gladys Knight
+14,7,1,0,0,0,Jaleel White
+14,8,2,0,1,0,"Roshon Fegan, Melissa Gilbert"
+14,9,1,0,0,0,Maria Menounos
+14,10,0,1,0,1,None
+15,1,1,0,0,0,Pamela Anderson
+15,2,1,0,0,0,Joey Fatone
+15,3,2,0,1,0,"Helio Castroneves, Drew Lachey"
+15,4,1,0,0,0,Bristol Palin
+15,5,0,1,0,0,None
+15,6,1,0,0,0,Sabrina Bryan
+15,7,0,1,0,0,None
+15,8,2,0,1,0,"Gilles Marini, Kirstie Alley"
+15,9,2,0,1,0,"Apolo Anton Ohno, Emmitt Smith"
+15,10,0,1,0,1,None
+16,1,0,1,0,0,None
+16,2,1,0,0,0,Dorothy Hamill
+16,3,1,0,0,0,Wynonna Judd
+16,4,1,0,0,0,Lisa Vanderpump
+16,5,1,0,0,0,D. L. Hughley
+16,6,1,0,0,0,Victor Ortiz
+16,7,1,0,0,0,Andy Dick
+16,8,1,0,0,0,Sean Lowe
+16,9,1,0,0,0,Ingo Rademacher
+16,10,0,1,0,1,None
+17,1,0,1,0,0,None
+17,2,1,0,0,0,Keyshawn Johnson
+17,3,1,0,0,0,Bill Nye
+17,4,1,0,0,0,Valerie Harper
+17,5,1,0,0,0,Christina Milian
+17,6,0,1,0,0,None
+17,7,1,0,0,0,"Nicole ""Snooki"" Polizzi"
+17,8,1,0,0,0,Brant Daugherty
+17,9,1,0,0,0,Elizabeth Berkley Lauren
+17,10,1,0,0,0,Leah Remini
+17,11,0,1,0,1,None
+18,1,1,0,0,0,Diana Nyad
+18,2,2,0,1,0,"Billy Dee Williams, Sean Avery"
+18,3,0,1,0,0,None
+18,4,0,1,0,0,None
+18,5,1,0,0,0,Cody Simpson
+18,6,1,0,0,0,Drew Carey
+18,7,1,0,0,0,NeNe Leakes
+18,8,1,0,0,0,Danica McKellar
+18,9,1,0,0,0,Charlie White
+18,10,0,1,0,1,None
+19,1,1,0,0,0,Lolo Jones
+19,2,1,0,0,0,Tavis Smiley
+19,3,1,0,0,0,Randy Couture
+19,4,1,0,0,0,Betsey Johnson
+19,5,0,1,0,0,None
+19,6,1,0,0,0,Jonathan Bennett
+19,7,1,0,0,0,Antonio Sabato Jr.
+19,8,1,0,0,0,Michael Waltrip
+19,9,1,0,0,0,Lea Thompson
+19,10,1,0,0,0,Tommy Chong
+19,11,0,1,0,1,None
+20,1,0,1,0,0,None
+20,2,1,0,0,0,Redfoo
+20,3,1,0,0,0,Charlotte McKinney
+20,4,1,0,0,0,Michael Sam
+20,5,1,0,0,0,Suzanne Somers
+20,6,1,0,0,0,Patti LaBelle
+20,7,1,0,0,0,Willow Shields
+20,8,2,0,1,0,"Robert Herjavec, Chris Soules"
+20,9,1,0,0,0,Nastia Liukin
+20,10,0,1,0,1,None
+21,1,0,1,0,0,None
+21,2,3,0,1,0,"Victor Espinoza, Chaka Khan, Kim Zolciak-Biermann"
+21,3,0,1,0,0,None
+21,4,1,0,0,0,Gary Busey
+21,5,0,1,0,0,None
+21,6,1,0,0,0,Paula Deen
+21,7,1,0,0,0,Hayes Grier
+21,8,1,0,0,0,Andy Grammer
+21,9,2,0,1,0,"Alexa PenaVega, Tamar Braxton"
+21,10,0,1,0,0,None
+21,11,0,1,0,1,None
+22,1,0,1,0,0,None
+22,2,1,0,0,0,Geraldo Rivera
+22,3,1,0,0,0,Mischa Barton
+22,4,1,0,0,0,Marla Maples
+22,5,0,1,0,0,None
+22,6,1,0,0,0,Doug Flutie
+22,7,2,0,1,0,"Kim Fields, Von Miller"
+22,8,1,0,0,0,Jodie Sweetin
+22,9,2,0,1,0,"Antonio Brown, Wanya Morris"
+22,10,0,1,0,1,None
+23,1,0,1,0,0,None
+23,2,1,0,0,0,Jake T. Austin
+23,3,1,0,0,0,Rick Perry
+23,4,2,0,1,0,"Babyface, Vanilla Ice"
+23,5,0,1,0,0,None
+23,6,1,0,0,0,Amber Rose
+23,7,1,0,0,0,Maureen McCormick
+23,8,1,0,0,0,Ryan Lochte
+23,9,1,0,0,0,Marilu Henner
+23,10,1,0,0,0,Terra Jole
+23,11,0,1,0,1,None
+24,1,0,1,0,0,None
+24,2,1,0,0,0,Chris Kattan
+24,3,1,0,0,0,Charo
+24,4,1,0,0,0,Mr. T
+24,5,1,0,0,0,Erika Jayne
+24,6,1,0,0,0,Heather Morris
+24,7,2,0,1,0,"Nancy Kerrigan, Nick Viall"
+24,8,1,0,0,0,Bonner Bolton
+24,9,1,0,0,0,Simone Biles
+24,10,0,1,0,1,None
+25,1,0,1,0,0,None
+25,2,2,0,1,0,"Barbara Corcoran, Debbie Gibson"
+25,3,0,1,0,0,None
+25,4,1,0,0,0,Derek Fisher
+25,5,1,0,0,0,Sasha Pieterse
+25,6,1,0,0,0,Nick Lachey
+25,7,2,0,1,0,"Nikki Bella, Vanessa Lachey"
+25,8,1,0,0,0,Terrell Owens
+25,9,1,0,0,0,Victoria Arlen
+25,10,0,1,0,1,None
+26,1,2,0,1,0,"Jamie Anderson, Johnny Damon"
+26,2,2,0,1,0,"Kareem Abdul-Jabbar, Arike Ogunbowale"
+26,3,3,0,1,0,"Jennie Finch Daigle, Chris Mazdzer, Mirai Nagasu"
+26,4,0,1,0,1,None
+27,1,1,0,0,0,Nikki Glaser
+27,2,1,0,0,0,Danelle Umstead
+27,3,1,0,0,0,Nancy McKeon
+27,4,1,0,0,0,Tinashe
+27,5,0,1,0,0,None
+27,6,1,0,0,0,Mary Lou Retton
+27,7,2,0,1,0,"John Schneider, DeMarcus Ware"
+27,8,2,0,1,0,"Juan Pablo Di Pace, Joe Amabile"
+27,9,0,1,0,1,None
+28,1,0,1,0,0,None
+28,2,2,0,1,0,"Ray Lewis, Mary Wilson"
+28,3,0,1,0,0,None
+28,4,1,0,0,0,Lamar Odom
+28,5,0,1,0,0,None
+28,6,1,0,0,0,Sailor Brinkley-Cook
+28,7,1,0,0,0,Karamo Brown
+28,8,1,0,0,0,Kate Flannery
+28,9,1,0,0,0,Sean Spicer
+28,10,1,0,0,0,James Van Der Beek
+28,11,0,1,0,1,None
+29,1,0,1,0,0,None
+29,2,1,0,0,0,Charles Oakley
+29,3,1,0,0,0,Carole Baskin
+29,4,1,0,0,0,Anne Heche
+29,5,1,0,0,0,Jesse Metcalfe
+29,6,1,0,0,0,Veron Davis
+29,7,2,0,1,0,"Monica Aldama, Jeannie Mai"
+29,8,1,0,0,0,Chrishell Stause
+29,9,1,0,0,0,AJ McLean
+29,10,2,0,1,0,"Skai Jackson, Johnny Weir"
+29,11,0,1,0,1,None
+30,1,0,1,0,0,None
+30,2,1,0,0,0,Martin Kove
+30,3,1,0,0,0,Christine Chiu
+30,4,2,0,1,0,"Brian Austin Green, Matt James"
+30,5,1,0,0,0,Melanie C
+30,6,1,0,0,0,Kenya Moore
+30,7,1,0,0,0,"Mike ""The Miz"" Mizanin"
+30,8,2,0,1,0,"Jimmie Allen, Olivia Jade"
+30,9,2,0,1,0,"Melora Hardin, Suni Lee"
+30,10,0,1,0,1,None
+31,1,1,0,0,0,Jason Lewis
+31,2,1,0,0,0,Teresa Giudice
+31,3,1,0,0,0,Cheryl Ladd
+31,4,1,0,0,0,Sam Champion
+31,5,2,0,1,0,"Selma Blair, Joseph Baena"
+31,6,1,0,0,0,Jessie James Decker
+31,7,1,0,0,0,Jordin Sparks
+31,8,2,0,1,0,"Heidi D'Amelio, Vinny Guadagnino"
+31,9,2,0,1,0,"Trevor Donovan, Daniel Durant"
+31,10,0,1,0,1,None
+32,1,1,0,0,0,Matt Walsh
+32,2,1,0,0,0,Jamie Lynn Spears
+32,3,1,0,0,0,Tyson Beckford
+32,4,1,0,0,0,Adrian Peterson
+32,5,1,0,0,0,Mira Sorvino
+32,6,1,0,0,0,Mauricio Umansky
+32,7,1,0,0,0,Lele Pons
+32,8,1,0,0,0,Barry Williams
+32,9,1,0,0,0,Harry Jowsey
+32,10,0,1,0,0,None
+32,11,0,1,0,1,None
+33,1,0,1,0,0,None
+33,2,2,0,1,0,"Tori Spelling, Anna Delvey"
+33,3,2,0,1,0,"Eric Roberts, Reginald VelJohnson"
+33,4,1,0,0,0,Brooks Nader
+33,5,1,0,0,0,Phaedra Parks
+33,6,1,0,0,0,Jenn Tran
+33,7,1,0,0,0,Dwight Howard 
+33,8,0,1,0,0,None
+33,9,0,1,0,1,None
+34,1,0,1,0,0,None
+34,2,2,0,1,0,"Corey Feldman, Baron Davis"
+34,3,1,0,0,0,Lauren Jauregui
+34,4,1,0,0,0,Hilaria Baldwin
+34,5,0,1,0,0,None
+34,6,1,0,0,0,Scott Hoying
+34,7,1,0,0,0,Jen Affleck
+34,8,1,0,0,0,Danielle Fishel
+34,9,1,0,0,0,Andy Richter
+34,10,1,0,0,0,Whitney Leavitt
+34,11,0,1,0,1,None

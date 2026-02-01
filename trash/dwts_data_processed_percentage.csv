@@ -1,0 +1,422 @@
+celebrity_name,ballroom_partner,celebrity_industry,celebrity_homestate,celebrity_homecountry/region,celebrity_age_during_season,season,results,placement,week1_judge1_score,week1_judge2_score,week1_judge3_score,week1_judge4_score,week2_judge1_score,week2_judge2_score,week2_judge3_score,week2_judge4_score,week3_judge1_score,week3_judge2_score,week3_judge3_score,week3_judge4_score,week4_judge1_score,week4_judge2_score,week4_judge3_score,week4_judge4_score,week5_judge1_score,week5_judge2_score,week5_judge3_score,week5_judge4_score,week6_judge1_score,week6_judge2_score,week6_judge3_score,week6_judge4_score,week7_judge1_score,week7_judge2_score,week7_judge3_score,week7_judge4_score,week8_judge1_score,week8_judge2_score,week8_judge3_score,week8_judge4_score,week9_judge1_score,week9_judge2_score,week9_judge3_score,week9_judge4_score,week10_judge1_score,week10_judge2_score,week10_judge3_score,week10_judge4_score,week11_judge1_score,week11_judge2_score,week11_judge3_score,week11_judge4_score,elimination_week,relative_progress,placement_percentile
+John O'Hurley,Charlotte Jorgensen,Actor/Actress,Maine,United States,50,1,2nd Place,2,7,7,6,,8,9,9,,9,8,7,,7,8,6,,9,9,9,,9,9,9,,,,,,,,,,,,,,,,,,,,,,6,1,0.8333
+Kelly Monaco,Alec Mazo,Actor/Actress,Pennsylvania,United States,29,1,1st Place,1,5,4,4,,5,6,6,,6,7,8,,9,9,8,,8.5,7.5,7.5,,8.5,9.5,9.5,,,,,,,,,,,,,,,,,,,,,,6,1,1
+Evander Holyfield,Edyta Sliwinska,Athlete,Alabama,United States,42,1,Eliminated Week 3,5,5,7,6,,5,4,5,,5,4,4,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,,,,,,,,,,,,,3,0.5,0.3333
+Rachel Hunter,Jonathan Roberts,Model,,New Zealand,35,1,Eliminated Week 4,4,7,6,7,,8,8,8,,8,9,9,,7,9,9,,0,0,0,,0,0,0,,,,,,,,,,,,,,,,,,,,,,4,0.6667,0.5
+Joey McIntyre,Ashly DelGrosso,Singer/Rapper,Massachusetts,United States,32,1,3rd Place,3,7,7,6,,8,7,6,,7,7,8,,7,6,7,,8.5,7,7,,0,0,0,,,,,,,,,,,,,,,,,,,,,,5,0.8333,0.6667
+Trista Sutter,Louis van Amstel,TV Personality,Indiana,United States,32,1,Eliminated Week 2,6,6,6,6,,6,7,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,,,,,,,,,,,,,2,0.3333,0.1667
+Tatum O'Neal,Nick Kosovich,Actor/Actress,California,United States,42,2,Eliminated Week 2,9,7,8,8,,5,6,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,,,,,2,0.25,0.2
+Tia Carrere,Maksim Chmerkoskiy,Actor/Actress,Hawaii,United States,39,2,Eliminated Week 5,6,6,7,7,,7,8,7,,9,8,9,,9,8,8,,7,7,8,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,,,,,5,0.625,0.5
+George Hamilton,Edyta Sliwinska,Actor/Actress,Tennessee,United States,66,2,Eliminated Week 6,5,7,5,6,,8,7,7,,7,7,8,,7,7,7,,8,8,8,,8,7,8,,0,0,0,,0,0,0,,,,,,,,,,,,,,6,0.75,0.6
+Lisa Rinna,Louis van Amstel,Actor/Actress,California,United States,42,2,Eliminated Week 7,4,5,7,7,,6,7,7,,8,8,9,,9,9,8,,7,9,9,,9,9,9,,8.5,9,9,,0,0,0,,,,,,,,,,,,,,7,0.875,0.7
+Stacy Keibler,Tony Dovolani,Athlete,Maryland,United States,26,2,3rd Place,3,8,6,8,,9,10,10,,9,9,9,,8,9,9,,10,10,10,,10,10,10,,9,9,9.5,,9.3333,9.6666,9.6666,,,,,,,,,,,,,,8,1,0.8
+Jerry Rice,Anna Trebunskaya,Athlete,Mississippi,United States,43,2,2nd Place,2,7,7,7,,7,8,8,,7,6,6,,8,8,8,,7,8,8,,8,7,8,,7,7,6.5,,9,9,8.6666,,,,,,,,,,,,,,8,1,0.9
+Giselle Fernandez,Jonathan Roberts,News Anchor,,Mexico,44,2,Eliminated Week 3,8,7,8,8,,8,8,8,,7,8,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,,,,,3,0.375,0.3
+Master P,Ashly DelGrosso,Singer/Rapper,Louisiana,United States,35,2,Eliminated Week 4,7,4,4,4,,6,5,5,,6,4,4,,4,2,2,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,,,,,4,0.5,0.4
+Drew Lachey,Cheryl Burke,Singer/Rapper,Ohio,United States,29,2,1st Place,1,8,8,8,,9,9,9,,9,9,9,,9,9,10,,9,9,9,,10,10,10,,9.5,9,9,,9.6666,9.6666,9.6666,,,,,,,,,,,,,,8,1,1
+Kenny Mayne,Andrea Hale,Sports Broadcaster,Washington,United States,46,2,Eliminated Week 1,10,4,5,4,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,,,,,1,0.125,0.1
+Harry Hamlin,Ashly DelGrosso,Actor/Actress,California,United States,54,3,Eliminated Week 3,9,5,6,6,,7,7,7,,7,8,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,3,0.3,0.2727
+Vivica A. Fox,Nick Kosovich,Actor/Actress,Indiana,United States,42,3,Eliminated Week 4,8,6,8,8,,8,8,8,,9,9,9,,8,8,8,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,4,0.4,0.3636
+Monique Coleman,Louis van Amstel,Actor/Actress,South Carolina,United States,25,3,Eliminated Week 8,4,6,6,7,,9,8,9,,9,9,9,,8,8,8,,9,9,9,,9,7,7,,9,9,9,,8.5,9,9,,0,0,0,,0,0,0,,,,,,8,0.8,0.7273
+Joey Lawrence,Edyta Sliwinska,Actor/Actress,Pennsylvania,United States,30,3,3rd Place,3,7,7,7,,10,9,10,,8,6,8,,9,9,9,,8,8,9,,8,8,8,,9.5,9,10,,9.5,8.5,9,,9.5,10,10,,0,0,0,,,,,,9,0.9,0.8182
+Mario Lopez,Karina Smirnoff,Actor/Actress,California,United States,32,3,2nd Place,2,9,8,9,,7,6,8,,8,6,8,,10,9,10,,9,9,9,,9,9,10,,9.5,9,9.5,,9.5,9,10,,10,9.5,10,,10,10,9.6666,,,,,,10,1,0.9091
+Emmitt Smith,Cheryl Burke,Athlete,Florida,United States,37,3,1st Place,1,8,8,8,,8,8,8,,7,6,6,,8,8,8,,9,9,9,,8,8,9,,10,9.5,9,,8.5,9,9.5,,9.5,10,10,,10,9.6666,10,,,,,,10,1,1
+Shanna Moakler,Jesse DeSoto,Model,Rhode Island,United States,31,3,Eliminated Week 2,10,7,5,6,,8,7,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,2,0.2,0.1818
+Willa Ford,Maksim Chmerkoskiy,Singer/Rapper,Florida,United States,25,3,Eliminated Week 5,7,7,7,8,,7,8,8,,7,7,8,,9,9,10,,9,9,9,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,5,0.5,0.4545
+Sara Evans,Tony Dovolani,Singer/Rapper,Missouri,United States,35,3,Withdrew,6,5,5,5,,7,7,7,,8,9,8,,6,7,7,,8,8,8,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,5,0.5,0.5455
+Jerry Springer,Kym Johnson,TV Personality,,England,62,3,Eliminated Week 7,5,5,5,6,,7,6,6,,7,7,7,,7,7,8,,8,8,8,,7,6,5,,7.5,8,7.5,,0,0,0,,0,0,0,,0,0,0,,,,,,7,0.7,0.6364
+Tucker Carlson,Elena Grinenko,TV Personality,California,United States,37,3,Eliminated Week 1,11,5,4,3,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,1,0.1,0.0909
+John Ratzenberger,Edyta Sliwinska,Actor/Actress,Connecticut,United States,59,4,Eliminated Week 7,6,6,5,6,,7,7,7,,7,6,7,,6,5,5,,6,6,6,,7,6,6,,7.5,7.5,7.5,,0,0,0,,0,0,0,,0,0,0,,,,,,7,0.7,0.5455
+Ian Ziering,Cheryl Burke,Actor/Actress,New Jersey,United States,42,4,Eliminated Week 9,4,7,7,7,,7,8,7,,8,8,8,,7,9,8,,8,8,8,,8,8,8,,9,9,9,,8,7.5,8,,9.5,10,9.5,,0,0,0,,,,,,9,0.9,0.7273
+Clyde Drexler,Elena Grinenko,Athlete,Louisiana,United States,44,4,Eliminated Week 5,8,6,5,5,,6,6,6,,6,5,5,,6,4,5,,4,5,4,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,5,0.5,0.3636
+Laila Ali,Maksim Chmerkoskiy,Athlete,Florida,United States,29,4,3rd Place,3,7,8,8,,9,9,9,,7,7,7,,7,7,7,,9,10,9,,9,9,10,,10,9.5,10,,9,8.5,9,,10,10,10,,9.6666,9,9.6666,,,,,,10,1,0.8182
+Apolo Anton Ohno,Julianne Hough,Athlete,Washington,United States,24,4,1st Place,1,7,7,7,,8,9,9,,7,8,8,,9,8,9,,10,10,10,,9,9,10,,9,8.5,9.5,,10,9,10,,10,9.5,10,,9.6666,9.6666,10,,,,,,10,1,1
+Shandi Finnessey,Brian Fortuna,Beauty Pagent,Missouri,United States,28,4,Eliminated Week 3,10,6,6,7,,6,7,7,,7,7,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,3,0.3,0.1818
+Paulina Porizkova,Alec Mazo,Model,,Czechoslovakia,41,4,Eliminated Week 2,11,6,6,7,,7,7,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,2,0.2,0.0909
+Heather Mills,Jonathan Roberts,Model,,England,39,4,Eliminated Week 6,7,6,6,6,,8,8,8,,8,8,8,,7,8,8,,7,7,7,,7,8,8,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,6,0.6,0.4545
+Billy Ray Cyrus,Karina Smirnoff,Singer/Rapper,Kentucky,United States,45,4,Eliminated Week 8,5,5,4,4,,7,7,7,,7,7,7,,7,7,7,,6,6,5,,7,7,7,,6,6.5,6.5,,6.5,6.5,6,,0,0,0,,0,0,0,,,,,,8,0.8,0.6364
+Joey Fatone,Kym Johnson,Singer/Rapper,New York,United States,30,4,2nd Place,2,8,8,8,,8,8,8,,8,8,8,,10,9,9,,8,8,9,,9,9,9,,10,9.5,10,,9.5,9,9,,10,10,10,,9.6666,9.3333,9.6666,,,,,,10,1,0.9091
+Leeza Gibbons,Tony Dovolani,TV Personality,South Carolina,United States,50,4,Eliminated Week 4,9,5,5,5,,7,7,7,,8,8,8,,6,5,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,4,0.4,0.2727
+Cameron Mathison,Edyta Sliwinska,Actor/Actress,,Canada,38,5,Eliminated Week 8,5,7,7,7,,7,7,7,,8,7,8,,9,9,9,,8,9,9,,9,8,8,,8.5,8.5,8.5,,8.5,8.5,8.5,,0,0,0,,0,0,0,,,,,,8,0.8,0.6667
+Jane Seymour,Tony Dovolani,Actor/Actress,,England,56,5,Eliminated Week 7,6,8,8,8,,7,7,7,,9,9,9,,8,9,9,,8,9,9,,8,7,7,,8,8.5,8.5,,0,0,0,,0,0,0,,0,0,0,,,,,,7,0.7,0.5833
+Sabrina Bryan,Mark Ballas,Actor/Actress,California,United States,23,5,Eliminated Week 6,7,9,8,9,,9,8,9,,9,9,9,,10,10,10,,9,9,10,,9,8,8,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,6,0.6,0.5
+Jennie Garth,Derek Hough,Actor/Actress,Illinois,United States,35,5,Eliminated Week 9,4,7,7,7,,7,7,7,,9,8,9,,8,10,9,,8,9,8,,9,9,9,,8.5,8.5,9.5,,8.5,8.5,8,,9.5,10,9.5,,0,0,0,,,,,,9,0.9,0.75
+Floyd Mayweather Jr. ,Karina Smirnoff,Athlete,Michigan,United States,30,5,Eliminated Week 4,9,6,6,6,,7,7,7,,7,7,7,,7,8,8,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,4,0.4,0.3333
+Josie Maran,Alec Mazo,Model,California,United States,29,5,Eliminated Week 1,12,6,5,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,1,0.1,0.0833
+Albert Reed,Anna Trebunskaya,Model,Florida,United States,22,5,Eliminated Week 2,11,7,7,7,,7,7,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,2,0.2,0.1667
+Helio Castroneves,Julianne Hough,Racing Driver,,Brazil,32,5,1st Place,1,8,9,8,,9,9,9,,8,8,8,,9,9,9,,8,7,8,,9,10,9,,9,8.5,8.5,,9.5,9.5,9.5,,10,10,10,,9,9.3333,9.6666,,,,,,10,1,1
+Mel B,Maksim Chmerkoskiy,Singer/Rapper,,England,32,5,2nd Place,2,8,8,8,,7,8,8,,9,9,9,,8,9,9,,10,9,10,,10,10,10,,9,9,9,,9,9.5,9.5,,10,10,10,,9.3333,9.3333,9.6666,,,,,,10,1,0.9167
+Wayne Newton,Cheryl Burke,Singer/Rapper,Virginia,United States,65,5,Eliminated Week 3,10,6,7,6,,5,5,5,,6,6,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,3,0.3,0.25
+Marie Osmond,Jonathan Roberts,Singer/Rapper,Utah,United States,47,5,3rd Place,3,7,7,7,,8,8,8,,9,8,9,,9,9,8,,7,7,7,,8,8,7,,9,8.5,8.5,,8,8.5,8,,9.5,9.5,9,,8,7.5,7.5,,,,,,10,1,0.8333
+Mark Cuban,Kym Johnson,TV Personality,Pennsylvania,United States,49,5,Eliminated Week 5,8,7,7,7,,6,6,6,,6,7,7,,7,8,7,,7,7,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,5,0.5,0.4167
+Cristian de la Fuente,Cheryl Burke,Actor/Actress,,Chile,34,6,3rd Place,3,7,7,7,,7,6,7,,8,8,9,,9,8,9,,7,8,8,,9,9,9,,7.5,7.5,8,,10,9,9.5,,9.5,9,9.5,,9,8,9,,,,,,10,1,0.8333
+Steve Guttenberg,Anna Trebunskaya,Actor/Actress,New York,United States,49,6,Eliminated Week 3,10,6,6,6,,6,5,5,,7,7,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,3,0.3,0.25
+Priscilla Presley,Louis van Amstel,Actor/Actress,New York,United States,62,6,Eliminated Week 5,8,8,8,8,,7,7,7,,8,9,9,,7,7,8,,7,7,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,5,0.5,0.4167
+Marlee Matlin,Fabian Sanchez,Actor/Actress,Illinois,United States,42,6,Eliminated Week 6,7,7,7,8,,8,8,8,,7,7,7,,8,8,8,,7,7,8,,7,7,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,6,0.6,0.5
+Shannon Elizabeth,Derek Hough,Actor/Actress,Texas,United States,34,6,Eliminated Week 7,6,7,7,7,,8,8,8,,8,8,8,,9,10,9,,8,8,7,,8,8,8,,8.5,8.5,8.5,,0,0,0,,0,0,0,,0,0,0,,,,,,7,0.7,0.5833
+Marissa Jaret Winokur,Tony Dovolani,Actor/Actress,New York,United States,35,6,Eliminated Week 9,4,6,6,6,,7,7,7,,6,7,6,,8,8,8,,8,8,8,,9,8,9,,9,8.5,8.5,,8.5,8,8.5,,8.5,9,8.5,,0,0,0,,,,,,9,0.9,0.75
+Jason Taylor,Edyta Sliwinska,Athlete,Pennsylvania,United States,33,6,2nd Place,2,7,8,7,,9,9,9,,8,7,8,,10,9,10,,9,9,9,,8,8,8,,9.5,8.5,9.5,,9,8,9,,9,9.5,9,,9.5,9.5,9.5,,,,,,10,1,0.9167
+Kristi Yamaguchi,Mark Ballas,Athlete,California,United States,36,6,1st Place,1,9,9,9,,9,9,9,,9,9,9,,10,9,10,,9,10,10,,10,10,10,,9.5,8,9.5,,8.5,9.5,9.5,,9.5,9,10,,10,10,10,,,,,,10,1,1
+Monica Seles,Jonathan Roberts,Athlete,,Yugoslavia,34,6,Eliminated Week 2,11,5,5,5,,5,5,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,2,0.2,0.1667
+Penn Jillette,Kym Johnson,Magician,Massachusetts,United States,53,6,Eliminated Week 2,12,5,6,5,,6,6,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,2,0.2,0.0833
+Adam Carolla,Julianne Hough,Radio Personality,California,United States,43,6,Eliminated Week 4,9,5,5,5,,6,7,6,,7,7,7,,6,7,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,4,0.4,0.3333
+Mario,Karina Smirnoff,Singer/Rapper,Maryland,United States,21,6,Eliminated Week 8,5,8,8,8,,9,8,9,,7,6,8,,8,7,9,,9,9,9,,9,9,10,,8.5,8.5,8.5,,9,8.5,9,,0,0,0,,0,0,0,,,,,,8,0.8,0.6667
+Ted McGinley,Inna Brayer,Actor/Actress,California,United States,50,7,Eliminated Week 1,12,6,6,6.5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,1,0.1,0.1538
+Cloris Leachman,Corky Ballas,Actor/Actress,Iowa,United States,82,7,Eliminated Week 6,7,6,5,5,,5,5,5,,6,5,5,,8,7,7,,7,7,7,,5,5,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,6,0.6,0.5385
+Susan Lucci,Tony Dovolani,Actor/Actress,New York,United States,61,7,Eliminated Week 7,6,6,6,6.5,,7,7,7,,7,7,7,,8,8,8,,7,7,8,,8,8,7,,8,8,8,,0,0,0,,0,0,0,,0,0,0,,,,,,7,0.7,0.6154
+Cody Linley,Julianne Hough,Actor/Actress,Texas,United States,18,7,Eliminated Week 9,4,7,6.5,7,,7,7,7,,7,7,7,,7,8,8,,10,9,9,,8,8,7,,8,7,7,,8,8,8,,8,7.5,7.5,,0,0,0,,,,,,9,0.9,0.7692
+Misty May-Treanor,Maksim Chmerkoskiy,Athlete,California,United States,31,7,Withdrew,10,6.5,7.5,7,,7,7,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,2,0.2,0.3077
+Maurice Greene,Cheryl Burke,Athlete,Kansas,United States,34,7,Eliminated Week 8,5,6.5,6.5,6.5,,7,6,6,,8,8,8,,6,7,7,,9,9,9,,7,7,7,,8,9,8,,8,8,8,,0,0,0,,0,0,0,,,,,,8,0.8,0.6923
+Warren Sapp,Kym Johnson,Athlete,Florida,United States,35,7,2nd Place,2,7,7,7.5,,8,8,8,,9,8,8,,8,7,7,,8,8,9,,8,9,8,,7,7,7,,9.5,8.5,9,,8.5,8,8,,9,9.5,9,,,,,,10,1,0.9231
+Jeffrey Ross,Edyta Sliwinska,Comedian,New Jersey,United States,43,7,Eliminated Week 1,13,4,4,4,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,1,0.1,0.0769
+Toni Braxton,Alec Mazo,Singer/Rapper,Maryland,United States,40,7,Eliminated Week 5,8,7.5,7,8,,7,8,8,,8,7,7,,7,7,8,,7,7,8,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,5,0.5,0.4615
+Lance Bass,Lacey Schwimmer,Singer/Rapper,Mississippi,United States,29,7,3rd Place,3,7.5,6,8,,7,6,7,,8,7,7,,9,8,9,,7,7,7,,9,9,9,,9,7,9,,8.5,7.5,9,,10,9,9.5,,9,9,9.5,,,,,,10,1,0.8462
+Kim Kardashian,Mark Ballas,TV Personality,California,United States,27,7,Eliminated Week 2,11,6,6.5,6,,6,6,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,2,0.2,0.2308
+Rocco DiSpirito,Karina Smirnoff,TV Personality,New York,United States,41,7,Eliminated Week 4,9,6,5.5,6,,5,6,5,,7,7,6,,6,6,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,4,0.4,0.3846
+Brooke Burke,Derek Hough,TV Personality,Connecticut,United States,37,7,1st Place,1,8,8,8.5,,8,8,8,,9,10,9,,9,8,9,,10,9,10,,8,10,8,,10,10,10,,9.5,8.5,9.5,,8,8.5,8,,10,10,10,,,,,,10,1,1
+Gilles Marini,Cheryl Burke,Actor/Actress,,France,33,8,2nd Place,2,8,8,8,,9,9,9,,9,9,9,,10,10,10,,10,9,10,,9,8,9,,9,9,9,,9,9,9.5,,9.5,9,9.5,,10,10,10,,9.5,10,9.5,,11,1,0.9231
+Denise Richards,Maksim Chmerkoskiy,Actor/Actress,Illinois,United States,38,8,Eliminated Week 3,12,6,6,6,,7,7,7,,5,6,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,3,0.2727,0.1538
+David Alan Grier,Kym Johnson,Actor/Actress,Michigan,United States,52,8,Eliminated Week 5,9,6,7,6,,6,5,6,,8,8,8,,8,7,7,,7,8,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,5,0.4545,0.3846
+Lawrence Taylor,Edyta Sliwinska,Athlete,Virginia,United States,50,8,Eliminated Week 7,7,6,5,5,,7,6,7,,7,6,7,,7,5,7,,6,7,7,,7,7,8,,7,7,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,7,0.6364,0.5385
+Ty Murray,Chelsie Hightower,Athlete,Arizona,United States,39,8,Eliminated Week 10,4,5,4,5,,7,6,7,,8,8,7,,9,8,8,,7,7,7,,6,6,6,,8,8,8,,9,8,9,,7.5,8,7.5,,8,8,8,,0,0,0,,10,0.9091,0.7692
+Shawn Johnson,Mark Ballas,Athlete,Iowa,United States,17,8,1st Place,1,8,8,7,,8,8,8,,9,9,9,,8,8,9,,9,8,9,,8,9,9,,9,9,10,,9,8,9,,9.5,9,9.5,,9.5,9,9.5,,10,10,10,,11,1,1
+Steve Wozniak,Karina Smirnoff,Entrepreneur,California,United States,58,8,Eliminated Week 4,10,5,4,4,,6,5,6,,4,3,3,,4,4,4,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,4,0.3636,0.3077
+Belinda Carlisle,Jonathan Roberts,Singer/Rapper,California,United States,50,8,Eliminated Week 2,13,6,6,5,,6,6,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,2,0.1818,0.0769
+Chuck Wicks,Julianne Hough,Singer/Rapper,Delaware,United States,29,8,Eliminated Week 8,6,6,7,7,,6,7,7,,8,7,8,,8,7,7,,7,8,8,,8,7,8,,9,9,9,,8.5,8.5,8.5,,0,0,0,,0,0,0,,0,0,0,,8,0.7273,0.6154
+Lil' Kim,Derek Hough,Singer/Rapper,New York,United States,34,8,Eliminated Week 9,5,7,7,7,,8,7,8,,8,8,9,,9,8,10,,9,8,9,,10,8,10,,9,8,9,,9,9,10,,8.5,9,8.5,,0,0,0,,0,0,0,,9,0.8182,0.6923
+Steve-O,Lacey Schwimmer,TV Personality,,England,34,8,Eliminated Week 6,8,6,5,6,,5,4,5,,5,5,5,,5,5,5,,6,6,6,,7,4,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,6,0.5455,0.4615
+Holly Madison,Dmitry Chaplin,TV Personality,Oregon,United States,30,8,Eliminated Week 4,11,6,6,6,,6,6,6,,5,6,6,,5,6,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,4,0.3636,0.2308
+Melissa Rycroft,Tony Dovolani,TV Personality,Texas,United States,26,8,3rd Place,3,8,7,8,,9,8,9,,9,9,9,,10,9,10,,8,8,9,,9,9,9,,10,9,10,,7.5,7.5,8,,9.5,9.5,9.5,,9,9.5,9,,9.5,9.5,9.5,,11,1,0.8462
+Ashley Hamiliton,Edyta Sliwinska,Actor/Actress,California,United States,34,9,Eliminated Week 1,16,6.3333,7.3333,5.3333,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,1,0.1,0.0625
+Debi Mazar,Maksim Chmerkoskiy,Actor/Actress,New York,United States,45,9,Eliminated Week 3,12,8,7,7,,7,7,7,,6,5,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,3,0.3,0.3125
+Melissa Joan Hart,Mark Ballas,Actor/Actress,New York,United States,33,9,Eliminated Week 6,9,8,8,8,,7,6,6,,6,6,7,,9,9,10,,8,8,7,,8.3333,8.3333,7.3333,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,6,0.6,0.5
+Mark Dacascos,Lacey Schwimmer,Actor/Actress,Hawaii,United States,45,9,Eliminated Week 7,6,9.6666,9.6666,9.6666,,7,7,7,,6,6,6,,8,7,7,,9,9,8,,11,11,10,,7,7.5,7,,0,0,0,,0,0,0,,0,0,0,,,,,,7,0.7,0.6875
+Chuck Liddell,Anna Trebunskaya,Athlete,California,United States,39,9,Eliminated Week 4,11,8,7,7,,6,7,6,,6,5,6,,6,5,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,4,0.4,0.375
+Natalie Coughlin,Alec Mazo,Athlete,California,United States,27,9,Eliminated Week 5,10,9.6666,8.6666,8.6666,,7,7,7,,9,8,9,,8,8,8,,7,8,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,5,0.5,0.4375
+Louie Vito,Chelsie Hightower,Athlete,Ohio,United States,21,9,Eliminated Week 6,8,8.6666,9.6666,8.6666,,6,7,6,,8,5,7,,5,5,6,,7,8,7,,8,8,8,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,6,0.6,0.5625
+Michael Irvin,Anna Demidova,Athlete,Florida,United States,43,9,Eliminated Week 7,7,7,6,6,,7,7,6,,5,4,5,,5,6,5,,7,7,7,,6.6666,8.6666,6.6666,,8,8,7.5,,0,0,0,,0,0,0,,0,0,0,,,,,,7,0.7,0.625
+Joanna Krupa,Derek Hough,Model,,Poland,30,9,Eliminated Week 9,4,11.3333,11.3333,11.3333,,6,7,7,,7,8,8,,9,8,9,,8,8,8,,11.3333,12.3333,12.3333,,9,9,9.5,,8.5,8.5,9,,9,9,9,,0,0,0,,,,,,9,0.9,0.8125
+Kathy Ireland,Tony Dovolani,Model,California,United States,46,9,Eliminated Week 2,14,7.3333,6.3333,6.3333,,6,6,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,2,0.2,0.1875
+Tom DeLay,Cheryl Burke,Politician,Texas,United States,62,9,Withdrew,13,7.3333,6.3333,6.3333,,6,6,6,,6,4,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,3,0.3,0.25
+Macy Gray,Jonathan Roberts,Singer/Rapper,Ohio,United States,42,9,Eliminated Week 1,15,7.3333,5.3333,6.3333,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,1,0.1,0.125
+Aaron Carter,Karina Smirnoff,Singer/Rapper,Florida,United States,21,9,Eliminated Week 8,5,10.3333,11.3333,10.3333,,9,9,9,,8,6,7,,6,6,6,,8,8,8,,10.6666,11.6666,10.6666,,8.5,9,9,,8,8.5,8.5,,0,0,0,,0,0,0,,,,,,8,0.8,0.75
+Mya,Dmitry Chaplin,Singer/Rapper,Washington D.C.,United States,29,9,2nd Place,2,11.3333,8.3333,11.3333,,9,9,9,,10,7,10,,10,8,10,,9,9,9,,11,10,12,,8.5,7.5,8.5,,9.5,10,10,,9.3333,9.6666,10,,9.4444,9.4444,9.4444,,,,,,10,1,0.9375
+Donny Osmond,Kym Johnson,Singer/Rapper,Utah,United States,51,9,1st Place,1,10.3333,9.3333,10.3333,,8,9,8,,7,7,7,,8,8,8,,10,9,10,,10.3333,10.3333,10.3333,,8.5,8.5,9,,8.5,8,8.5,,8,8.3333,8.3333,,9.6666,9.6666,9.6666,,,,,,10,1,1
+Kelly Osbourne,Louis van Amstel,TV Personality,,England,24,9,3rd Place,3,9.6666,10.6666,10.6666,,6,7,6,,7,6,7,,8,7,8,,8,8,8,,8.6666,7.6666,8.6666,,8.5,8.5,9,,8,8.5,9,,8.6666,8.6666,8.6666,,8.5,8.5,8.2222,,,,,,10,1,0.875
+Aiden Turner,Edyta Sliwinska,Actor/Actress,,England,32,10,Eliminated Week 4,9,5,5,5,,7,6,6,,7,6,7,,5.5,5.5,5.5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,4,0.4,0.2727
+Shannen Doherty,Mark Ballas,Actor/Actress,Tennessee,United States,38,10,Eliminated Week 2,11,6,6,6,,7,6,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,2,0.2,0.0909
+Niecy Nash,Louis van Amstel,Actor/Actress,California,United States,40,10,Eliminated Week 8,5,7,5,6,,7,7,7,,7,7,7,,6,6,6,,6,6,6,,8.6666,8.6666,8.6666,,8.5,8,8,,7,7,7.5,,0,0,0,,0,0,0,,,,,,8,0.8,0.6364
+Buzz Aldrin,Ashly DelGrosso,Astronaut,New Jersey,United States,80,10,Eliminated Week 3,10,5,4,5,,4,4,4,,5,4,4,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,3,0.3,0.1818
+Chad Ochocinco,Cheryl Burke,Athlete,Florida,United States,32,10,Eliminated Week 9,4,6,6,6,,6,5,5,,7,6,7,,7.5,6.5,8,,6,6,6,,10.3333,10.3333,10.3333,,8.5,9,8.5,,7.5,7.5,7.5,,8.5,8.5,9,,0,0,0,,,,,,9,0.9,0.7273
+Evan Lysacek,Anna Trebunskaya,Athlete,Illinois,United States,24,10,2nd Place,2,8,7,8,,8,8,8,,9,8,9,,9,8,9,,9,9,9,,9,9,9,,9,9,9,,9,8.5,9,,10,9.5,10,,9.3333,8.7777,8.7777,,,,,,10,1,0.9091
+Pamela Anderson,Damian Whitewood,Model,,Canada,42,10,Eliminated Week 7,6,7,6,8,,7,7,8,,7,7,7,,7.5,7.5,8.5,,7,6,8,,9.6666,9.6666,10.6666,,8.5,8.5,8.5,,0,0,0,,0,0,0,,0,0,0,,,,,,7,0.7,0.5455
+Nicole Scherzinger,Derek Hough,Singer/Rapper,Hawaii,United States,31,10,1st Place,1,9,7,9,,10,8,10,,8,6,9,,8.5,8,8.5,,10,9,10,,12.3333,10.3333,13.3333,,9,9,9,,10,9.5,10,,10,9.5,10,,9.5,9.5,9.7777,,,,,,10,1,1
+Erin Andrews,Maksim Chmerkoskiy,Sports Broadcaster,Maine,United States,32,10,3rd Place,3,7,7,7,,8,7,8,,8,7,8,,6.5,6.5,6.5,,7,7,8,,12,10,12,,8.5,8.5,8.5,,8.5,9,9,,9.5,9,9.5,,9.2222,8.8888,8.8888,,,,,,10,1,0.8182
+Kate Gosselin,Tony Dovolani,TV Personality,Pennsylvania,United States,35,10,Eliminated Week 5,8,6,5,5,,5,5,5,,5,5,5,,5,5.5,5.5,,5,5,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,5,0.5,0.3636
+Jake Pavelka,Chelsie Hightower,TV Personality,Texas,United States,32,10,Eliminated Week 6,7,7,6,7,,6,7,7,,7,7,7,,6.5,6.5,6,,8,7,8,,8.3333,8.3333,8.3333,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,6,0.6,0.4545
+David Hasselhoff,Kym Johnson,Actor/Actress,Maryland,United States,58,11,Eliminated Week 1,12,5,5,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,,,,,1,0.1,0.0833
+Florence Henderson,Corky Ballas,Actor/Actress,Indiana,United States,76,11,Eliminated Week 5,8,6,6,6,,7,6,6,,7,6,7,,6,6,5.5,,7,7,7,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,,,,,5,0.5,0.4167
+Kyle Massey,Lacey Schwimmer,Actor/Actress,Georgia,United States,19,11,2nd Place,2,8,7,8,,8,7,7,,8,7,8,,7,6.5,6.5,,8,5,7,,10.3333,9.3333,10.3333,,9,8.5,8,8,9.5,9,9.5,,10,9,10,,9.3333,8.6666,9.3333,,,,,,10,1,0.9167
+Jennifer Grey,Derek Hough,Actor/Actress,New York,United States,50,11,1st Place,1,8,8,8,,8,8,8,,8,8,8,,9.5,9,9.5,,8,8,9,,9,10,10,,9.5,9,9,9,9.5,9.5,9.5,,10,10,10,,10,10,10,,,,,,10,1,1
+Rick Fox,Cheryl Burke,Athlete,,Canada,41,11,Eliminated Week 7,6,8,7,7,,7,7,7,,8,8,8,,6,7,6.5,,8,8,8,,10,10,10,,9,8.5,8.5,8.5,0,0,0,,0,0,0,,0,0,0,,,,,,7,0.7,0.5833
+Kurt Warner,Anna Trebunskaya,Athlete,Iowa,United States,39,11,Eliminated Week 8,5,7,5,7,,7,7,7,,8,8,7,,6,5.5,5.5,,8,8,8,,7.3333,7.3333,7.3333,,9.5,8.5,8.5,8.5,8,8,8,,0,0,0,,0,0,0,,,,,,8,0.8,0.6667
+Margaret Cho,Louis van Amstel,Comedian,California,United States,41,11,Eliminated Week 3,10,5,5,5,,6,6,6,,6,6,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,,,,,3,0.3,0.25
+Michael Bolton,Chelsie Hightower,Singer/Rapper,Connecticut,United States,57,11,Eliminated Week 2,11,6,5,5,,4,5,3,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,,,,,2,0.2,0.1667
+Brandy,Maksim Chmerkoskiy,Singer/Rapper,Mississippi,United States,31,11,Eliminated Week 9,4,7,8,8,,7,7,7,,8,8,8,,8,8,8,,9,9,9,,11.3333,12.3333,12.3333,,9,9,9.5,9,9,9.5,10,,9.5,9.5,9.5,,0,0,0,,,,,,9,0.9,0.75
+The Situation,Karina Smirnoff,TV Personality,New York,United States,28,11,Eliminated Week 4,9,5,5,5,,6,6,6,,7,6,7,,5,4.5,4.5,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,,,,,4,0.4,0.3333
+Audrina Patridge,Tony Dovolani,TV Personality,California,United States,25,11,Eliminated Week 6,7,6,7,6,,8,8,7,,8,9,9,,8,7.5,7.5,,7,8,8,,10.6666,10.6666,10.6666,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,,,,,6,0.6,0.5
+Bristol Palin,Mark Ballas,TV Personality,Alaska,United States,19,11,3rd Place,3,6,6,6,,7,8,7,,6,6,7,,5,5.5,5.5,,6,6,6,,9.6666,8.6666,9.6666,,8.5,8,8,8,7.5,8,8,,8.5,9,9,,8.3333,9,8.3333,,,,,,10,1,0.8333
+Ralph Macchio,Karina Smirnoff,Actor/Actress,New York,United States,49,12,Eliminated Week 9,4,8,8,8,,7,7,7,,7,7,7,,8,8,9,,8,7,7,,8,8,8,,9,8.5,7.5,8,7.5,7.5,8,,8,8,8,,0,0,0,,,,,,9,0.9,0.7273
+Chelsea Kane,Mark Ballas,Actor/Actress,Arizona,United States,22,12,3rd Place,3,7,7,7,,6,5,7,,7,8,8,,9,8,9,,9,8,9,,10,9,9,,8,8.5,7.5,8,9,9,9.5,,12,12,12.5,,10,9.6666,10,,,,,,10,1,0.8182
+Kirstie Alley,Maksim Chmerkoskiy,Actor/Actress,Kansas,United States,60,12,2nd Place,2,8,7,8,,7,6,7,,7,7,7,,7,7,8,,8,7,8,,8,9,9,,8,7,7,8,8.5,9,9,,9,9,9,,9.3333,9.3333,9.3333,,,,,,10,1,0.9091
+Hines Ward,Kym Johnson,Athlete,,South Korea,35,12,1st Place,1,7,7,7,,8,7,8,,9,8,8,,9,8,8,,9,9,9,,9,9,9,,8,8,8,9,9,9,9,,10,10,10,,10,9.6666,10,,,,,,10,1,1
+Sugar Ray Leonard,Anna Trebunskaya,Athlete,North Carolina,United States,54,12,Eliminated Week 4,9,6,5,6,,6,5,6,,7,6,7,,7,7,7,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,,,,,4,0.4,0.2727
+Chris Jericho,Cheryl Burke,Athlete,New York,United States,40,12,Eliminated Week 6,7,7,6,6,,8,7,8,,7,7,7,,8,7,8,,9,8,9,,7,8,7,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,,,,,6,0.6,0.4545
+Petra Nemcova,Dmitry Chaplin,Model,,Czechoslovakia,31,12,Eliminated Week 5,8,6,6,6,,6,6,6,,8,9,8,,8,7,8,,7,7,8,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,,,,,5,0.5,0.3636
+Mike Catherwood,Lacey Schwimmer,Radio Personality,California,United States,32,12,Eliminated Week 2,11,5,4,4,,6,5,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,,,,,2,0.2,0.0909
+Romeo,Chelsie Hightower,Singer/Rapper,Louisiana,United States,21,12,Eliminated Week 8,5,7,6,6,,7,8,8,,7,6,7,,7,8,8,,9,8,9,,10,9,9,,7.5,8,7,7.5,8.5,9,8.5,,0,0,0,,0,0,0,,,,,,8,0.8,0.6364
+Wendy Williams,Tony Dovolani,TV Personality,New Jersey,United States,46,12,Eliminated Week 3,10,5,4,5,,6,5,6,,5,5,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,,,,,3,0.3,0.1818
+Kendra Wilkinson,Louis van Amstel,TV Personality,California,United States,25,12,Eliminated Week 7,6,6,6,6,,7,6,6,,8,7,8,,6,6,6,,8,7,7,,8,8,9,,7.5,7.5,7.5,8,0,0,0,,0,0,0,,0,0,0,,,,,,7,0.7,0.5455
+Elisabetta Canalis,Valentin Chmerkovskiy,Actor/Actress,,Italy,33,13,Eliminated Week 2,11,5,5,5,,7,7,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,2,0.2,0.1667
+David Arquette,Kym Johnson,Actor/Actress,Virginia,United States,40,13,Eliminated Week 7,6,6,6,6,,6,6,6,,8,8,8,,8,7,8,,8,9,8,,8,7,8,,8,7.5,8,,0,0,0,,0,0,0,,0,0,0,,,,,,7,0.7,0.5833
+Ricki Lake,Derek Hough,Actor/Actress,New York,United States,42,13,3rd Place,3,7,6,7,,8,7,8,,9,9,9,,10,9,10,,8,8,8,,10,9,10,,9,8.5,9,,8.5,8.5,9,,10.8333,11.3333,11.3333,,9.3333,9.3333,9.3333,,,,,,10,1,0.8333
+J.R. Martinez,Karina Smirnoff,Actor/Actress,Louisiana,United States,28,13,1st Place,1,8,7,7,,7,7,8,,9,8,9,,8,9,9,,9,9,10,,10,9,10,,8.5,7.5,8,,10,10,10,,9.5,9,9.5,,9.3333,9.1666,9.6666,,,,,,10,1,1
+Metta World Peace (Ron),Peta Murgatroyd,Athlete,New York,United States,31,13,Eliminated Week 1,12,5,4,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,1,0.1,0.0833
+Hope Solo,Maksim Chmerkoskiy,Athlete,Washington,United States,30,13,Eliminated Week 9,4,7,7,7,,6,7,6,,8,8,8,,8,8,8,,8,8,8,,7,6,7,,8.5,8,8.5,,8.5,9,8.5,,8.1666,8.1666,8.1666,,0,0,0,,,,,,9,0.9,0.75
+Chynna Phillips,Tony Dovolani,Singer/Rapper,California,United States,43,13,Eliminated Week 4,9,8,7,7,,7,7,7,,8,9,9,,7,7,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,4,0.4,0.3333
+Kristin Cavallari,Mark Ballas,TV Personality,Colorado,United States,24,13,Eliminated Week 3,10,7,6,6,,8,7,7,,8,8,8,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,3,0.3,0.25
+Carson Kressley,Anna Trebunskaya,TV Personality,Pennsylvania,United States,41,13,Eliminated Week 5,8,6,5,6,,6,6,6,,8,7,8,,7,6,7,,6,6,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,5,0.5,0.4167
+Chaz Bono,Lacey Schwimmer,TV Personality,California,United States,42,13,Eliminated Week 6,7,6,5,6,,6,5,6,,6,6,6,,7,7,7,,7,7,7,,7,6,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,6,0.6,0.5
+Nancy Grace,Tristan MacManus,TV Personality,Georgia,United States,51,13,Eliminated Week 8,5,5,5,6,,6,8,7,,7,7,7,,7,7,7,,7,7,8,,9,7,8,,7.5,7,7.5,,7.5,7,7.5,,0,0,0,,0,0,0,,,,,,8,0.8,0.6667
+Rob Kardashian,Cheryl Burke,TV Personality,California,United States,24,13,2nd Place,2,6,5,5,,7,7,7,,8,8,8,,8,8,8,,9,8,8,,8,7,7,,9,8,8.5,,8.5,8.5,8.5,,11.1666,10.6666,10.6666,,9.4444,9.4444,9.4444,,,,,,10,1,0.9167
+William Levy,Cheryl Burke,Actor/Actress,,Cuba,31,14,3rd Place,3,8,8,8,,9,7,9,,9,9,10,,7,7,8,,10,9,10,,12,11,13,,9,8.5,9,,9.5,9.5,9.5,,9.5,9.5,10,,10,9.6666,10,,,,,,10,1,0.8333
+Jack Wagner,Anna Trebunskaya,Actor/Actress,Missouri,United States,52,14,Eliminated Week 3,11,8,7,8,,7,7,7,,8,8,8,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,3,0.3,0.1667
+Sherri Sheperd,Valentin Chmerkovskiy,Actor/Actress,Illinois,United States,44,14,Eliminated Week 4,10,8,7,8,,8,7,8,,8,8,8,,7,7,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,4,0.4,0.25
+Jaleel White,Kym Johnson,Actor/Actress,California,United States,35,14,Eliminated Week 7,7,9,8,9,,7,7,8,,9,8,8,,8,7,7,,8,8,8,,12.6666,11.6666,12.6666,,9,8,8.5,,0,0,0,,0,0,0,,0,0,0,,,,,,7,0.7,0.5
+Roshon Fegan,Chelsie Hightower,Actor/Actress,California,United States,20,14,Eliminated Week 8,6,8,7,8,,9,8,9,,8,8,9,,9,8,9,,9,8,9,,8.6666,9.6666,9.6666,,9.5,8,8.5,,9.5,9,9.5,,0,0,0,,0,0,0,,,,,,8,0.8,0.5833
+Melissa Gilbert,Maksim Chmerkoskiy,Actor/Actress,California,United States,47,14,Eliminated Week 8,5,7,6,7,,7,6,7,,8,8,8,,7,8,7,,7,7,7,,10,10,10,,8,7.5,8,,8.5,8.5,8.5,,0,0,0,,0,0,0,,,,,,8,0.8,0.6667
+Martina Navratilova,Tony Dovolani,Athlete,,Czechoslovakia,55,14,Eliminated Week 2,12,7,6,7,,6,5,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,2,0.2,0.0833
+Donald Driver,Peta Murgatroyd,Athlete,Texas,United States,37,14,1st Place,1,7,7,7,,8,8,8,,9,8,9,,9,9,9,,10,8,9,,11.3333,11.3333,11.3333,,9,8.5,9,,9.5,9,9,,9.5,9,10,,10,9.6666,10,,,,,,10,1,1
+Gavin DeGraw,Karina Smirnoff,Singer/Rapper,New York,United States,35,14,Eliminated Week 5,9,7,6,7,,7,7,7,,8,8,8,,8,8,7,,6,6,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,5,0.5,0.3333
+Gladys Knight,Tristan MacManus,Singer/Rapper,Georgia,United States,67,14,Eliminated Week 6,8,8,7,8,,7,5,7,,8,8,8,,7,6,7,,7,7,8,,8,8,8,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,6,0.6,0.4167
+Katherine Jenkins,Mark Ballas,Singer/Rapper,,Wales,31,14,2nd Place,2,9,8,9,,9,8,9,,10,9,10,,8,8,8,,10,9,10,,13.3333,12.3333,13.3333,,9.5,8.5,9,,9,9,9.5,,9.5,9,9.5,,10,10,10,,,,,,10,1,0.9167
+Maria Menounos,Derek Hough,TV Personality,Massachusetts,United States,33,14,Eliminated Week 9,4,7,7,7,,8,8,9,,9,9,9,,9,8,9,,9,9,9,,9.3333,10.3333,10.3333,,10,9,9.5,,9.5,7.5,9.5,,10,9.5,10,,0,0,0,,,,,,9,0.9,0.75
+Gilles Marini,Peta Murgatroyd,Actor/Actress,,France,36,15,Eliminated Week 8,6,8,8,8,,8.5,8.5,8.5,,8.5,8.5,8.5,,10,9.5,10,10,9.5,9.25,9.5,,9,9,9.5,,11.1666,11.1666,11.1666,,9.5,10,9.7777,,0,0,0,,0,0,0,,,,,,8,0.8,0.6154
+Sabrina Bryan,Louis van Amstel,Actor/Actress,California,United States,28,15,Eliminated Week 6,8,7.5,7.5,7.5,,9,8.5,8.5,,8.5,8.5,8.5,,9,9,8.5,9,9.75,9.75,9.75,,10,10,10,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,6,0.6,0.4615
+Kirstie Alley,Maksim Chmerkoskiy,Actor/Actress,Kansas,United States,61,15,Eliminated Week 8,7,6.5,6,6.5,,7,7,7,,8,8,8,,7.5,7.5,7.5,7.5,8.75,8.75,8.75,,9.5,8.5,9.5,,9.3333,9.3333,9.3333,,8.5,8.5,8.5,,0,0,0,,0,0,0,,,,,,8,0.8,0.5385
+Kelly Monaco,Valentin Chmerkovskiy,Actor/Actress,Pennsylvania,United States,36,15,3rd Place,3,7,7,7.5,,7.5,7,7.5,,9,9,9,,9,9.5,9.5,9.5,8.5,8.5,8.75,,9,9,9,,12,12,12,,9.5,9.3333,9.5,,8.7777,9.3333,9,,9.6666,9.6666,9.7777,,,,,,10,1,0.8462
+Apolo Anton Ohno,Karina Smirnoff,Athlete,Washington,United States,30,15,Eliminated Week 9,5,7.5,7,7.5,,8.5,8,8,,9,8,8.5,,8.5,9,8.5,8.5,9,9.75,9.5,,10,10,10,,11,11,11,,9.7777,9.5,10,,9.3333,9.5,9.7777,,0,0,0,,,,,,9,0.9,0.6923
+Emmitt Smith,Cheryl Burke,Athlete,Florida,United States,43,15,Eliminated Week 9,4,8,8.5,8,,7.5,7.5,7.5,,8.5,8,8.5,,9,9,9,9,9.25,9.25,9.5,,8.5,8.5,9.5,,10.8333,11.8333,11.8333,,9.5,9.7777,9.7777,,9,9,9,,0,0,0,,,,,,9,0.9,0.7692
+Shawn Johnson,Derek Hough,Athlete,Iowa,United States,20,15,2nd Place,2,8,6.5,7.5,,8.5,8,8.5,,9,8,9.5,,10,9.5,10,10,9.25,9,10,,9.5,8.5,10,,12.6666,12.6666,12.6666,,10,8.3333,9.5,,9.5,10,10,,9.6666,9.5,9.7777,,,,,,10,1,0.9231
+Pamela Anderson,Tristan MacManus,Model,,Canada,45,15,Eliminated Week 1,13,5.5,5.5,6,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,1,0.1,0.0769
+Helio Castroneves,Chelsie Hightower,Racing Driver,,Brazil,37,15,Eliminated Week 3,10,7,7.5,7,,8,7.5,7.5,,8.5,8.5,8.5,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,3,0.3,0.3077
+Joey Fatone,Kym Johnson,Singer/Rapper,New York,United States,35,15,Eliminated Week 2,12,6.5,7,7,,7.5,7.5,7.5,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,2,0.2,0.1538
+Drew Lachey,Anna Trebunskaya,Singer/Rapper,Ohio,United States,36,15,Eliminated Week 3,11,7,7,7.5,,7.5,7.5,7.5,,8,8,8,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,3,0.3,0.2308
+Bristol Palin,Mark Ballas,TV Personality,Alaska,United States,21,15,Eliminated Week 4,9,6.5,6.5,6.5,,6,6,6,,7.5,7.5,7.5,,8,8,8,8,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,4,0.4,0.3846
+Melissa Rycroft,Tony Dovolani,TV Personality,Texas,United States,29,15,1st Place,1,7,7,7,,8,8,7.5,,9,9,9,,9,9,9.5,9.5,9.25,9.5,9.5,,9.5,10,10,,13.3333,12.8333,12.8333,,10,10,10,,9.5,9.7777,9.5,,9.7777,9.7777,9.7777,,,,,,10,1,1
+Ingo Rademacher,Kym Johnson,Actor/Actress,,Germany,41,16,Eliminated Week 9,5,7,6,7,,6,7,7,,7,7,7,,8,7,8,,7,7,7,,7.5,8,7.5,,8,9,8,,8,8,8,,8.5,8.5,8.5,,0,0,0,,,,,,9,0.9,0.6667
+Zendaya,Valentin Chmerkovskiy,Actor/Actress,California,United States,16,16,2nd Place,2,8,8,8,,9,8,9,,8.6666,8.6666,8.6666,,9,8,9,,10,9,10,,8.5,8.5,8.5,,10,10,10,,9.5,10,9.5,,9,9,9.5,,10,10,10,,,,,,10,1,0.9167
+Dorothy Hamill,Tristan MacManus,Athlete,Illinois,United States,56,16,Withdrew,12,7,7,7,,5,5,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,2,0.2,0.0833
+Victor Ortiz,Lindsay Arnold,Athlete,Kansas,United States,26,16,Eliminated Week 6,8,6,6,6,,6,6,6,,8,7,8,,6,6,6,,7,7,7,,6.5,7,6.5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,6,0.6,0.4167
+Alexandra Raisman,Mark Ballas,Athlete,Massachusetts,United States,18,16,Eliminated Week 10,4,7,7,7,,8,8,8,,7,8,8,,9,9,9,,8,8,9,,8.5,9,8.5,,11,10,11,,9,9.5,9.5,,10,9.5,10,,9.5,9.5,10,,,,,,10,1,0.75
+Jacoby Jones,Karina Smirnoff,Athlete,Louisiana,United States,28,16,3rd Place,3,7,6,7,,8,7,8,,8.6666,8.6666,8.6666,,8,8,8,,9,8,9,,7.5,7.5,7.5,,9,9,9,,8.5,9,8.5,,10,9.5,10,,9.3333,9.3333,9.3333,,,,,,10,1,0.8333
+D. L. Hughley,Cheryl Burke,Comedian,Virginia,United States,50,16,Eliminated Week 5,9,4,4,4,,5,5,6,,6,5,5,,7,7,7,,6,6,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,5,0.5,0.3333
+Andy Dick,Sharna Burgess,Comedian,South Carolina,United States,47,16,Eliminated Week 7,7,6,5,6,,7,6,7,,6,6,6,,7,7,7,,6,6,6,,7,7.5,7,,5,6,6,,0,0,0,,0,0,0,,0,0,0,,,,,,7,0.7,0.5
+Wynonna Judd,Tony Dovolani,Singer/Rapper,Kentucky,United States,48,16,Eliminated Week 3,11,6,6,6,,6,6,6,,5,5,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,3,0.3,0.1667
+Kellie Pickler,Derek Hough,Singer/Rapper,North Carolina,United States,26,16,1st Place,1,7,7,7,,9,8,9,,8,9,8,,9,8,9,,9,9,9,,8.5,9.5,9,,9,10,10,,9.5,8,10,,9.5,10,9.5,,10,10,10,,,,,,10,1,1
+Lisa Vanderpump,Gleb Savchenko,TV Personality,,England,52,16,Eliminated Week 4,10,6,6,6,,6,6,6,,7,7,7,,6,6,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,4,0.4,0.25
+Sean Lowe,Peta Murgatroyd,TV Personality,Texas,United States,29,16,Eliminated Week 8,6,7,6,6,,7,6,7,,7,7,7,,6,7,7,,8,8,8,,7.5,8,7.5,,8,8,8,,7,7,7,,0,0,0,,0,0,0,,,,,,8,0.8,0.5833
+Valerie Harper,Tristan MacManus,Actor/Actress,New York,United States,74,17,Eliminated Week 4,10,7,7,7,,6,6,7,,6,5,5,,6,6,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,4,0.3636,0.25
+Brant Daugherty,Peta Murgatroyd,Actor/Actress,Ohio,United States,28,17,Eliminated Week 8,7,7,8,7,,8,7,8,,9,9,9,,7,7,7,,9,9,9,,10,11,10,,9.5,9.5,9.5,,9,9,9,,0,0,0,,0,0,0,0,0,0,0,,8,0.7273,0.5
+Elizabeth Berkley Lauren,Valentin Chmerkovskiy,Actor/Actress,Michigan,United States,39,17,Eliminated Week 9,6,8,8,8,,8,9,8,,8,9,8,,9,9,9,,8,9,9,,10.6666,10.6666,10.6666,,9,9,9,,8,9,8,,9.5,9,9.5,,0,0,0,0,0,0,0,,9,0.8182,0.5833
+Leah Remini,Tony Dovolani,Actor/Actress,New York,United States,43,17,Eliminated Week 10,5,7,7,7,,8,8,8,,8,8,8,,8,8,8,,7,7,8,,9.3333,9.3333,9.3333,,9,8.5,9,,9,10,9,,9,9,9,,8,8,8,8.5,0,0,0,,10,0.9091,0.6667
+Corbin Bleu,Karina Smirnoff,Actor/Actress,New York,United States,24,17,2nd Place,2,8,8,8,,9,8,9,,9,8,9,,9,9,9,,9,9,10,,9.3333,8.3333,9.3333,,10,9.5,10,,10,10,10,,9.5,9.5,10,,9.5,9,9.5,9.5,9.8888,9.8888,9.8888,,11,1,0.9167
+Amber Riley,Derek Hough,Actor/Actress,California,United States,27,17,1st Place,1,9,9,9,,8,8,8,,8,8,8,,9,9,9,,9,7,10,,11.3333,9.3333,11.3333,,10,10,9.5,,9,9,10,,8.5,8.5,8.5,,10,10,9.5,10,10.4444,10.4444,10.4444,,11,1,1
+Keyshawn Johnson,Sharna Burgess,Athlete,California,United States,41,17,Eliminated Week 2,12,6,5,6,,6,6,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,2,0.1818,0.0833
+Bill Engvall,Emma Slater,Comedian,Texas,United States,56,17,Eliminated Week 11,4,6,6,6,,7,7,7,,8,8,8,,7,7,7,,8,8,8,,8.3333,8.3333,7.3333,,8.5,8,8.5,,8,8,8,,7,7,7,,7.5,7.5,7.5,7.5,8.3333,8.8333,8.3333,,11,1,0.75
+Christina Milian,Mark Ballas,Singer/Rapper,New Jersey,United States,31,17,Eliminated Week 5,9,7,7,8,,9,8,8,,9,8,9,,8,8,8,,9,10,9,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,5,0.4545,0.3333
+"Nicole ""Snooki"" Polizzi",Sasha Farber,TV Personality,,Chile,25,17,Eliminated Week 7,8,8,8,7,,6,7,7,,9,8,8,,8,8,8,,9,9,9,,10,10,10,,9,9,9,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,7,0.6364,0.4167
+Jack Osbourne,Cheryl Burke,TV Personality,,England,27,17,3rd Place,3,8,8,7,,8,8,8,,7,7,8,,8,8,8,,9,9,9,,8.6666,9.6666,8.6666,,10,9,9.5,,10,10,10,,9,9,9,,9,8.5,9,9,9.3333,9.3333,9.3333,,11,1,0.8333
+Bill Nye,Tyne Stecklein,TV Personality,Washington D.C.,United States,57,17,Eliminated Week 3,11,5,4,5,,6,5,6,,6,5,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,3,0.2727,0.1667
+Billy Dee Williams,Emma Slater,Actor/Actress,New York,United States,76,18,Withdrew,10,5,5,5,,5,5,5,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,2,0.2,0.25
+Danica McKellar,Valentin Chmerkovskiy,Actor/Actress,California,United States,39,18,Eliminated Week 8,6,8,8,8,,8,8,8,,9,9,9,9,8,8,8,8,10,9,10,10,9,9,9,9,9,9.5,8.5,9,10,9,9,10,0,0,0,0,0,0,0,,,,,,8,0.8,0.5833
+James Maslow,Peta Murgatroyd,Actor/Actress,New York,United States,23,18,Eliminated Week 10,4,7,7,7,,9,8,8,,9,9,9,9,9,8,9,9,10,10,10,10,9,9,8,9,8.5,9.5,8,9,8,9,10,9,9.5,9.5,9.5,9.5,9.5,9.5,10,,,,,,10,1,0.75
+Candace Cameron Bure,Mark Ballas,Actor/Actress,California,United States,37,18,3rd Place,3,9,8,8,,7,7,7,,8,8,8,8,7,7,7,7,8,9,9,9,8,8,8,8,9,9.5,9,9.5,9,9,9,9,8.5,9.5,9.5,8.5,8.6666,8.6666,8.6666,,,,,,10,1,0.8333
+Sean Avery,Karina Smirnoff,Athlete,,Canada,33,18,Eliminated Week 2,11,7,6,7,,7,7,7,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,2,0.2,0.1667
+Diana Nyad,Henry Byalikov,Athlete,New York,United States,64,18,Eliminated Week 2,12,6,6,6,,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,1,0.1,0.0833
+Charlie White,Sharna Burgess,Athlete,Michigan,United States,26,18,Eliminated Week 9,5,9,9,9,,9,7,9,,9,9,9,9,7,8,9,9,9,10,9,9,9,9,9,9,8.5,10,8,9,10,10,10,10,9.5,9.5,9.5,9.5,0,0,0,,,,,,9,0.9,0.6667
+Amy Purdy,Derek Hough,Athlete,Nevada,United States,34,18,2nd Place,2,8,8,8,,8,8,8,,9,9,9,9,9,8,8,9,9,9,10,9,9,10,9,10,9.5,9.5,9,9.5,10,10,10,10,9.5,9.5,10,10,10,9.6666,10,,,,,,10,1,0.9167
+Meryl Davis,Maksim Chmerkoskiy,Athlete,Michigan,United States,27,18,1st Place,1,8,8,8,,8,9,8,,10,9,10,10,10,9,10,10,9,9,9,9,10,10,10,10,10,10,9,10,9,9,8,10,10,10,10,10,10,10,10,,,,,,10,1,1
+Drew Carey,Cheryl Burke,Comedian,Ohio,United States,55,18,Eliminated Week 6,8,7,7,7,,7,7,7,,7,7,8,8,8,8,9,8,7,7,7,7,8,9,7,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,6,0.6,0.4167
+Cody Simpson,Witney Carson,Singer/Rapper,,Australia,17,18,Eliminated Week 5,9,7,7,8,,7,7,8,,9,8,9,9,8,7,8,8,9,8,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,5,0.5,0.3333
+NeNe Leakes,Tony Dovolani,TV Personality,New York,United States,46,18,Eliminated Week 7,7,7,7,7,,7,7,7,,8,7,8,8,8,8,8,8,9,9,9,9,8,9,8,8,8,9,7.5,8.5,0,0,0,0,0,0,0,0,0,0,0,,,,,,7,0.7,0.5
+Antonio Sabato Jr.,Cheryl Burke,Actor/Actress,,Italy,42,19,Eliminated Week 7,8,6,6,6,7,8,7,8,8,7,7,7,8,7,7,7,8,8,6,7,7,7,7,7,7,7,7.5,7.5,7.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0.6364,0.4615
+Jonathan Bennett,Allison Holker,Actor/Actress,Ohio,United States,33,19,Eliminated Week 6,9,8,7,7,8,7,7,8,8,8,8,8,8,6,6,6,6,6,6,6,6,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0.5455,0.3846
+Lea Thompson,Artem Chigvintsev,Actor/Actress,Minnesota,United States,53,19,Eliminated Week 9,6,8,8,8,8,9,8,9,9,7,8,8,8,10,10,10,9,9,8,8,9,8,8,8,8,8.5,8.5,9,9,8,8,8,8,8.5,9,8.5,9,0,0,0,0,0,0,0,0,9,0.8182,0.6154
+Janel Parrish,Valentin Chmerkovskiy,Actor/Actress,Hawaii,United States,25,19,3rd Place,3,7,7,7,8,9,8,8,9,10,10,10,10,9,9,9,9,8,8,8,9,8,7,9,9,8.5,8,8.5,8.5,10.75,10.75,10.75,10.75,9.5,9.5,10,9.5,9.5,9.5,10,10,9.6666,10,9.6666,9.6666,11,1,0.8462
+Alfonso Ribeiro,Witney Carson,Actor/Actress,New York,United States,42,19,1st Place,1,9,9,9,9,8,8,8,8,8,8,8,8,10,10,10,10,8,9,9,8,10,10,9,10,8.5,8.5,8.5,8.5,10.75,9.75,9.75,10.75,9.5,9.5,9.5,10,9.5,9,9.5,9.5,10,10,10,10,11,1,1
+Lolo Jones,Keo Motsepe,Athlete,Iowa,United States,32,19,Eliminated Week 1,13,6,6,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0.0909,0.0769
+Randy Couture,Karina Smirnoff,Athlete,Washington,United States,51,19,Eliminated Week 3,11,8,7,8,8,7,7,7,7,7,7,6,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0.2727,0.2308
+Tommy Chong,Peta Murgatroyd,Comedian,,Canada,76,19,Eliminated Week 10,5,7,6,7,7,7,7,7,7,8,10,8,8,7,7,7,7,6,6,5,6,7,7,7,7,7.5,7.5,7.5,7.5,6.75,7.75,7.75,6.75,7,7.5,7,7,8,7.5,8,7.5,0,0,0,0,10,0.9091,0.6923
+Betsey Johnson,Tony Dovolani,Fashion Designer,Connecticut,United States,72,19,Eliminated Week 4,10,5,5,5,5,7,7,7,7,7,9,6,7,8,7,7,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0.3636,0.3077
+Michael Waltrip,Emma Slater,Racing Driver,Kentucky,United States,51,19,Eliminated Week 8,7,7,6,6,6,6,6,6,6,7,7,7,7,6,6,6,7,5,5,5,5,8,7,8,7,7,7,7,7,6,7,6,6,0,0,0,0,0,0,0,0,0,0,0,0,8,0.7273,0.5385
+Tavis Smiley,Sharna Burgess,Radio Personality,Mississippi,United States,50,19,Eliminated Week 2,12,7,7,8,7,7,7,7,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0.1818,0.1538
+Bethany Mota,Derek Hough,Social Media Personality,California,United States,18,19,Eliminated Week 11,4,8,8,8,8,8,9,8,8,10,10,10,10,8,8,8,9,8,8,8,8,9,9,9,9,9.5,9,9.5,9.5,9.75,9.75,9.75,10.75,9,9.5,9.5,9,9.5,9.5,9.5,9.5,9.5,9.5,9.5,9.5,11,1,0.7692
+Sadie Robertson,Mark Ballas,TV Personality,Louisiana,United States,17,19,2nd Place,2,8,8,9,9,8,7,8,8,8,8,8,8,9,10,9,9,9,9,9,9,9,10,8,8,7.5,7.5,8,8,9,9,10,10,9,9.5,9,9,9,9.5,9.5,9,10,9.6666,10,9.6666,11,1,0.9231
+Suzanne Somers,Tony Dovolani,Actor/Actress,California,United States,68,20,Eliminated Week 5,9,6,6,6,7,7,7,7,7,6,6,6,7,7,7,7,7,7,7,7,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,5,0.5,0.3333
+Willow Shields,Mark Ballas,Actor/Actress,New Mexico,United States,14,20,Eliminated Week 7,7,6,6,6,7,8,8,8,8,8,8,8,8,10,9,10,10,8,8,9,9,9.5,8.5,9,9.5,9.5,9.5,9.5,10.5,0,0,0,0,0,0,0,0,0,0,0,0,,,,,7,0.7,0.5
+Riker Lynch,Allison Holker,Actor/Actress,Colorado,United States,23,20,2nd Place,2,8,7,8,8,8,8,8,8,9,7,9,9,8,8,9,9,10,9,9,10,10,8.5,9.5,10,9,10,9,9,10,9,10,10,10,10,10,10,10,10,10,10,,,,,10,1,0.9167
+Rumer Willis,Valentin Chmerkovskiy,Actor/Actress,Kentucky,United States,26,20,1st Place,1,8,8,8,8,8,8,8,8,8,9,8,8,9,8,9,9,10,9,10,10,9,8.5,8.5,9.5,8.5,9.5,9.5,9.5,10,10,10,10,10,9.5,9.5,10,10,10,10,10,,,,,10,1,1
+Nastia Liukin,Derek Hough,Athlete,,Russia,25,20,Eliminated Week 9,4,7,7,8,8,9,8,8,9,9,8,9,8,9,8,9,10,9,9,10,10,9.5,8.5,9,9.5,10.75,9.75,9.75,10.75,9.5,9.5,9.5,9.5,10,10,10,10,0,0,0,0,,,,,9,0.9,0.75
+Michael Sam,Peta Murgatroyd,Athlete,Texas,United States,25,20,Eliminated Week 4,10,6,6,7,7,7,7,7,7,6,6,6,6,7,7,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,4,0.4,0.25
+Robert Herjavec,Kym Johnson,Entrepreneur,,Croatia,52,20,Eliminated Week 8,6,7,7,7,7,7,7,7,7,7,7,8,7,8,9,8,9,6,6,6,6,8.5,8,8.5,8.5,7,8,8,8,7.5,7.5,8.5,7.5,0,0,0,0,0,0,0,0,,,,,8,0.8,0.5833
+Charlotte McKinney,Keo Motsepe,Model,Florida,United States,21,20,Eliminated Week 3,11,6,5,5,6,7,6,7,6,6,5,5,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,3,0.3,0.1667
+Noah Galloway,Sharna Burgess,Motivational Speaker,Alabama,United States,33,20,3rd Place,3,7,6,6,7,7,6,7,7,7,7,8,8,8,8,8,8,7,7,7,7,8.5,8,8.5,9,10.5,8.5,9.5,9.5,8,7.5,8,8,9.5,9.5,9.5,9.5,9,9,9,9,,,,,10,1,0.8333
+Redfoo,Emma Slater,Singer/Rapper,California,United States,39,20,Eliminated Week 2,12,6,5,5,6,8,7,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,2,0.2,0.0833
+Patti LaBelle,Artem Chigvintsev,Singer/Rapper,Pennsylvania,United States,70,20,Eliminated Week 6,8,7,6,6,6,7,7,7,7,6,5,5,6,8,7,7,8,7,6,7,7,9,8,8.5,8.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,6,0.6,0.4167
+Chris Soules,Witney Carson,TV Personality,Iowa,United States,33,20,Eliminated Week 8,5,7,6,6,7,5,6,5,5,7,7,7,7,7,6,7,7,7,6,7,7,9,8,9,9,8,7,8,8,8,7.5,8.5,8,0,0,0,0,0,0,0,0,,,,,8,0.8,0.6667
+Gary Busey,Anna Trebunskaya,Actor/Actress,Texas,United States,71,21,Eliminated Week 4,10,5,5,5,,5.5,5.5,5.5,,6,7,6,6,5,6,5,,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,4,0.3636,0.3077
+Alexa PenaVega,Mark Ballas,Actor/Actress,Florida,United States,27,21,Eliminated Week 9,6,7,7,8,,7.5,7.5,8,,9,9,9,9,7,7,7,,10,10,10,10,8,7,7,8,9,9.5,9,,9.6666,8.6666,8.6666,,10,10,10,,0,0,0,,0,0,0,,9,0.8182,0.6154
+Carlos PenaVega,Witney Carson,Actor/Actress,Missouri,United States,26,21,Eliminated Week 11,4,8,8,7,,7.5,7.5,7.5,,7,8,8,8,9,8,8,,10,10,9,10,10,9,9,10,9,10,9,,9.6666,9.6666,9.6666,,9,9,9,,10,10.5,11,,10,10,10,,11,1,0.7692
+Victor Espinoza,Karina Smirnoff,Athlete,,Mexico,43,21,Eliminated Week 2,12,5,5,5,,6.5,5.5,6.5,,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,2,0.1818,0.1538
+Alek Skarlatos,Lindsay Arnold,Military,California,United States,22,21,3rd Place,3,8,7,7,,7.5,7,8,,8,8,9,8,8,8,8,,8,7,7,7,8,8,7,7,9,9,8.5,,9,8,8,,8.5,8.5,8.5,,9.5,9.5,9.5,,9.3333,9.3333,9.3333,,11,1,0.8462
+Chaka Khan,Keo Motsepe,Singer/Rapper,Illinois,United States,62,21,Eliminated Week 2,13,5,4,4,,5,5,5,,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,2,0.1818,0.0769
+Andy Grammer,Allison Holker,Singer/Rapper,California,United States,31,21,Eliminated Week 8,7,7,7,7,,7.5,7.5,7,,7,7,8,7,7,8,8,,9,9,9,9,10,10,10,10,9.5,9.5,9,,8.6666,7.6666,7.6666,,0,0,0,,0,0,0,,0,0,0,,8,0.7273,0.5385
+Tamar Braxton,Valentin Chmerkovskiy,Singer/Rapper,Maryland,United States,38,21,Withdrew,5,8,7,8,,8,8,8.5,,8,9,8,8,9,9,9,,7,7,8,7,10,10,10,10,9,9,9,,9,9,10,,8.5,8,8,,0,0,0,,0,0,0,,9,0.8182,0.6923
+Nick Carter,Sharna Burgess,Singer/Rapper,New York,United States,35,21,2nd Place,2,8,8,8,,7.5,7.5,7.5,,9,9,9,9,9,9,9,,9,9,8,9,9,10,10,10,9,9,9,,11,11,11,,9,9,9.5,,9,9,9,,10,10,10,,11,1,0.9231
+Hayes Grier,Emma Slater,Social Media Personality,North Carolina,United States,15,21,Eliminated Week 7,8,7,7,7,,8,7,7.5,,7,8,7,8,9,9,9,,8,8,7,7,8,8,8,8,9,9.5,9.5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,7,0.6364,0.4615
+Bindi Irwin,Derek Hough,TV Personality,,Australia,17,21,1st Place,1,8,8,8,,8,8,8,,8,8,8,8,9,9,10,,9,9,10,9,10,10,10,10,9.5,10,9.5,,10,9,9,,10,10,10,,10.5,10.5,10.5,,10,10,10,,11,1,1
+Kim Zolciak-Biermann,Tony Dovolani,TV Personality,Florida,United States,37,21,Withdrew,11,4,4,4,,6.5,6,6,,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,2,0.1818,0.2308
+Paula Deen,Louis van Amstel,TV Personality,Georgia,United States,68,21,Eliminated Week 6,9,5,5,5,,6.5,6,6,,5,5,5,5,6,6,6,,7,7,6,6,6,6,6,6,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,6,0.5455,0.3846
+Mischa Barton,Artem Chigvintsev,Actor/Actress,,England,30,22,Eliminated Week 3,11,5,5,6,,5,5,5,,6,6,6,,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,3,0.3,0.1667
+Kim Fields,Sasha Farber,Actor/Actress,New York,United States,46,22,Eliminated Week 7,8,7,6,7,,7,6,6,,8,7,7,,8,8,8,8,8,6,6,8,8,8,8,,8.5,8.5,9,,0,0,0,,0,0,0,,0,0,0,,,,,,7,0.7,0.4167
+Jodie Sweetin,Keo Motsepe,Actor/Actress,California,United States,34,22,Eliminated Week 8,6,7,6,7,,7,7,7,,8,7,8,,7,6,7,7,9,8,9,9,9,8,8,,8,8.5,9,,10,10,10,,0,0,0,,0,0,0,,,,,,8,0.8,0.5833
+Doug Flutie,Karina Smirnoff,Athlete,Maryland,United States,53,22,Eliminated Week 6,9,5,5,5,,7,6,7,,7,6,7,,6,6,6,6,7,7,7,7,7,7,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,6,0.6,0.3333
+Von Miller,Witney Carson,Athlete,Texas,United States,27,22,Eliminated Week 7,7,8,6,7,,7,6,7,,7,6,7,,8,8,8,8,8,7,7,7,8,8,8,,8.5,8.5,9,,0,0,0,,0,0,0,,0,0,0,,,,,,7,0.7,0.5
+Antonio Brown,Sharna Burgess,Athlete,Florida,United States,27,22,Eliminated Week 9,5,8,6,7,,6,6,7,,7,6,7,,9,8,9,9,7,6,6,7,9,9,9,,8.5,8.5,9,,9,9,9,,9,9,9.5,,0,0,0,,,,,,9,0.9,0.6667
+Paige VanZant,Mark Ballas,Athlete,Oregon,United States,22,22,2nd Place,2,7,7,7,,8,8,8,,8,7,8,,9,9,9,9,8,8,7,8,9,10,9,,9,9,9.5,,10,9,9,,10,9.5,10,,10,9.6666,10,,,,,,10,1,0.9167
+Geraldo Rivera,Edyta Sliwinska,Journalist,New York,United States,72,22,Eliminated Week 2,12,5,4,4,,5,4,4,,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,2,0.2,0.0833
+Nyle DiMarco,Peta Murgatroyd,Model,New York,United States,26,22,1st Place,1,8,7,8,,7,6,7,,8,8,9,,8,8,9,9,9,10,9,9,8,8,9,,9.5,9,9.5,,10,9,10,,9.5,9.5,9.5,,9.6666,9.6666,9.6666,,,,,,10,1,1
+Ginger Zee,Valentin Chmerkovskiy,News Anchor,California,United States,35,22,3rd Place,3,8,7,8,,7,7,7,,7,7,7,,9,9,9,9,8,8,8,8,8,8,8,,9,9,9.5,,10,10,10,,9,9.5,9.5,,9.3333,9.6666,9.3333,,,,,,10,1,0.8333
+Wanya Morris,Lindsay Arnold,Singer/Rapper,Pennsylvania,United States,42,22,Eliminated Week 9,4,8,7,8,,8,8,8,,8,8,8,,8,9,9,9,8,7,7,8,10,9,10,,9,9,9.5,,8,8,9,,10,10,10,,0,0,0,,,,,,9,0.9,0.75
+Marla Maples,Tony Dovolani,TV Personality,Georgia,United States,52,22,Eliminated Week 4,10,7,7,7,,7,6,7,,7,7,7,,7,7,7,7,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,4,0.4,0.25
+Jake T. Austin,Jenna Johnson,Actor/Actress,New York,United States,21,23,Eliminated Week 2,13,5,6,5,6,6,6,6,6,0,0,0,0,0,0,0,,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,,0,0,0,0,2,0.1818,0.0769
+Maureen McCormick,Artem Chigvintsev,Actor/Actress,California,United States,60,23,Eliminated Week 7,8,6,5,5,6,7,6,6,7,7,7,7,7,8,8,8,,8,8,8,,8,7,8,8,8.5,8,8,8.5,0,0,0,,0,0,0,0,0,0,0,,0,0,0,0,7,0.6364,0.4615
+Marilu Henner,Derek Hough,Actor/Actress,Illinois,United States,64,23,Eliminated Week 9,6,7,7,6,7,7,6,7,7,7,7,7,7,7,7,7,,9,9,9,,8,9,9,8,7.5,8,8.5,8,7,8,8,,9,9,9,9,0,0,0,,0,0,0,0,9,0.8182,0.6154
+Ryan Lochte,Cheryl Burke,Athlete,New York,United States,32,23,Eliminated Week 8,7,6,6,6,6,6,6,6,6,6,7,6,6,7,7,8,,8,8,8,,7,8,8,7,8.5,8,8,8.5,8,9,9,,0,0,0,0,0,0,0,,0,0,0,0,8,0.7273,0.5385
+Calvin Johnson Jr.,Lindsay Arnold,Athlete,Georgia,United States,30,23,3rd Place,3,7,6,6,7,7,7,7,7,8,8,8,8,8,7,8,,8,8,8,,9,10,9,9,9.5,9,9,9.5,10,10,10,,9,9,10,9,9,9.5,9.5,,9.3333,9.6666,9.6666,9.6666,11,1,0.8462
+Laurie Hernandez,Valentin Chmerkovskiy,Athlete,New Jersey,United States,16,23,1st Place,1,8,8,7,8,8,8,8,8,7,8,8,8,10,10,10,,8,9,8,,9,9,9,10,8,8.5,9,9,11,11,11,,10,10,10,10,10,10,10,,9.6666,10,9.6666,10,11,1,1
+Amber Rose,Maksim Chmerkoskiy,Model,Pennsylvania,United States,32,23,Eliminated Week 6,9,6,6,6,6,6,6,6,6,7,6,6,6,8,8,8,,8,8,8,,7,7,7,7,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,,0,0,0,0,6,0.5455,0.3846
+Rick Perry,Emma Slater,Politician,Texas,United States,66,23,Eliminated Week 3,12,5,5,5,5,6,5,6,5,6,5,6,6,0,0,0,,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,,0,0,0,0,3,0.2727,0.1538
+James Hinchcliffe,Sharna Burgess,Racing Driver,,Canada,29,23,2nd Place,2,8,8,7,8,7,7,7,8,7,7,8,7,9,9,10,,10,9,10,,10,9,9,10,9.5,9,9,9.5,11.6666,11.6666,11.6666,,9,9,9,9,9.5,10,10,,9.6666,9.6666,9.6666,10,11,1,0.9231
+Babyface,Allison Holker,Singer/Rapper,Indiana,United States,57,23,Eliminated Week 4,11,7,6,6,7,8,7,7,8,7,6,6,6,6,6,6,,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,,0,0,0,0,4,0.3636,0.2308
+Vanilla Ice,Witney Carson,Singer/Rapper,Texas,United States,48,23,Eliminated Week 4,10,7,5,6,7,6,7,6,7,6,6,5,6,8,7,8,,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,,0,0,0,0,4,0.3636,0.3077
+Jana Kramer,Gleb Savchenko,Singer/Rapper,Michigan,United States,32,23,Eliminated Week 11,4,7,6,6,8,7,8,7,7,6,7,6,7,8,7,8,,9,8,9,,10,10,10,10,8,8.5,9,9,10,10,10,,10,10,10,10,9.5,9.5,10,,8.5,9,9,9,11,1,0.7692
+Terra Jole,Sasha Farber,TV Personality,Texas,United States,36,23,Eliminated Week 10,5,7,6,6,6,8,7,8,8,8,7,8,7,9,8,8,,9,9,9,,7,8,8,7,8.5,8.5,9,8.5,8,8,8,,10,10,9,9,10,10,10,,0,0,0,0,10,0.9091,0.6923
+Charo,Keo Motsepe,Actor/Actress,,Spain,66,24,Eliminated Week 3,11,6,5,5,5,6,6,7,6,6,6,6,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,3,0.3,0.1667
+Mr. T,Kym Herjavec,Actor/Actress,Illinois,United States,64,24,Eliminated Week 4,10,5,5,5,5,6,5,6,5,6,6,6,6,7,7,7,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,4,0.4,0.25
+Heather Morris,Maksim Chmerkoskiy,Actor/Actress,California,United States,30,24,Eliminated Week 6,8,7,7,7,7,8,6,8,8,9,8,8,8,8,9,9,9,8,8,9,9,9,9.5,9,9.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,6,0.6,0.4167
+Nancy Kerrigan,Artem Chigvintsev,Athlete,Massachusetts,United States,47,24,Eliminated Week 7,7,7,7,7,7,7,7,7,7,8,9,8,8,8,9,8,8,9,9,9,9,8.5,8.5,8,8.5,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,,,,,7,0.7,0.5
+Bonner Bolton,Sharna Burgess,Athlete,Texas,United States,29,24,Eliminated Week 8,5,6,5,5,6,8,5,8,7,6,6,6,6,8,8,8,8,7,8,8,7,8,8.5,7.5,7.5,7.5,7.5,8.5,7.5,7.5,7,7.5,7,0,0,0,0,0,0,0,0,,,,,8,0.8,0.6667
+Simone Biles,Sasha Farber,Athlete,Ohio,United States,20,24,Eliminated Week 9,4,8,8,8,8,7,7,7,8,7,8,9,8,9,9,9,9,9,9,10,10,8.5,8.5,8.5,9,10.5,9.5,9.5,9.5,9,9,9,9,10,10,10,10,0,0,0,0,,,,,9,0.9,0.75
+David Ross,Lindsay Arnold,Athlete,Georgia,United States,40,24,2nd Place,2,7,7,7,7,7,6,7,7,8,7,8,8,7,8,8,8,7,7,8,7,7.5,8.5,7.5,7.5,8,8,8,8,8,8,8.5,8,9,8.5,9,8.5,9,9,9.3333,9,,,,,10,1,0.9167
+Rashad Jennings,Emma Slater,Athlete,Virginia,United States,32,24,1st Place,1,8,7,8,8,8,8,8,8,7,7,7,7,10,9,10,10,7,8,9,8,8.5,9.5,8.5,8.5,9.5,9.5,10.5,9.5,9.5,9,9.5,9.5,9.5,9,10,10,10,9.6666,10,10,,,,,10,1,1
+Chris Kattan,Witney Carson,Comedian,California,United States,46,24,Eliminated Week 2,12,5,4,4,4,6,5,6,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,2,0.2,0.0833
+Erika Jayne,Gleb Savchenko,Singer/Rapper,Georgia,United States,45,24,Eliminated Week 5,9,6,6,6,6,7,7,7,7,6,7,7,6,8,7,7,8,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,5,0.5,0.3333
+Normani,Valentin Chmerkovskiy,Singer/Rapper,Georgia,United States,20,24,3rd Place,3,7,6,7,7,8,8,8,8,8,8,9,9,8,7,8,9,10,9,10,10,9,9.5,8,9.5,10.5,10.5,10.5,10.5,10,9.5,10,10,9.5,9.5,9.5,9.5,10,9.6666,9.6666,10,,,,,10,1,0.8333
+Nick Viall,Peta Murgatroyd,TV Personality,Wisconsin,United States,36,24,Eliminated Week 7,6,6,6,6,6,7,5,7,6,7,6,7,6,8,7,8,7,9,8,9,8,7.5,8,7.5,7.5,8,8,9,9,0,0,0,0,0,0,0,0,0,0,0,0,,,,,7,0.7,0.5833
+Sasha Pieterse,Gleb Savchenko,Actor/Actress,,South Africa,21,25,Eliminated Week 5,10,6,6,6,,8,7.5,7,,7,6,6,,8,8,8,,8,8,8,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,,,,,5,0.5,0.3077
+Frankie Muniz,Witney Carson,Actor/Actress,New Jersey,United States,31,25,3rd Place,3,7,6,6,,8,7.5,8.5,,7,7,7,,8,8,8,,10,9,10,,7,8,8,8,10,10,10,,9,8.5,9,,8.5,8,9,,9.7777,9.3333,9.7777,10,,,,,10,1,0.8462
+Jordan Fisher,Lindsay Arnold,Actor/Actress,Alabama,United States,23,25,1st Place,1,8,7,7,,8,8,8,,9,7,9,,10,9,10,,10,10,10,,10,9,10,10,9,9,9,,10,10,10,,9.5,9.5,10,,10,10,10,10,,,,,10,1,1
+Derek Fisher,Sharna Burgess,Athlete,Arkansas,United States,43,25,Eliminated Week 4,11,6,6,6,,6.5,6,6.5,,7,7,7,,7,8,8,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,,,,,4,0.4,0.2308
+Nikki Bella,Artem Chigvintsev,Athlete,California,United States,33,25,Eliminated Week 7,8,7,7,6,,6.5,6.5,6.5,,7,7,7,,8,8,8,,9,9,9,,9,9,9,9,8,8,8,,0,0,0,,0,0,0,,0,0,0,0,,,,,7,0.7,0.4615
+Terrell Owens,Cheryl Burke,Athlete,Alabama,United States,43,25,Eliminated Week 8,6,5,5,5,,6.5,6,7,,7,7,7,,8,8,8,,9,8,8,,9,9,10,9,8,8,8.5,,8.5,8.5,8.5,,0,0,0,,0,0,0,0,,,,,8,0.8,0.6154
+Victoria Arlen,Valentin Chmerkovskiy,Athlete,New Hamshire,United States,22,25,Eliminated Week 9,5,7,6,6,,7.5,7,7.5,,8,7,7,,9,9,9,,9,9,9,,8,8,7,8,9.5,9.5,9.5,,8,8,8,,9,9.5,9.5,,0,0,0,0,,,,,9,0.9,0.6923
+Barbara Corcoran,Keo Motsepe,Entrepreneur,New Jersey,United States,68,25,Eliminated Week 2,13,5,4,5,,6,5,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,,,,,2,0.2,0.0769
+Lindsey Stirling,Mark Ballas,Musician,California,United States,31,25,2nd Place,2,7,8,7,,7.5,7.5,7.5,,9,9,9,,9,8,9,,9,10,9,,10,10,10,10,8.5,8.5,8.5,,9.5,8.5,9,,9.5,9,10,,10,10,10,10,,,,,10,1,0.9231
+Debbie Gibson,Alan Bersten,Singer/Rapper,New York,United States,47,25,Eliminated Week 2,12,6,5,6,,7,6.5,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,,,,,2,0.2,0.1538
+Nick Lachey,Peta Murgatroyd,Singer/Rapper,Kentucky,United States,43,25,Eliminated Week 6,9,6,6,6,,7,6,6,,7,7,7,,8,7,7,,7,8,7,,7,6,7,6,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,,,,,6,0.6,0.3846
+Drew Scott,Emma Slater,TV Personality,,Canada,39,25,Eliminated Week 10,4,6,5,5,,7,6.5,7,,8,7,8,,8,8,8,,9,8,8,,7,7,9,7,9.5,9.5,9.5,,8,7.5,8,,8,8,8,,9,9.5,9.5,9.5,,,,,10,1,0.7692
+Vanessa Lachey,Maksim Chmerkoskiy,TV Personality,,Philippines,36,25,Eliminated Week 7,7,7,7,7,,8,8,7.5,,7,8,8,,8,8,8,,8,8,8,,9,9,9,9,9,9,9,,0,0,0,,0,0,0,,0,0,0,0,,,,,7,0.7,0.5385
+Jamie Anderson,Artem Chigvintsev,Athlete,California,United States,27,26,Eliminated Week 1,10,6,7,6,,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,0.25,0.1
+Johnny Damon,Emma Slater,Athlete,Kansas,United States,44,26,Eliminated Week 1,9,6,6,6,,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,0.25,0.2
+Kareem Abdul-Jabbar,Lindsay Arnold,Athlete,New York,United States,71,26,Eliminated Week 2,8,6,5,6,,7.5,8,7,7,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,0.5,0.3
+Arike Ogunbowale,Gleb Savchenko,Athlete,Wisconsin,United States,21,26,Eliminated Week 2,7,7,6,7,,8.5,9.5,8.5,8.5,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,0.5,0.4
+Jennie Finch Daigle,Keo Motsepe,Athlete,California,United States,37,26,Eliminated Week 3,6,7,7,7,,7.5,8.5,8,7.5,7,8,7,7,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,0.75,0.5
+Chris Mazdzer,Witney Carson,Athlete,Massachusetts,United States,29,26,Eliminated Week 3,5,7,7,7,,8.5,8.5,8,8,8,9,7,9,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,0.75,0.6
+Mirai Nagasu,Alan Bersten,Athlete,California,United States,25,26,Eliminated Week 3,4,7,8,8,,9,10,9,9,9,9,8,9,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,0.75,0.7
+Tonya Harding,Sasha Farber,Athlete,Oregon,United States,47,26,3rd Place,3,8,8,7,,8,9,8,8,8.5,9.5,8.5,8.5,9,9.5,9.5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4,1,0.8
+Josh Norman,Sharna Burgess,Athlete,South Carolina,United States,30,26,2nd Place,2,8,8,8,,7.5,8,8,8,9.5,9.5,9.5,9.5,9.5,9.5,9.5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4,1,0.9
+Adam Rippon,Jenna Johnson,Athlete,Pennsylvania,United States,28,26,1st Place,1,8,8,8,,9,9.5,9,9.5,10.5,10.5,9.5,10.5,9.5,9.5,10,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4,1,1
+Juan Pablo Di Pace,Cheryl Burke,Actor/Actress,,Argentina,39,27,Eliminated Week 8,5,7,7,8,,9,8,9,,10,10,10,,8,8,8,,10,9,10,,10,10,10,,9.5,9,9.5,,10,10,10,,0,0,0,,,,,,,,,,8,0.8889,0.6923
+Evanna Lynch,Keo Motsepe,Actor/Actress,,Ireland,27,27,3rd Place,3,7,5,6,,8,8,8,,9,9,9,,8,8,8,,8,8,8,,10,9,10,,10,9.5,10,,10,9.5,9.5,,10,10,10,,,,,,,,,,9,1,0.8462
+Nancy McKeon,Valentin Chmerkovskiy,Actor/Actress,New York,United States,52,27,Eliminated Week 3,11,6.5,6.5,6.5,,7,6.5,7,,8,7,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,3,0.3333,0.2308
+John Schneider,Emma Slater,Actor/Actress,New York,United States,58,27,Eliminated Week 7,8,7,5,6,,7.5,6.5,7.5,,7,7,7,,7,7,7,,8,8,8,,6,7,6,,9,9,9,,0,0,0,,0,0,0,,,,,,,,,,7,0.7778,0.4615
+Milo Manheim,Witney Carson,Actor/Actress,California,United States,17,27,2nd Place,2,7,6,7,,9,8,9,,9,9,9,,10,9,10,,9,8,10,,10,10,10,,10,9,10,,9,9,9.5,,10,10,10,,,,,,,,,,9,1,0.9231
+Danelle Umstead,Artem Chigvintsev,Athlete,New Mexico,United States,46,27,Eliminated Week 2,12,6,6,6,,6.5,6,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,2,0.2222,0.1538
+Mary Lou Retton,Sasha Farber,Athlete,West Virginia,United States,50,27,Eliminated Week 6,9,6.5,7,6.5,,8,7.5,7.5,,8,8,8,,9,8,9,,9,8,8,,8,8,8,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,6,0.6667,0.3846
+DeMarcus Ware,Lindsay Arnold,Athlete,Alabama,United States,36,27,Eliminated Week 7,7,8,7,8,,8,7.5,8,,9,8,9,,7,7,8,,9,8,9,,8,9,9,,9,8.5,9,,0,0,0,,0,0,0,,,,,,,,,,7,0.7778,0.5385
+Nikki Glaser,Gleb Savchenko,Comedian,Ohio,United States,34,27,Eliminated Week 1,13,6,5.5,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,1,0.1111,0.0769
+Bobby Bones,Sharna Burgess,Radio Personality,Arkansas,United States,38,27,1st Place,1,7,6,7,,7,6,6.5,,8,7,8,,7,6,7,,7,7,7,,8,7,7,,9,8.5,9,,7.5,7.5,7.5,,9,9,9,,,,,,,,,,9,1,1
+Tinashe,Brandon Armstrong,Singer/Rapper,Kentucky,United States,25,27,Eliminated Week 4,10,8,7,8,,9,8,9,,9,9,9,,9,8,9,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,4,0.4444,0.3077
+Alexis Ren,Alan Bersten,Social Media Personality,California,United States,21,27,4th Place,4,7,7.5,7.5,,8,8.5,8,,9,8,9,,8,8,9,,10,9,10,,9,9,9,,9,9,9.5,,9.5,9.5,10,,9.5,9.5,9.5,,,,,,,,,,9,1,0.7692
+Joe Amabile,Jenna Johnson,TV Personality,Illinois,United States,32,27,Eliminated Week 8,6,5,4,5,,5.5,6,6,,6,6,6,,5,5,5,,6,5,6,,8,7,7,,8,7.5,8,,8,7.5,7.5,,0,0,0,,,,,,,,,,8,0.8889,0.6154
+Kate Flannery,Pasha Pashkov,Actor/Actress,Pennsylvania,United States,55,28,Eliminated Week 8,7,5,5,5,,7,7,7,,8,8,8,,7,7,6,6,8,8,8,,9,9,9,,8,8,8,,8.6666,8.6666,8.6666,,0,0,0,0,0,0,0,,0,0,0,,8,0.7273,0.5
+James Van Der Beek,Emma Slater,Actor/Actress,Connecticut,United States,42,28,Eliminated Week 10,5,7,7,7,,7,6,7,,8,7,8,,7,7,7,7,9,8,9,,9,9,9,,9,9,9,,10.6666,10.6666,10.6666,,9,8.5,9.5,9,8.5,8.5,8.5,,0,0,0,,10,0.9091,0.6667
+Kel Mitchell,Witney Carson,Actor/Actress,Illinois,United States,41,28,2nd Place,2,6,5,5,,7,6,7,,7,6,7,,8,8,8,8,9,8,9,,9,8,9,,8.5,8.5,8.5,,9.6666,9.6666,10.6666,,9,9,9.5,9.5,9.5,9.5,9.5,,10,9.5,10,,11,1,0.9167
+Ray Lewis,Cheryl Burke,Athlete,Florida,United States,44,28,Withdrew,11,5,5,5,,5,5,5,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,2,0.1818,0.1667
+Lamar Odom,Peta Murgatroyd,Athlete,New York,United States,39,28,Eliminated Week 4,10,5,3,3,,4,4,4,,4,4,4,,5,7,4,4,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,4,0.3636,0.25
+Sailor Brinkley-Cook,Valentin Chmerkovskiy,Model,New York,United States,21,28,Eliminated Week 6,9,6,6,6,,6,6,6,,7,8,8,,7,8,8,8,8,8,8,,9,9,9,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,6,0.5455,0.3333
+Sean Spicer,Lindsay Arnold,Politician,New York,United States,48,28,Eliminated Week 9,6,4,4,4,,6,5,5,,5,5,5,,5,6,5,5,7,6,6,,7,7,7,,7,7,7,,7,7,6,,6.5,6,6.5,6,0,0,0,,0,0,0,,9,0.8182,0.5833
+Mary Wilson,Brandon Armstrong,Singer/Rapper,Nevada,United States,75,28,Eliminated Week 2,12,6,5,6,,5,5,5,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,2,0.1818,0.0833
+Lauren Alaina,Gleb Savchenko,Singer/Rapper,Georgia,United States,24,28,4th Place,4,7,6,6,,6,6,7,,6,7,7,,8,8,8,8,8,7,8,,9,8,9,,9,9,9,,8,8,8,,9,9,8.5,8.5,9,9,9,,9.5,9.5,9.5,,11,1,0.75
+Ally Brooke,Sasha Farber,Singer/Rapper,Texas,United States,26,28,3rd Place,3,5,5,6,,7,6,7,,8,8,8,,8,8,8,8,9,9,9,,8,9,8,,9,9,9,,10,10,10,,10,10,10,10,10,9.5,10,,10,10,10,,11,1,0.8333
+Karamo Brown,Jenna Johnson,TV Personality,Texas,United States,38,28,Eliminated Week 7,8,6,5,6,,7,5,7,,5,5,6,,7,7,7,7,7,7,7,,9,8,8,,8.5,8,8,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,7,0.6364,0.4167
+Hannah Brown,Alan Bersten,TV Personality,Alabama,United States,24,28,1st Place,1,7,7,6,,8,8,8,,7,7,7,,8,8,8,8,9,7,9,,8,8,8,,8.5,9,8.5,,10.6666,9.6666,10.6666,,9,8.5,9,9,9,9,9,,10,9.5,9.5,,11,1,1
+Anne Heche,Keo Motsepe,Actor/Actress,Ohio,United States,51,29,Eliminated Week 4,13,6,6,6,,6,6,6,,5,5,5,,7,7,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,4,0.3636,0.2
+Jesse Metcalfe,Sharna Burgess,Actor/Actress,California,United States,41,29,Eliminated Week 5,12,6,6,6,,7,7,6,,7,6,7,,7,7,7,,7,6,6,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,5,0.4545,0.2667
+Chrishell Stause,Gleb Savchenko,Actor/Actress,Kentucky,United States,39,29,Eliminated Week 8,8,4,5,4,,6,6,6,,7,7,8,,7,8,7,,6,6,7,,8,8,8,,9,9,8,,9,9,9,,0,0,0,,0,0,0,,0,0,0,,8,0.7273,0.5333
+Skai Jackson,Alan Bersten,Actor/Actress,New York,United States,18,29,Eliminated Week 10,5,7,7,7,,5,5,5,,6,6,6,,10,9,9,,8,8,8,,6,6,6,,9,9,9,,8.6666,9.6666,8.6666,,9.6666,9.6666,9.6666,,9.5,9.5,9.5,,0,0,0,,10,0.9091,0.7333
+Justina Machado,Sasha Farber,Actor/Actress,Illinois,United States,48,29,4th Place,4,7,7,7,,7,7,7,,7,6,6,,8,8,8,,8,8,8,,9,9,9,,9,9,8,,9.6666,9.6666,9.6666,,8.6666,8.6666,8.6666,,9.5,10,9.5,,10,10,10,,11,1,0.8
+Charles Oakley,Emma Slater,Athlete,Ohio,United States,56,29,Eliminated Week 2,15,4,4,4,,5,5,5,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,2,0.1818,0.0667
+Veron Davis,Peta Murgatroyd,Athlete,Washington D.C.,United States,36,29,Eliminated Week 6,11,5,6,6,,6,6,6,,8,7,7,,8,7,7,,7,7,7,,7,7,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,6,0.5455,0.3333
+Johnny Weir,Britt Stewart,Athlete,Pennsylvania,United States,36,29,Eliminated Week 10,6,6,6,6,,6,6,6,,8,8,8,,8,8,8,,10,10,9,,7,8,7,,9,9,9,,10,10,10,,10,10,10,,9.5,9.5,9.5,,0,0,0,,10,0.9091,0.6667
+Nev Schulman,Jenna Johnson,Producer,New York,United States,35,29,2nd Place,2,7,7,6,,7,7,7,,8,8,8,,8,8,8,,8,9,9,,9,9,8,,10,10,10,,10,10,10,,9.6666,9.6666,9.6666,,10,10,10,,10,10,10,,11,1,0.9333
+AJ McLean,Cheryl Burke,Singer/Rapper,Florida,United States,42,29,Eliminated Week 9,7,6,6,6,,7,6,6,,7,7,7,,8,8,8,,8,8,8,,9,9,9,,9,8,9,,9,9,9,,7.6666,8.6666,8.6666,,0,0,0,,0,0,0,,9,0.8182,0.6
+Nelly,Daniella Karagach,Singer/Rapper,Texas,United States,45,29,3rd Place,3,5,5,6,,6,6,6,,6,6,6,,7,7,7,,8,8,8,,8,8,8,,9,9,9,,8,8,8,,8,8,8,,9.5,9,9.5,,9.5,9.5,9.5,,11,1,0.8667
+Kaitlyn Bristowe,Artem Chigvintsev,TV Personality,,Canada,35,29,1st Place,1,6,7,7,,7,8,7,,8,7,8,,9,8,8,,9,9,9,,9,9,9,,7,9,8,,9,10,9,,10,10,10,,10,10,10,,10,10,10,,11,1,1
+Carole Baskin,Pasha Pashkov,TV Personality,Texas,United States,59,29,Eliminated Week 3,14,4,4,3,,6,5,5,,5,4,3,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,3,0.2727,0.1333
+Monica Aldama,Valentin Chmerkovskiy,TV Personality,Alabama,United States,48,29,Eliminated Week 7,10,6,7,6,,5,6,5,,7,7,7,,8,8,8,,9,9,8,,9,9,9,,7,8,7,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,7,0.6364,0.4
+Jeannie Mai,Brandon Armstrong,TV Personality,California,United States,41,29,Withdrew,9,6,6,6,,6,6,6,,7,7,8,,7,7,7,,8,8,8,,8,8,9,,8,9,8,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,7,0.6364,0.4667
+Martin Kove,Britt Stewart,Actor/Actress,New York,United States,75,30,Eliminated Week 2,15,4,3,3,3,4,3,4,4,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,2,0.2,0.0667
+Brian Austin Green,Sharna Burgess,Actor/Actress,California,United States,48,30,Eliminated Week 4,13,6,6,6,6,6,5,6,6,7,6,6,,6.5,6,7,6.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,4,0.4,0.2
+Melora Hardin,Artem Chigvintsev,Actor/Actress,Texas,United States,54,30,Eliminated Week 9,6,7,6,7,6,7,6,7,7,8,7,8,,9,9.5,9,9,9,9,9,9,8,9,8,9,9.5,9.5,9.5,9.5,10.5,10.5,10.5,10.5,8.5,9.5,9,9,0,0,0,0,,,,,9,0.9,0.6667
+Matt James,Lindsay Arnold,Athlete,North Carolina,United States,29,30,Eliminated Week 4,12,6,6,6,6,5,5,6,6,7,6,7,,7,6.5,7.5,7.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,4,0.4,0.2667
+"Mike ""The Miz"" Mizanin",Witney Carson,Athlete,Ohio,United States,40,30,Eliminated Week 7,9,6,6,6,6,7,5,7,7,7,7,8,,8.5,7.5,8.5,8,8,8,8,8,9,8,9,8,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,,,,,7,0.7,0.4667
+Suni Lee,Sasha Farber,Athlete,Minnesota,United States,18,30,Eliminated Week 9,5,7,7,7,7,7,7,7,7,7,7,7,,8.5,8,9,8.5,9,9,9,9,9,9,9,9,8.25,8.25,8.25,9.25,10.5,10.5,10.5,10.5,10,9,9.5,9,0,0,0,0,,,,,9,0.9,0.7333
+Iman Shumpert,Daniella Karagach,Athlete,Illinois,United States,31,30,1st Place,1,7,4,5,5,7,6,6,6,7,6,6,,8.5,6.5,8.5,8,7,7,7,7,10,10,10,10,9.5,7.5,8.5,8.5,9,8,9,9,9.5,9,10,9,10,10,10,10,,,,,10,1,1
+Cody Rigsby,Cheryl Burke,Fitness Instructor,California,United States,34,30,3rd Place,3,6,6,6,6,6,6,6,6,6,6,6,,7.5,6.5,7.5,7.5,8,8,8,8,9,9,9,9,8.5,8.5,9.5,9.5,10,10,9,9,9,9,8.5,9,9.5,9.5,9.5,9.5,,,,,10,1,0.8667
+Melanie C,Gleb Savchenko,Singer/Rapper,,England,47,30,Eliminated Week 5,11,7,7,6,7,7,7,8,8,7,7,8,,8,8,8.5,8.5,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,5,0.5,0.3333
+Jimmie Allen,Emma Slater,Singer/Rapper,Delaware,United States,36,30,Eliminated Week 8,7,6,5,6,5,7,6,7,7,6,6,8,,8.5,7.5,8.5,8,8,8,9,9,10,9,10,9,9,9,10,10,8,8,8,8,0,0,0,0,0,0,0,0,,,,,8,0.8,0.6
+Olivia Jade,Valentin Chmerkovskiy,Social Media Personality,California,United States,21,30,Eliminated Week 8,8,7,6,6,6,7,6,7,7,8,8,8,,8,9,9,9,9,9,9,9,9,9,9,9,11,9,11,11,9,9,9,9,0,0,0,0,0,0,0,0,,,,,8,0.8,0.5333
+JoJo Siwa,Jenna Johnson,Social Media Personality,Nebraska,United States,18,30,2nd Place,2,8,7,7,7,8,8,7,8,8,8,8,,8.5,8.5,9,9,10,10,10,10,10,10,10,10,10,9,10,10,10.5,9.5,10.5,10.5,10,10,10,10,10,10,10,10,,,,,10,1,0.9333
+Christine Chiu,Pasha Pashkov,TV Personality,,Taiwan China,38,30,Eliminated Week 3,14,6,7,6,6,6,6,6,6,7,7,7,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,3,0.3,0.1333
+Kenya Moore,Brandon Armstrong,TV Personality,Michigan,United States,50,30,Eliminated Week 6,10,7,6,6,7,6,6,6,6,7,7,7,,7,7,8,7.5,9,9,9,9,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,6,0.6,0.4
+Amanda Kloots,Alan Bersten,TV Personality,Ohio,United States,39,30,4th Place,4,7,7,7,7,8,8,8,8,8,8,8,,8.5,8.5,8.5,8.5,10,10,9,10,9,9,10,10,8.25,8.25,8.25,9.25,10.5,10.5,10.5,10.5,9.5,10,10,10,9.5,10,9.5,10,,,,,10,1,0.8
+Jason Lewis,Peta Murgatroyd,Actor/Actress,California,United States,51,31,Eliminated Week 1,16,5,4,4,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,1,0.1,0.0625
+Cheryl Ladd,Louis van Amstel,Actor/Actress,South Dakota,United States,71,31,Eliminated Week 3,14,6,5,5,5,5,6,5,5,6,6,6,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,3,0.3,0.1875
+Selma Blair,Sasha Farber,Actor/Actress,Michigan,United States,50,31,Withdrew,12,7,7,7,7,7,7,7,7,7,7,7,7,8,8,8,8,10,10,10,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,5,0.5,0.3125
+Joseph Baena,Daniella Karagach,Actor/Actress,California,United States,24,31,Eliminated Week 5,11,6,5,6,6,6,6,6,6,8,7,7,7,7,7,7,7,9,8.5,9,8.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,5,0.5,0.375
+Trevor Donovan,Emma Slater,Actor/Actress,California,United States,39,31,Eliminated Week 9,6,5,5,5,6,7,7,8,8,7,6,7,7,7,7,7,7,9,9,9,9,9,8,8,9,10,9,10,10,9.25,10.25,9.25,10.25,8.5,8,8,8,0,0,0,0,,,,,9,0.9,0.6875
+Daniel Durant,Britt Stewart,Actor/Actress,Michigan,United States,32,31,Eliminated Week 9,5,7,6,7,7,7,7,7,8,8,7,8,8,7,7,7,8,8.125,8.125,8.625,8.625,9,8,8,9,9,8.5,9.5,9.5,10,9,10,10,9,8,9,8.5,0,0,0,0,,,,,9,0.9,0.75
+Wayne Brady,Witney Carson,Comedian,Georgia,United States,50,31,3rd Place,3,7,7,7,8,8,8,8,8,8,8,8,9,9,9,9,9,10.125,10.125,10.125,10.625,8,9,8,9,9.5,9,9.5,10,11.25,11.25,11.25,11.25,9.5,9,9,9,9.5,9.5,9.5,9.5,,,,,10,1,0.875
+Sam Champion,Cheryl Burke,News Anchor,Kentucky,United States,61,31,Eliminated Week 4,13,5,5,5,5,6,6,7,7,6,6,6,7,7,6,6,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,4,0.4,0.25
+Jessie James Decker,Alan Bersten,Singer/Rapper,,Italy,34,31,Eliminated Week 6,10,5,5,5,5,7,6,6,6,6,6,7,7,8,7,8,8,8.875,8.875,9.375,8.875,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,6,0.6,0.4375
+Jordin Sparks,Brandon Armstrong,Singer/Rapper,Arizona,United States,32,31,Eliminated Week 7,9,7,6,6,7,7,6,7,7,7,7,7,8,9,8,8,9,8.875,8.375,8.875,9.375,9,8,8,9,8.5,9,8.5,8.5,0,0,0,0,0,0,0,0,0,0,0,0,,,,,7,0.7,0.5
+Heidi D'Amelio,Artem Chigvintsev,Social Media Personality,Louisiana,United States,50,31,Eliminated Week 8,8,6,6,6,6,7,7,7,7,8,8,8,8,9,8,8,9,9.625,10.125,9.625,9.625,9,9,9,9,8.5,9,9,8.5,9,8,9,9,0,0,0,0,0,0,0,0,,,,,8,0.8,0.5625
+Charli D'Amelio,Mark Ballas,Social Media Personality,Connecticut,United States,18,31,1st Place,1,8,8,8,8,8,8,8,8,8,8,8,9,9,9,9,9,10.375,10.375,10.375,10.875,10,10,10,10,9.5,9.5,10,10,11.25,11.25,11.25,11.25,10,10,10,10,10,10,10,10,,,,,10,1,1
+Teresa Giudice,Pasha Pashkov,TV Personality,New Jersey,United States,50,31,Eliminated Week 2,15,5,5,5,5,6,5,6,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,2,0.2,0.125
+Vinny Guadagnino,Koko Iwasaki,TV Personality,New York,United States,34,31,Eliminated Week 8,7,4,4,5,4,7,6,7,7,6,5,6,6,8,7,7,7,7.75,7.75,7.75,7.75,7,7,7,7,7.5,8,8,8,8,7,7,7,0,0,0,0,0,0,0,0,,,,,8,0.8,0.625
+Shangela,Gleb Savchenko,TV Personality,Texas,United States,40,31,4th Place,4,7,7,7,7,7,7,7,7,8,7,7,8,8,8,8,8,9.75,9.25,9.75,9.75,9,9,9,9,9,9.5,9,9,11.25,10.25,10.25,10.25,9.5,9,9,9,9.5,9.5,9.5,9.5,,,,,10,1,0.8125
+Gabby Windey,Valentin Chmerkovskiy,TV Personality,Illinois,United States,31,31,2nd Place,2,7,7,7,7,8,8,8,8,8,8,8,9,9,9,9,9,10.25,10.25,10.25,10.25,9,9,9,10,9,9,8.5,9,10,10,10,10,10,10,10,10,10,10,10,10,,,,,10,1,0.9375
+Jamie Lynn Spears,Alan Bersten,Actor/Actress,Mississippi,United States,32,32,Eliminated Week 2,13,5,5,5,,6,5,5,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,2,0.1818,0.1429
+Mira Sorvino,Gleb Savchenko,Actor/Actress,New York,United States,55,32,Eliminated Week 5,10,6,5,6,,6,6,6,,6,6,7,7,7,7,7,,7,8,7,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,5,0.4545,0.3571
+Barry Williams,Peta Murgatroyd,Actor/Actress,California,United States,68,32,Eliminated Week 8,7,6,5,5,,5,5,5,,6,6,7,6,6,6,6,,8,8,8,,8.25,7.25,8.25,8.25,8,8,8.5,8,8.75,8.75,8.75,8.75,0,0,0,0,0,0,0,,0,0,0,,8,0.7273,0.5714
+Alyson Hannigan,Sasha Farber,Actor/Actress,Washington D.C.,United States,49,32,5th Place,5,5,4,4,,7,6,6,,6,6,6,6,6,6,6,,7,7,7,,7.5,7.5,7.5,8.5,8.5,8.5,9.5,8.5,8.75,8.75,9.75,8.75,7.75,7.75,8.75,7.75,8.5,8.5,8.5,,9,8.5,9,,11,1,0.7143
+Xochitl Gomez,Valentin Chmerkovskiy,Actor/Actress,California,United States,17,32,1st Place,1,6,6,6,,8,8,8,,8,8,8,8,9,9,9,,9,10,9,,10.25,10.25,11.25,10.25,9.5,9,9.5,9,10,10,10,10,9.75,9.75,10.75,10.75,10,10,10,,10,10,10,,11,1,1
+Adrian Peterson,Britt Stewart,Athlete,Texas,United States,38,32,Eliminated Week 4,11,6,6,6,,5,5,5,,5,5,6,6,7,7,7,,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,4,0.3636,0.2857
+Matt Walsh,Koko Iwasaki,Comedian,Illinois,United States,58,32,Eliminated Week 1,14,4,4,4,,0,0,0,,0,0,0,0,0,0,0,,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,1,0.0909,0.0714
+Tyson Beckford,Jenna Johnson,Model,New York,United States,52,32,Eliminated Week 3,12,4,4,4,,6,6,6,,5,5,5,5,0,0,0,,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,3,0.2727,0.2143
+Jason Mraz,Daniella Karagach,Singer/Rapper,Virginia,United States,46,32,2nd Place,2,7,7,7,,8,8,8,,9,8,9,8,8,8,8,,9,9,9,,9.75,9.75,9.75,9.75,8.5,8.5,10,9,8,9,8,8,10.75,10.75,10.75,10.75,9.5,9.5,9.5,,10,10,10,,11,1,0.9286
+Lele Pons,Brandon Armstrong,Social Media Personality,,Venezuela,27,32,Eliminated Week 7,8,6,7,6,,7,7,7,,7,6,7,7,7,7,8,,8,8,8,,9,9,9,10,9.5,9,9,9,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,7,0.6364,0.5
+Harry Jowsey,Rylee Arnold,TV Personality,,Australia,26,32,Eliminated Week 9,6,4,4,4,,5,5,5,,6,5,7,6,7,7,7,,6,6,6,,7.25,7.25,7.25,7.25,8,8,8,8,7,7,7,7,8,7,8,7,0,0,0,,0,0,0,,9,0.8182,0.6429
+Mauricio Umansky,Emma Slater,TV Personality,,Mexico,53,32,Eliminated Week 6,9,5,5,5,,4,4,4,,7,5,6,5,7,6,6,,8,8,8,,8.5,8.5,7.5,8.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,6,0.5455,0.4286
+Charity Lawson,Artem Chigvintsev,TV Personality,Georgia,United States,27,32,4th Place,4,7,7,8,,7,7,7,,8,8,8,8,8,8,8,,10,9,9,,9.75,9.75,8.75,9.75,9,9,9,9,9.75,9.75,9.75,9.75,9,10,9,10,10,9.5,10,,9.5,10,10,,11,1,0.7857
+Ariana Madix,Pasha Pashkov,TV Personality,Florida,United States,38,32,3rd Place,3,7,7,7,,6,7,7,,9,8,9,8,8,9,8,,8,8,8,,10,10,10,11,9,9,10,9,9.75,10.75,10.75,10.75,9,9,9,10,9.5,9.5,10,,9.5,10,10,,11,1,0.8571
+Tori Spelling,Pasha Pashkov,Actor/Actress,California,United States,51,33,Eliminated Week 2,12,6,6,5,,7,6,6,,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,2,0.2222,0.1538
+Eric Roberts,Britt Stewart,Actor/Actress,California,United States,68,33,Eliminated Week 3,10,5,5,5,,6,4,5,,6.5,5.5,5.5,5.5,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,3,0.3333,0.3077
+Reginald VelJohnson,Emma Slater,Actor/Actress,New York,United States,74,33,Eliminated Week 3,10,6,5,5,,6,4,5,,6,5,5,5,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,3,0.3333,0.3077
+Chandler Kinney,Brandon Armstrong,Actor/Actress,California,United States,24,33,3rd Place,3,8,7,8,,8,8,8,,8.5,8.5,9,8.5,8,8,8,8,9,9,9,,10,11,11,,10,10,10,,9.5,9.5,10,,10,10,10,,,,,,,,,,9,1,0.8462
+Dwight Howard ,Daniella Karagach,Athlete,Georgia,United States,38,33,Eliminated Week 7,6,8,7,7,,8,7,7,,7,6.5,6,6.5,7,8,7,7,8,8,8,,11,10,10,,8,8,8,,0,0,0,,0,0,0,,,,,,,,,,7,0.7778,0.6154
+Danny Amendola,Witney Carson,Athlete,Texas,United States,39,33,5th Place,5,7,6,7,,7,7,7,,7.5,7.5,8,7,9,9,9,9,8.5,8.5,8.5,,10,9,9,,8.5,8.5,8.5,,9,9,9,,9,9.5,9.5,,,,,,,,,,9,1,0.6923
+Stephen Nedoroscik,Rylee Arnold,Athlete,Florida,United States,26,33,4th Place,4,7,7,7,,8,7,7,,8,8,7.5,7.5,8,9,8,8,8,8,8,,10,9,9,,9.5,9,8.5,,9,8.5,9,,10,9.5,10,,,,,,,,,,9,1,0.7692
+Ilona Maher,Alan Bersten,Athlete,California,United States,28,33,2nd Place,2,6,6,6,,7,7,7,,7.5,7,7,6.5,8,8,8,8,9,8.5,8.5,,8,8,8,,9,8.5,8.5,,9.5,9.5,9.5,,9.5,9.5,9.5,,,,,,,,,,9,1,0.9231
+Anna Delvey,Ezra Sosa,Con artist,,Russia,33,33,Eliminated Week 2,12,6,6,6,,6,5,6,,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,2,0.2222,0.1538
+Brooks Nader,Gleb Savchenko,Model,New York,United States,27,33,Eliminated Week 4,9,6,6,6,,7,6,7,,7.5,7.5,8,7.5,8,8,8,8,0,0,0,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,4,0.4444,0.3846
+Phaedra Parks,Val Chmerkovskiy,TV Personality,Georgia,United States,51,33,Eliminated Week 5,8,7,6,6,,7,7,7,,7.5,7.5,6,7,8,8,8,8,8,8,8,,0,0,0,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,5,0.5556,0.4615
+Jenn Tran,Sasha Farber,TV Personality,Florida,United States,26,33,Eliminated Week 6,7,7,6,6,,6,6,7,,8,8,7,8,8,8,8,8,8.5,8.5,8.5,,11,10,10,,0,0,0,,0,0,0,,0,0,0,,,,,,,,,,6,0.6667,0.5385
+Joey Graziadei,Jenna Johnson,TV Personality,Louisiana,United States,29,33,1st Place,1,7,7,7,,8,7,7,,9,9,8.5,8.5,9,9,9,9,8.5,8.5,9,,11,10,11,,9,9.5,9,,9.5,10,9.5,,9.5,10,10,,,,,,,,,,9,1,1
+Corey Feldman,Jenna Johnson,Actor/Actress,California,United States,54,34,Eliminated Week 2,13,4,5,,,5,5,5,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,2,0.1818,0.1429
+Danielle Fishel,Pasha Pashkov,Actor/Actress,California,United States,44,34,Eliminated Week 8,8,6,6,,,7,6,6,,7,7,7,,7,7,7,,7,7,7,8,9,9,9,9,8.5,8.5,8.5,9.5,9.5,9,9.5,9,0,0,0,0,0,0,0,,0,0,0,,8,0.7273,0.5
+Elaine Hendrix,Alan Bersten (Rashad Jennings week 9),Actor/Actress,Georgia,United States,55,34,5th Place,5,6,6,,,7,7,7,,7,7,7,,8,8,8,,8,7,7,8,9,9,9,9,8,8,8,8,9,9.5,10,9,9,9,9,9,9.5,9.5,9.5,,9.6666,9.6666,9.6666,,11,1,0.7143
+Baron Davis,Britt Stewart,Athlete,California,United States,46,34,Eliminated Week 2,13,5,5,,,6,6,6,,0,0,0,,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,2,0.1818,0.1429
+Jordan Chiles,Ezra Sosa (Apolo Anton Ohno week 9),Athlete,Texas,United States,24,34,3rd Place,3,5,5,,,8,7,7,,8,8,8,,8,8,8,,8,8,8,8,10,9,10,10,10,9,9,10,10,9.5,10,9.5,9.5,10.5,9.5,9.5,9.5,9.5,9.5,,9.6666,10,10,,11,1,0.8571
+Andy Richter,Emma Slater/Kaitlyn Bristowe (week 9),Comedian,California,United States,59,34,Eliminated Week 9,7,5,4,,,6,5,5,,6,6,6,,6,6,6,,6,6,6,6,7,6,7,7,7.25,7.25,7.25,7.25,8,8.5,9.5,8,8,7,7,7,0,0,0,,0,0,0,,9,0.8182,0.5714
+Robert Irwin,Witney Carson (Xoshitl Gomez week 9),Conservationist,,Australia,22,34,1st Place,1,8,7,,,8,7,7,,8,7,7,,7,7,8,,8,9,9,9,9,9,9,9,10.75,9.75,9.75,10.75,9,9.5,10,9.5,10.5,10.5,10.5,10.5,10,9.5,10,,9.6666,10,10,,11,1,1
+Hilaria Baldwin,Gleb Savchenko,Entrepreneur,New York,United States,41,34,Eliminated Week 4,11,7,7,,,7,7,7,,7,8,7,,8,7,8,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,4,0.3636,0.2857
+Lauren Jauregui,Brandon Armstrong,Singer/Rapper,Florida,United States,29,34,Eliminated Week 3,12,7,6,,,7,7,7,,6,6,6,,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,3,0.2727,0.2143
+Scott Hoying,Rylee Arnold,Singer/Rapper,California,United States,34,34,Eliminated Week 6,10,5,5,,,6,6,6,,8,7,7,,7,7,7,,7,8,7,8,7,7,7,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,6,0.5455,0.3571
+Alix Earle,Val Chmerkovskiy (Joey Graziadei week 9),Social media personality,Florida,United States,24,34,2nd Place,2,7,6,,,7,7,7,,8,7,8,,8,8,8,,8,9,9,9,9,9,8,9,11,11,10,11,9.5,10,9.5,9.5,10,10,10,10,9.5,10,9.5,,10,10,10,,11,1,0.9286
+Jen Affleck,Jan Ravnik,TV Personality,Utah,United States,26,34,Eliminated Week 7,9,6,6,,,8,7,7,,7,6,6,,7,8,8,,8,7,7,7,8,8,8,8,8.5,8.5,8.5,8.5,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,7,0.6364,0.4286
+Whitney Leavitt,Mark Ballas,TV Personality,Utah,United States,32,34,Eliminated Week 10,6,7,8,,,7,7,8,,8,8,8,,9,8,8,,9,8,8,8,10,9,10,10,10.25,10.25,10.25,11.25,9.5,10,10,10,10.5,10.5,10.5,10.5,9,10,10,,0,0,0,,10,0.9091,0.6429
+Dylan Efron,Daniella Karagach (Rumer Willis week 9),TV Personality,California,United States,33,34,4th Place,4,5,5,,,7,6,7,,7,8,8,,7,8,8,,9,9,9,9,8,8,8,8,9.75,9.75,8.75,9.75,9,9.5,10,9.5,10.5,10.5,10.5,10.5,9,9,9.5,,9.6666,9.6666,10,,11,1,0.7857
