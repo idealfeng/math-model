@@ -331,6 +331,14 @@ class DWTSDataPreprocessor:
             else:
                 self.weekly_df[f"{col}_normalized"] = 0.0
 
+        # Fill remaining NaNs to keep torch tensors finite
+        self.weekly_df = self.weekly_df.fillna(0)
+
+        # Integer id for contestant embedding (stable within this dataset)
+        self.weekly_df["contestant_idx"] = (
+            pd.factorize(self.weekly_df["contestant_id"])[0].astype(int)
+        )
+
         return self
 
 
@@ -446,13 +454,19 @@ class UnifiedDWTSModel(nn.Module):
         tau=0.5,
         hidden=32,
         dropout=0.1,
+        num_contestants=None,
+        emb_dim=8,
     ):
         super().__init__()
         self.tau = tau
 
         # Fan-utility network (allows nonlinear interactions).
         # We also allow current performance (judge score) to influence fan vote as a proxy for "performance effect".
-        in_dim = n_static + n_dynamic + n_context + 1  # + judge_score_z
+        if num_contestants is None:
+            raise ValueError("num_contestants is required for the unified model.")
+
+        self.contestant_emb = nn.Embedding(num_contestants, emb_dim)
+        in_dim = n_static + n_dynamic + n_context + 1 + emb_dim  # + judge_score_z + emb
         self.fan_net = nn.Sequential(
             nn.Linear(in_dim, hidden),
             nn.ReLU(),
@@ -476,7 +490,7 @@ class UnifiedDWTSModel(nn.Module):
         exp_eta = torch.exp(eta)
         return exp_eta / (exp_eta.sum() + 1e-12)
 
-    def compute_fan_prob(self, x_static, x_dynamic, x_context, judge_scores):
+    def compute_fan_prob(self, x_static, x_dynamic, x_context, judge_scores, contestant_idx):
         # Standardize judge scores within the week to a stable scale (performance effect).
         mean = judge_scores.mean()
         std = judge_scores.std(unbiased=False)
@@ -485,8 +499,9 @@ class UnifiedDWTSModel(nn.Module):
         else:
             judge_z = (judge_scores - mean) / std
 
+        emb = self.contestant_emb(contestant_idx)  # [n, emb_dim]
         x = torch.cat(
-            [x_static, x_dynamic, x_context, judge_z.unsqueeze(1)], dim=1
+            [x_static, x_dynamic, x_context, judge_z.unsqueeze(1), emb], dim=1
         )  # [n, in_dim]
         eta = self.fan_net(x).squeeze(1)  # [n]
         eta = torch.clamp(eta, -10, 10)
@@ -521,8 +536,10 @@ class UnifiedDWTSModel(nn.Module):
         # 历史规则：Season 1-2 和 >=28 用 rank，否则用 percentage
         return "rank" if (season in [1, 2] or season >= 28) else "percentage"
 
-    def forward(self, x_static, x_dynamic, x_context, judge_scores, season: int):
-        P_fan = self.compute_fan_prob(x_static, x_dynamic, x_context, judge_scores)
+    def forward(self, x_static, x_dynamic, x_context, judge_scores, contestant_idx, season: int):
+        P_fan = self.compute_fan_prob(
+            x_static, x_dynamic, x_context, judge_scores, contestant_idx
+        )
         method = self.choose_method_by_season(int(season))
         combined_score = self.combine_scores(P_fan, judge_scores, method)
         return combined_score, P_fan, method
@@ -666,6 +683,7 @@ def train_unified_model(
     ]
     context_features = ["is_all_star", "no_elim", "multi_elim"]
 
+    num_contestants = int(weekly_df["contestant_idx"].max()) + 1
     model = UnifiedDWTSModel(
         n_static=len(static_features),
         n_dynamic=len(dynamic_features),
@@ -673,6 +691,8 @@ def train_unified_model(
         tau=0.5,
         hidden=hidden,
         dropout=dropout,
+        num_contestants=num_contestants,
+        emb_dim=8,
     ).to(device)
 
     criterion = DWTSLoss()
@@ -702,12 +722,24 @@ def train_unified_model(
         judge_scores = torch.tensor(group["judge_score"].values, dtype=torch.float32).to(
             device
         )
-        eliminated_mask = torch.tensor(
-            group["is_eliminated"].values, dtype=torch.float32
-        ).to(device)
+        eliminated_mask = torch.tensor(group["is_eliminated"].values, dtype=torch.float32).to(
+            device
+        )
+        contestant_idx = torch.tensor(group["contestant_idx"].values, dtype=torch.long).to(
+            device
+        )
 
         batches.append(
-            (season, no_elim, x_static, x_dynamic, x_context, judge_scores, eliminated_mask)
+            (
+                season,
+                no_elim,
+                x_static,
+                x_dynamic,
+                x_context,
+                judge_scores,
+                contestant_idx,
+                eliminated_mask,
+            )
         )
 
     losses = []
@@ -716,9 +748,18 @@ def train_unified_model(
         epoch_loss = 0.0
         num_weeks = 0
 
-        for season, no_elim, x_static, x_dynamic, x_context, judge_scores, eliminated_mask in batches:
+        for (
+            season,
+            no_elim,
+            x_static,
+            x_dynamic,
+            x_context,
+            judge_scores,
+            contestant_idx,
+            eliminated_mask,
+        ) in batches:
             combined_scores, _, _ = model(
-                x_static, x_dynamic, x_context, judge_scores, season
+                x_static, x_dynamic, x_context, judge_scores, contestant_idx, season
             )
             loss = criterion(combined_scores, eliminated_mask, no_elim)
 
@@ -834,9 +875,12 @@ def predict_fan_votes_unified(model, weekly_df):
                 judge_scores = torch.tensor(
                     group["judge_score"].values, dtype=torch.float32
                 ).to(device)
+                contestant_idx = torch.tensor(
+                    group["contestant_idx"].values, dtype=torch.long
+                ).to(device)
 
                 _, P_fan, method_used = model(
-                    x_static, x_dynamic, x_context, judge_scores, season
+                    x_static, x_dynamic, x_context, judge_scores, contestant_idx, season
                 )
                 predictions.extend(P_fan.cpu().numpy().tolist())
                 methods.extend([method_used] * len(group))
@@ -895,8 +939,13 @@ def counterfactual_analysis(model, weekly_df):
                 judge_scores = torch.tensor(
                     group["judge_score"].values, dtype=torch.float32
                 ).to(device)
+                contestant_idx = torch.tensor(
+                    group["contestant_idx"].values, dtype=torch.long
+                ).to(device)
 
-                P_fan = model.compute_fan_prob(x_static, x_dynamic, x_context)
+                P_fan = model.compute_fan_prob(
+                    x_static, x_dynamic, x_context, judge_scores, contestant_idx
+                )
                 score_rank = model.combine_scores(P_fan, judge_scores, "rank")
                 score_pct = model.combine_scores(P_fan, judge_scores, "percentage")
 
@@ -1135,8 +1184,12 @@ def evaluate_predictions_unified(weekly_df, model):
                 device
             )
 
+            contestant_idx = torch.tensor(
+                group["contestant_idx"].values, dtype=torch.long
+            ).to(device)
+
             combined_scores, _, _ = model(
-                x_static, x_dynamic, x_context, judge_scores, season
+                x_static, x_dynamic, x_context, judge_scores, contestant_idx, season
             )
 
             pred_pos = int(torch.argmin(combined_scores).item())
@@ -1215,7 +1268,13 @@ def compare_elimination_methods(weekly_df, model):
                 device
             )
 
-            P_fan = model.compute_fan_prob(x_static, x_dynamic, x_context)
+            contestant_idx = torch.tensor(
+                group["contestant_idx"].values, dtype=torch.long
+            ).to(device)
+
+            P_fan = model.compute_fan_prob(
+                x_static, x_dynamic, x_context, judge_scores, contestant_idx
+            )
             score_rank = model.combine_scores(P_fan, judge_scores, "rank")
             score_pct = model.combine_scores(P_fan, judge_scores, "percentage")
 
