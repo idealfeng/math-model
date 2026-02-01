@@ -3,55 +3,55 @@ season_week,season,actual_method,actual_elim,pred_rank,pred_pct,methods_agree,ra
 10_3,10,percentage,Buzz Aldrin_Ashly DelGrosso_10,Buzz Aldrin_Ashly DelGrosso_10,Buzz Aldrin_Ashly DelGrosso_10,True,True,True
 10_4,10,percentage,Aiden Turner_Edyta Sliwinska_10,Kate Gosselin_Tony Dovolani_10,Kate Gosselin_Tony Dovolani_10,True,False,False
 10_5,10,percentage,Kate Gosselin_Tony Dovolani_10,Kate Gosselin_Tony Dovolani_10,Kate Gosselin_Tony Dovolani_10,True,True,True
-10_6,10,percentage,Jake Pavelka_Chelsie Hightower_10,Jake Pavelka_Chelsie Hightower_10,Jake Pavelka_Chelsie Hightower_10,True,True,True
+10_6,10,percentage,Jake Pavelka_Chelsie Hightower_10,Jake Pavelka_Chelsie Hightower_10,Niecy Nash_Louis van Amstel_10,False,True,False
 10_7,10,percentage,Pamela Anderson_Damian Whitewood_10,Niecy Nash_Louis van Amstel_10,Niecy Nash_Louis van Amstel_10,True,False,False
 10_8,10,percentage,Niecy Nash_Louis van Amstel_10,Niecy Nash_Louis van Amstel_10,Niecy Nash_Louis van Amstel_10,True,True,True
 10_9,10,percentage,Chad Ochocinco_Cheryl Burke_10,Chad Ochocinco_Cheryl Burke_10,Chad Ochocinco_Cheryl Burke_10,True,True,True
-11_1,11,percentage,David Hasselhoff_Kym Johnson_11,The Situation_Karina Smirnoff_11,The Situation_Karina Smirnoff_11,True,False,False
+11_1,11,percentage,David Hasselhoff_Kym Johnson_11,Margaret Cho_Louis van Amstel_11,David Hasselhoff_Kym Johnson_11,False,False,True
 11_2,11,percentage,Michael Bolton_Chelsie Hightower_11,Michael Bolton_Chelsie Hightower_11,Michael Bolton_Chelsie Hightower_11,True,True,True
 11_3,11,percentage,Margaret Cho_Louis van Amstel_11,Margaret Cho_Louis van Amstel_11,Margaret Cho_Louis van Amstel_11,True,True,True
 11_4,11,percentage,The Situation_Karina Smirnoff_11,The Situation_Karina Smirnoff_11,The Situation_Karina Smirnoff_11,True,True,True
-11_5,11,percentage,Florence Henderson_Corky Ballas_11,Bristol Palin_Mark Ballas_11,Bristol Palin_Mark Ballas_11,True,False,False
-11_6,11,percentage,Audrina Patridge_Tony Dovolani_11,Kurt Warner_Anna Trebunskaya_11,Kurt Warner_Anna Trebunskaya_11,True,False,False
-11_7,11,percentage,Rick Fox_Cheryl Burke_11,Bristol Palin_Mark Ballas_11,Bristol Palin_Mark Ballas_11,True,False,False
-11_8,11,percentage,Kurt Warner_Anna Trebunskaya_11,Bristol Palin_Mark Ballas_11,Bristol Palin_Mark Ballas_11,True,False,False
-11_9,11,percentage,Brandy_Maksim Chmerkoskiy_11,Bristol Palin_Mark Ballas_11,Bristol Palin_Mark Ballas_11,True,False,False
-12_2,12,percentage,Mike Catherwood_Lacey Schwimmer_12,Wendy Williams_Tony Dovolani_12,Wendy Williams_Tony Dovolani_12,True,False,False
+11_5,11,percentage,Florence Henderson_Corky Ballas_11,Bristol Palin_Mark Ballas_11,Florence Henderson_Corky Ballas_11,False,False,True
+11_6,11,percentage,Audrina Patridge_Tony Dovolani_11,Kurt Warner_Anna Trebunskaya_11,Audrina Patridge_Tony Dovolani_11,False,False,True
+11_7,11,percentage,Rick Fox_Cheryl Burke_11,Bristol Palin_Mark Ballas_11,Rick Fox_Cheryl Burke_11,False,False,True
+11_8,11,percentage,Kurt Warner_Anna Trebunskaya_11,Bristol Palin_Mark Ballas_11,Kurt Warner_Anna Trebunskaya_11,False,False,True
+11_9,11,percentage,Brandy_Maksim Chmerkoskiy_11,Bristol Palin_Mark Ballas_11,Brandy_Maksim Chmerkoskiy_11,False,False,True
+12_2,12,percentage,Mike Catherwood_Lacey Schwimmer_12,Wendy Williams_Tony Dovolani_12,Mike Catherwood_Lacey Schwimmer_12,False,False,True
 12_3,12,percentage,Wendy Williams_Tony Dovolani_12,Wendy Williams_Tony Dovolani_12,Wendy Williams_Tony Dovolani_12,True,True,True
-12_4,12,percentage,Sugar Ray Leonard_Anna Trebunskaya_12,Kendra Wilkinson_Louis van Amstel_12,Kendra Wilkinson_Louis van Amstel_12,True,False,False
+12_4,12,percentage,Sugar Ray Leonard_Anna Trebunskaya_12,Kendra Wilkinson_Louis van Amstel_12,Sugar Ray Leonard_Anna Trebunskaya_12,False,False,True
 12_5,12,percentage,Petra Nemcova_Dmitry Chaplin_12,Kendra Wilkinson_Louis van Amstel_12,Kendra Wilkinson_Louis van Amstel_12,True,False,False
 12_6,12,percentage,Chris Jericho_Cheryl Burke_12,Chris Jericho_Cheryl Burke_12,Chris Jericho_Cheryl Burke_12,True,True,True
-12_7,12,percentage,Kendra Wilkinson_Louis van Amstel_12,Romeo_Chelsie Hightower_12,Kirstie Alley_Maksim Chmerkoskiy_12,False,False,False
-12_8,12,percentage,Romeo_Chelsie Hightower_12,Ralph Macchio_Karina Smirnoff_12,Ralph Macchio_Karina Smirnoff_12,True,False,False
+12_7,12,percentage,Kendra Wilkinson_Louis van Amstel_12,Romeo_Chelsie Hightower_12,Kendra Wilkinson_Louis van Amstel_12,False,False,True
+12_8,12,percentage,Romeo_Chelsie Hightower_12,Ralph Macchio_Karina Smirnoff_12,Romeo_Chelsie Hightower_12,False,False,True
 12_9,12,percentage,Ralph Macchio_Karina Smirnoff_12,Ralph Macchio_Karina Smirnoff_12,Ralph Macchio_Karina Smirnoff_12,True,True,True
 13_1,13,percentage,Metta World Peace (Ron)_Peta Murgatroyd_13,Metta World Peace (Ron)_Peta Murgatroyd_13,Metta World Peace (Ron)_Peta Murgatroyd_13,True,True,True
-13_2,13,percentage,Elisabetta Canalis_Valentin Chmerkovskiy_13,Chaz Bono_Lacey Schwimmer_13,Chaz Bono_Lacey Schwimmer_13,True,False,False
+13_2,13,percentage,Elisabetta Canalis_Valentin Chmerkovskiy_13,Chaz Bono_Lacey Schwimmer_13,Elisabetta Canalis_Valentin Chmerkovskiy_13,False,False,True
 13_3,13,percentage,Kristin Cavallari_Mark Ballas_13,Chaz Bono_Lacey Schwimmer_13,Chaz Bono_Lacey Schwimmer_13,True,False,False
-13_4,13,percentage,Chynna Phillips_Tony Dovolani_13,Carson Kressley_Anna Trebunskaya_13,Carson Kressley_Anna Trebunskaya_13,True,False,False
+13_4,13,percentage,Chynna Phillips_Tony Dovolani_13,Carson Kressley_Anna Trebunskaya_13,Chaz Bono_Lacey Schwimmer_13,False,False,False
 13_5,13,percentage,Carson Kressley_Anna Trebunskaya_13,Carson Kressley_Anna Trebunskaya_13,Carson Kressley_Anna Trebunskaya_13,True,True,True
 13_6,13,percentage,Chaz Bono_Lacey Schwimmer_13,Chaz Bono_Lacey Schwimmer_13,Chaz Bono_Lacey Schwimmer_13,True,True,True
-13_7,13,percentage,David Arquette_Kym Johnson_13,Nancy Grace_Tristan MacManus_13,Nancy Grace_Tristan MacManus_13,True,False,False
+13_7,13,percentage,David Arquette_Kym Johnson_13,Nancy Grace_Tristan MacManus_13,David Arquette_Kym Johnson_13,False,False,True
 13_8,13,percentage,Nancy Grace_Tristan MacManus_13,Nancy Grace_Tristan MacManus_13,Nancy Grace_Tristan MacManus_13,True,True,True
 13_9,13,percentage,Hope Solo_Maksim Chmerkoskiy_13,Hope Solo_Maksim Chmerkoskiy_13,Hope Solo_Maksim Chmerkoskiy_13,True,True,True
 14_2,14,percentage,Martina Navratilova_Tony Dovolani_14,Martina Navratilova_Tony Dovolani_14,Martina Navratilova_Tony Dovolani_14,True,True,True
-14_3,14,percentage,Jack Wagner_Anna Trebunskaya_14,Gladys Knight_Tristan MacManus_14,Gladys Knight_Tristan MacManus_14,True,False,False
+14_3,14,percentage,Jack Wagner_Anna Trebunskaya_14,Gladys Knight_Tristan MacManus_14,Jack Wagner_Anna Trebunskaya_14,False,False,True
 14_4,14,percentage,Sherri Sheperd_Valentin Chmerkovskiy_14,Gladys Knight_Tristan MacManus_14,Gladys Knight_Tristan MacManus_14,True,False,False
 14_5,14,percentage,Gavin DeGraw_Karina Smirnoff_14,Gavin DeGraw_Karina Smirnoff_14,Gavin DeGraw_Karina Smirnoff_14,True,True,True
 14_6,14,percentage,Gladys Knight_Tristan MacManus_14,Gladys Knight_Tristan MacManus_14,Gladys Knight_Tristan MacManus_14,True,True,True
-14_7,14,percentage,Jaleel White_Kym Johnson_14,Melissa Gilbert_Maksim Chmerkoskiy_14,Melissa Gilbert_Maksim Chmerkoskiy_14,True,False,False
+14_7,14,percentage,Jaleel White_Kym Johnson_14,Melissa Gilbert_Maksim Chmerkoskiy_14,Jaleel White_Kym Johnson_14,False,False,True
 14_8,14,percentage,"['Roshon Fegan_Chelsie Hightower_14', 'Melissa Gilbert_Maksim Chmerkoskiy_14']",Melissa Gilbert_Maksim Chmerkoskiy_14,Melissa Gilbert_Maksim Chmerkoskiy_14,True,True,True
-14_9,14,percentage,Maria Menounos_Derek Hough_14,Katherine Jenkins_Mark Ballas_14,Katherine Jenkins_Mark Ballas_14,True,False,False
+14_9,14,percentage,Maria Menounos_Derek Hough_14,Katherine Jenkins_Mark Ballas_14,Maria Menounos_Derek Hough_14,False,False,True
 15_1,15,percentage,Pamela Anderson_Tristan MacManus_15,Pamela Anderson_Tristan MacManus_15,Pamela Anderson_Tristan MacManus_15,True,True,True
 15_2,15,percentage,Joey Fatone_Kym Johnson_15,Bristol Palin_Mark Ballas_15,Bristol Palin_Mark Ballas_15,True,False,False
 15_3,15,percentage,"['Helio Castroneves_Chelsie Hightower_15', 'Drew Lachey_Anna Trebunskaya_15']",Bristol Palin_Mark Ballas_15,Bristol Palin_Mark Ballas_15,True,False,False
 15_4,15,percentage,Bristol Palin_Mark Ballas_15,Kirstie Alley_Maksim Chmerkoskiy_15,Kirstie Alley_Maksim Chmerkoskiy_15,True,False,False
-15_6,15,percentage,Sabrina Bryan_Louis van Amstel_15,Emmitt Smith_Cheryl Burke_15,Emmitt Smith_Cheryl Burke_15,True,False,False
+15_6,15,percentage,Sabrina Bryan_Louis van Amstel_15,Emmitt Smith_Cheryl Burke_15,Kelly Monaco_Valentin Chmerkovskiy_15,False,False,False
 15_8,15,percentage,"['Gilles Marini_Peta Murgatroyd_15', 'Kirstie Alley_Maksim Chmerkoskiy_15']",Kirstie Alley_Maksim Chmerkoskiy_15,Kirstie Alley_Maksim Chmerkoskiy_15,True,True,True
-15_9,15,percentage,"['Apolo Anton Ohno_Karina Smirnoff_15', 'Emmitt Smith_Cheryl Burke_15']",Emmitt Smith_Cheryl Burke_15,Emmitt Smith_Cheryl Burke_15,True,True,True
-16_10,16,percentage,Alexandra Raisman_Mark Ballas_16,Jacoby Jones_Karina Smirnoff_16,Jacoby Jones_Karina Smirnoff_16,True,False,False
+15_9,15,percentage,"['Apolo Anton Ohno_Karina Smirnoff_15', 'Emmitt Smith_Cheryl Burke_15']",Emmitt Smith_Cheryl Burke_15,Kelly Monaco_Valentin Chmerkovskiy_15,False,True,False
+16_10,16,percentage,Alexandra Raisman_Mark Ballas_16,Jacoby Jones_Karina Smirnoff_16,Alexandra Raisman_Mark Ballas_16,False,False,True
 16_3,16,percentage,Wynonna Judd_Tony Dovolani_16,Wynonna Judd_Tony Dovolani_16,Wynonna Judd_Tony Dovolani_16,True,True,True
 16_4,16,percentage,Lisa Vanderpump_Gleb Savchenko_16,Lisa Vanderpump_Gleb Savchenko_16,Lisa Vanderpump_Gleb Savchenko_16,True,True,True
-16_5,16,percentage,D. L. Hughley_Cheryl Burke_16,Andy Dick_Sharna Burgess_16,Andy Dick_Sharna Burgess_16,True,False,False
+16_5,16,percentage,D. L. Hughley_Cheryl Burke_16,Andy Dick_Sharna Burgess_16,D. L. Hughley_Cheryl Burke_16,False,False,True
 16_6,16,percentage,Victor Ortiz_Lindsay Arnold_16,Victor Ortiz_Lindsay Arnold_16,Victor Ortiz_Lindsay Arnold_16,True,True,True
 16_7,16,percentage,Andy Dick_Sharna Burgess_16,Andy Dick_Sharna Burgess_16,Andy Dick_Sharna Burgess_16,True,True,True
 16_8,16,percentage,Sean Lowe_Peta Murgatroyd_16,Sean Lowe_Peta Murgatroyd_16,Sean Lowe_Peta Murgatroyd_16,True,True,True
@@ -61,43 +61,43 @@ season_week,season,actual_method,actual_elim,pred_rank,pred_pct,methods_agree,ra
 17_2,17,percentage,Keyshawn Johnson_Sharna Burgess_17,Bill Nye_Tyne Stecklein_17,Bill Nye_Tyne Stecklein_17,True,False,False
 17_3,17,percentage,Bill Nye_Tyne Stecklein_17,Bill Nye_Tyne Stecklein_17,Bill Nye_Tyne Stecklein_17,True,True,True
 17_4,17,percentage,Valerie Harper_Tristan MacManus_17,Valerie Harper_Tristan MacManus_17,Valerie Harper_Tristan MacManus_17,True,True,True
-17_5,17,percentage,Christina Milian_Mark Ballas_17,Leah Remini_Tony Dovolani_17,Leah Remini_Tony Dovolani_17,True,False,False
+17_5,17,percentage,Christina Milian_Mark Ballas_17,Leah Remini_Tony Dovolani_17,Brant Daugherty_Peta Murgatroyd_17,False,False,False
 17_7,17,percentage,"Nicole ""Snooki"" Polizzi_Sasha Farber_17",Bill Engvall_Emma Slater_17,Bill Engvall_Emma Slater_17,True,False,False
 17_8,17,percentage,Brant Daugherty_Peta Murgatroyd_17,Bill Engvall_Emma Slater_17,Bill Engvall_Emma Slater_17,True,False,False
 17_9,17,percentage,Elizabeth Berkley Lauren_Valentin Chmerkovskiy_17,Bill Engvall_Emma Slater_17,Bill Engvall_Emma Slater_17,True,False,False
 18_10,18,percentage,James Maslow_Peta Murgatroyd_18,Candace Cameron Bure_Mark Ballas_18,Candace Cameron Bure_Mark Ballas_18,True,False,False
 18_2,18,percentage,Sean Avery_Karina Smirnoff_18,Billy Dee Williams_Emma Slater_18,Billy Dee Williams_Emma Slater_18,True,False,False
-18_5,18,percentage,Cody Simpson_Witney Carson_18,Drew Carey_Cheryl Burke_18,Drew Carey_Cheryl Burke_18,True,False,False
+18_5,18,percentage,Cody Simpson_Witney Carson_18,Drew Carey_Cheryl Burke_18,Cody Simpson_Witney Carson_18,False,False,True
 18_6,18,percentage,Drew Carey_Cheryl Burke_18,Drew Carey_Cheryl Burke_18,Drew Carey_Cheryl Burke_18,True,True,True
 18_7,18,percentage,NeNe Leakes_Tony Dovolani_18,NeNe Leakes_Tony Dovolani_18,NeNe Leakes_Tony Dovolani_18,True,True,True
-18_8,18,percentage,Danica McKellar_Valentin Chmerkovskiy_18,Meryl Davis_Maksim Chmerkoskiy_18,Meryl Davis_Maksim Chmerkoskiy_18,True,False,False
+18_8,18,percentage,Danica McKellar_Valentin Chmerkovskiy_18,Meryl Davis_Maksim Chmerkoskiy_18,James Maslow_Peta Murgatroyd_18,False,False,False
 18_9,18,percentage,Charlie White_Sharna Burgess_18,Candace Cameron Bure_Mark Ballas_18,Candace Cameron Bure_Mark Ballas_18,True,False,False
 19_1,19,percentage,Lolo Jones_Keo Motsepe_19,Betsey Johnson_Tony Dovolani_19,Betsey Johnson_Tony Dovolani_19,True,False,False
 19_10,19,percentage,Tommy Chong_Peta Murgatroyd_19,Tommy Chong_Peta Murgatroyd_19,Tommy Chong_Peta Murgatroyd_19,True,True,True
 19_11,19,percentage,Bethany Mota_Derek Hough_19,Bethany Mota_Derek Hough_19,Bethany Mota_Derek Hough_19,True,True,True
-19_2,19,percentage,Tavis Smiley_Sharna Burgess_19,Michael Waltrip_Emma Slater_19,Michael Waltrip_Emma Slater_19,True,False,False
+19_2,19,percentage,Tavis Smiley_Sharna Burgess_19,Tavis Smiley_Sharna Burgess_19,Betsey Johnson_Tony Dovolani_19,False,True,False
 19_3,19,percentage,Randy Couture_Karina Smirnoff_19,Randy Couture_Karina Smirnoff_19,Randy Couture_Karina Smirnoff_19,True,True,True
-19_4,19,percentage,Betsey Johnson_Tony Dovolani_19,Jonathan Bennett_Allison Holker_19,Jonathan Bennett_Allison Holker_19,True,False,False
+19_4,19,percentage,Betsey Johnson_Tony Dovolani_19,Jonathan Bennett_Allison Holker_19,Betsey Johnson_Tony Dovolani_19,False,False,True
 19_6,19,percentage,Jonathan Bennett_Allison Holker_19,Tommy Chong_Peta Murgatroyd_19,Tommy Chong_Peta Murgatroyd_19,True,False,False
-19_7,19,percentage,Antonio Sabato Jr._Cheryl Burke_19,Michael Waltrip_Emma Slater_19,Michael Waltrip_Emma Slater_19,True,False,False
+19_7,19,percentage,Antonio Sabato Jr._Cheryl Burke_19,Michael Waltrip_Emma Slater_19,Antonio Sabato Jr._Cheryl Burke_19,False,False,True
 19_8,19,percentage,Michael Waltrip_Emma Slater_19,Michael Waltrip_Emma Slater_19,Michael Waltrip_Emma Slater_19,True,True,True
 19_9,19,percentage,Lea Thompson_Artem Chigvintsev_19,Tommy Chong_Peta Murgatroyd_19,Tommy Chong_Peta Murgatroyd_19,True,False,False
-1_2,1,rank,Trista Sutter_Louis van Amstel_1,Evander Holyfield_Edyta Sliwinska_1,Evander Holyfield_Edyta Sliwinska_1,True,False,False
+1_2,1,rank,Trista Sutter_Louis van Amstel_1,Evander Holyfield_Edyta Sliwinska_1,Trista Sutter_Louis van Amstel_1,False,False,True
 1_3,1,rank,Evander Holyfield_Edyta Sliwinska_1,Evander Holyfield_Edyta Sliwinska_1,Evander Holyfield_Edyta Sliwinska_1,True,True,True
-1_4,1,rank,Rachel Hunter_Jonathan Roberts_1,Joey McIntyre_Ashly DelGrosso_1,Joey McIntyre_Ashly DelGrosso_1,True,False,False
-20_2,20,percentage,Redfoo_Emma Slater_20,Chris Soules_Witney Carson_20,Chris Soules_Witney Carson_20,True,False,False
-20_3,20,percentage,Charlotte McKinney_Keo Motsepe_20,Patti LaBelle_Artem Chigvintsev_20,Patti LaBelle_Artem Chigvintsev_20,True,False,False
-20_4,20,percentage,Michael Sam_Peta Murgatroyd_20,Chris Soules_Witney Carson_20,Chris Soules_Witney Carson_20,True,False,False
-20_5,20,percentage,Suzanne Somers_Tony Dovolani_20,Robert Herjavec_Kym Johnson_20,Robert Herjavec_Kym Johnson_20,True,False,False
+1_4,1,rank,Rachel Hunter_Jonathan Roberts_1,Joey McIntyre_Ashly DelGrosso_1,Rachel Hunter_Jonathan Roberts_1,False,False,True
+20_2,20,percentage,Redfoo_Emma Slater_20,Charlotte McKinney_Keo Motsepe_20,Charlotte McKinney_Keo Motsepe_20,True,False,False
+20_3,20,percentage,Charlotte McKinney_Keo Motsepe_20,Patti LaBelle_Artem Chigvintsev_20,Charlotte McKinney_Keo Motsepe_20,False,False,True
+20_4,20,percentage,Michael Sam_Peta Murgatroyd_20,Chris Soules_Witney Carson_20,Suzanne Somers_Tony Dovolani_20,False,False,False
+20_5,20,percentage,Suzanne Somers_Tony Dovolani_20,Robert Herjavec_Kym Johnson_20,Patti LaBelle_Artem Chigvintsev_20,False,False,False
 20_6,20,percentage,Patti LaBelle_Artem Chigvintsev_20,Robert Herjavec_Kym Johnson_20,Robert Herjavec_Kym Johnson_20,True,False,False
-20_7,20,percentage,Willow Shields_Mark Ballas_20,Chris Soules_Witney Carson_20,Chris Soules_Witney Carson_20,True,False,False
+20_7,20,percentage,Willow Shields_Mark Ballas_20,Chris Soules_Witney Carson_20,Robert Herjavec_Kym Johnson_20,False,False,False
 20_8,20,percentage,"['Robert Herjavec_Kym Johnson_20', 'Chris Soules_Witney Carson_20']",Robert Herjavec_Kym Johnson_20,Robert Herjavec_Kym Johnson_20,True,True,True
-20_9,20,percentage,Nastia Liukin_Derek Hough_20,Noah Galloway_Sharna Burgess_20,Noah Galloway_Sharna Burgess_20,True,False,False
-21_11,21,percentage,Carlos PenaVega_Witney Carson_21,Alek Skarlatos_Lindsay Arnold_21,Alek Skarlatos_Lindsay Arnold_21,True,False,False
+20_9,20,percentage,Nastia Liukin_Derek Hough_20,Noah Galloway_Sharna Burgess_20,Nastia Liukin_Derek Hough_20,False,False,True
+21_11,21,percentage,Carlos PenaVega_Witney Carson_21,Alek Skarlatos_Lindsay Arnold_21,Carlos PenaVega_Witney Carson_21,False,False,True
 21_2,21,percentage,"['Victor Espinoza_Karina Smirnoff_21', 'Chaka Khan_Keo Motsepe_21']",Chaka Khan_Keo Motsepe_21,Chaka Khan_Keo Motsepe_21,True,True,True
 21_4,21,percentage,Gary Busey_Anna Trebunskaya_21,Gary Busey_Anna Trebunskaya_21,Gary Busey_Anna Trebunskaya_21,True,True,True
 21_6,21,percentage,Paula Deen_Louis van Amstel_21,Paula Deen_Louis van Amstel_21,Paula Deen_Louis van Amstel_21,True,True,True
-21_7,21,percentage,Hayes Grier_Emma Slater_21,Alek Skarlatos_Lindsay Arnold_21,Alek Skarlatos_Lindsay Arnold_21,True,False,False
+21_7,21,percentage,Hayes Grier_Emma Slater_21,Alek Skarlatos_Lindsay Arnold_21,Alexa PenaVega_Mark Ballas_21,False,False,False
 21_8,21,percentage,Andy Grammer_Allison Holker_21,Andy Grammer_Allison Holker_21,Andy Grammer_Allison Holker_21,True,True,True
 21_9,21,percentage,Alexa PenaVega_Mark Ballas_21,Tamar Braxton_Valentin Chmerkovskiy_21,Tamar Braxton_Valentin Chmerkovskiy_21,True,False,False
 22_2,22,percentage,Geraldo Rivera_Edyta Sliwinska_22,Geraldo Rivera_Edyta Sliwinska_22,Geraldo Rivera_Edyta Sliwinska_22,True,True,True
@@ -105,114 +105,114 @@ season_week,season,actual_method,actual_elim,pred_rank,pred_pct,methods_agree,ra
 22_4,22,percentage,Marla Maples_Tony Dovolani_22,Doug Flutie_Karina Smirnoff_22,Doug Flutie_Karina Smirnoff_22,True,False,False
 22_6,22,percentage,Doug Flutie_Karina Smirnoff_22,Doug Flutie_Karina Smirnoff_22,Doug Flutie_Karina Smirnoff_22,True,True,True
 22_7,22,percentage,"['Kim Fields_Sasha Farber_22', 'Von Miller_Witney Carson_22']",Jodie Sweetin_Keo Motsepe_22,Jodie Sweetin_Keo Motsepe_22,True,False,False
-22_8,22,percentage,Jodie Sweetin_Keo Motsepe_22,Wanya Morris_Lindsay Arnold_22,Wanya Morris_Lindsay Arnold_22,True,False,False
+22_8,22,percentage,Jodie Sweetin_Keo Motsepe_22,Wanya Morris_Lindsay Arnold_22,Jodie Sweetin_Keo Motsepe_22,False,False,True
 22_9,22,percentage,"['Antonio Brown_Sharna Burgess_22', 'Wanya Morris_Lindsay Arnold_22']",Antonio Brown_Sharna Burgess_22,Antonio Brown_Sharna Burgess_22,True,True,True
-23_10,23,percentage,Terra Jole_Sasha Farber_23,Calvin Johnson Jr._Lindsay Arnold_23,Calvin Johnson Jr._Lindsay Arnold_23,True,False,False
+23_10,23,percentage,Terra Jole_Sasha Farber_23,Calvin Johnson Jr._Lindsay Arnold_23,Terra Jole_Sasha Farber_23,False,False,True
 23_11,23,percentage,Jana Kramer_Gleb Savchenko_23,Jana Kramer_Gleb Savchenko_23,Jana Kramer_Gleb Savchenko_23,True,True,True
 23_2,23,percentage,Jake T. Austin_Jenna Johnson_23,Rick Perry_Emma Slater_23,Rick Perry_Emma Slater_23,True,False,False
-23_3,23,percentage,Rick Perry_Emma Slater_23,Vanilla Ice_Witney Carson_23,Vanilla Ice_Witney Carson_23,True,False,False
+23_3,23,percentage,Rick Perry_Emma Slater_23,Vanilla Ice_Witney Carson_23,Rick Perry_Emma Slater_23,False,False,True
 23_4,23,percentage,"['Babyface_Allison Holker_23', 'Vanilla Ice_Witney Carson_23']",Babyface_Allison Holker_23,Babyface_Allison Holker_23,True,True,True
 23_6,23,percentage,Amber Rose_Maksim Chmerkoskiy_23,Amber Rose_Maksim Chmerkoskiy_23,Amber Rose_Maksim Chmerkoskiy_23,True,True,True
-23_7,23,percentage,Maureen McCormick_Artem Chigvintsev_23,Marilu Henner_Derek Hough_23,Marilu Henner_Derek Hough_23,True,False,False
+23_7,23,percentage,Maureen McCormick_Artem Chigvintsev_23,Marilu Henner_Derek Hough_23,Maureen McCormick_Artem Chigvintsev_23,False,False,True
 23_8,23,percentage,Ryan Lochte_Cheryl Burke_23,Marilu Henner_Derek Hough_23,Marilu Henner_Derek Hough_23,True,False,False
-23_9,23,percentage,Marilu Henner_Derek Hough_23,James Hinchcliffe_Sharna Burgess_23,James Hinchcliffe_Sharna Burgess_23,True,False,False
+23_9,23,percentage,Marilu Henner_Derek Hough_23,James Hinchcliffe_Sharna Burgess_23,Marilu Henner_Derek Hough_23,False,False,True
 24_2,24,percentage,Chris Kattan_Witney Carson_24,Chris Kattan_Witney Carson_24,Chris Kattan_Witney Carson_24,True,True,True
-24_3,24,percentage,Charo_Keo Motsepe_24,Bonner Bolton_Sharna Burgess_24,Bonner Bolton_Sharna Burgess_24,True,False,False
+24_3,24,percentage,Charo_Keo Motsepe_24,Mr. T_Kym Herjavec_24,Charo_Keo Motsepe_24,False,False,True
 24_4,24,percentage,Mr. T_Kym Herjavec_24,Mr. T_Kym Herjavec_24,Mr. T_Kym Herjavec_24,True,True,True
-24_5,24,percentage,Erika Jayne_Gleb Savchenko_24,David Ross_Lindsay Arnold_24,David Ross_Lindsay Arnold_24,True,False,False
-24_6,24,percentage,Heather Morris_Maksim Chmerkoskiy_24,Nick Viall_Peta Murgatroyd_24,Nick Viall_Peta Murgatroyd_24,True,False,False
+24_5,24,percentage,Erika Jayne_Gleb Savchenko_24,David Ross_Lindsay Arnold_24,Erika Jayne_Gleb Savchenko_24,False,False,True
+24_6,24,percentage,Heather Morris_Maksim Chmerkoskiy_24,Nick Viall_Peta Murgatroyd_24,Heather Morris_Maksim Chmerkoskiy_24,False,False,True
 24_7,24,percentage,"['Nancy Kerrigan_Artem Chigvintsev_24', 'Nick Viall_Peta Murgatroyd_24']",Bonner Bolton_Sharna Burgess_24,Bonner Bolton_Sharna Burgess_24,True,False,False
 24_8,24,percentage,Bonner Bolton_Sharna Burgess_24,Bonner Bolton_Sharna Burgess_24,Bonner Bolton_Sharna Burgess_24,True,True,True
-24_9,24,percentage,Simone Biles_Sasha Farber_24,David Ross_Lindsay Arnold_24,David Ross_Lindsay Arnold_24,True,False,False
+24_9,24,percentage,Simone Biles_Sasha Farber_24,David Ross_Lindsay Arnold_24,Simone Biles_Sasha Farber_24,False,False,True
 25_10,25,percentage,Drew Scott_Emma Slater_25,Drew Scott_Emma Slater_25,Drew Scott_Emma Slater_25,True,True,True
 25_2,25,percentage,"['Barbara Corcoran_Keo Motsepe_25', 'Debbie Gibson_Alan Bersten_25']",Barbara Corcoran_Keo Motsepe_25,Barbara Corcoran_Keo Motsepe_25,True,True,True
-25_4,25,percentage,Derek Fisher_Sharna Burgess_25,Nick Lachey_Peta Murgatroyd_25,Nick Lachey_Peta Murgatroyd_25,True,False,False
+25_4,25,percentage,Derek Fisher_Sharna Burgess_25,Nick Lachey_Peta Murgatroyd_25,Derek Fisher_Sharna Burgess_25,False,False,True
 25_5,25,percentage,Sasha Pieterse_Gleb Savchenko_25,Nick Lachey_Peta Murgatroyd_25,Nick Lachey_Peta Murgatroyd_25,True,False,False
 25_6,25,percentage,Nick Lachey_Peta Murgatroyd_25,Nick Lachey_Peta Murgatroyd_25,Nick Lachey_Peta Murgatroyd_25,True,True,True
 25_7,25,percentage,"['Nikki Bella_Artem Chigvintsev_25', 'Vanessa Lachey_Maksim Chmerkoskiy_25']",Nikki Bella_Artem Chigvintsev_25,Nikki Bella_Artem Chigvintsev_25,True,True,True
-25_8,25,percentage,Terrell Owens_Cheryl Burke_25,Drew Scott_Emma Slater_25,Drew Scott_Emma Slater_25,True,False,False
+25_8,25,percentage,Terrell Owens_Cheryl Burke_25,Drew Scott_Emma Slater_25,Victoria Arlen_Valentin Chmerkovskiy_25,False,False,False
 25_9,25,percentage,Victoria Arlen_Valentin Chmerkovskiy_25,Drew Scott_Emma Slater_25,Drew Scott_Emma Slater_25,True,False,False
-26_1,26,percentage,"['Jamie Anderson_Artem Chigvintsev_26', 'Johnny Damon_Emma Slater_26']",Kareem Abdul-Jabbar_Lindsay Arnold_26,Kareem Abdul-Jabbar_Lindsay Arnold_26,True,False,False
+26_1,26,percentage,"['Jamie Anderson_Artem Chigvintsev_26', 'Johnny Damon_Emma Slater_26']",Kareem Abdul-Jabbar_Lindsay Arnold_26,Johnny Damon_Emma Slater_26,False,False,True
 26_2,26,percentage,"['Kareem Abdul-Jabbar_Lindsay Arnold_26', 'Arike Ogunbowale_Gleb Savchenko_26']",Kareem Abdul-Jabbar_Lindsay Arnold_26,Kareem Abdul-Jabbar_Lindsay Arnold_26,True,True,True
 26_3,26,percentage,"['Jennie Finch Daigle_Keo Motsepe_26', 'Chris Mazdzer_Witney Carson_26', 'Mirai Nagasu_Alan Bersten_26']",Jennie Finch Daigle_Keo Motsepe_26,Jennie Finch Daigle_Keo Motsepe_26,True,True,True
-27_1,27,percentage,Nikki Glaser_Gleb Savchenko_27,Joe Amabile_Jenna Johnson_27,Joe Amabile_Jenna Johnson_27,True,False,False
-27_2,27,percentage,Danelle Umstead_Artem Chigvintsev_27,Joe Amabile_Jenna Johnson_27,Joe Amabile_Jenna Johnson_27,True,False,False
-27_3,27,percentage,Nancy McKeon_Valentin Chmerkovskiy_27,Joe Amabile_Jenna Johnson_27,Joe Amabile_Jenna Johnson_27,True,False,False
-27_4,27,percentage,Tinashe_Brandon Armstrong_27,Joe Amabile_Jenna Johnson_27,Joe Amabile_Jenna Johnson_27,True,False,False
+27_1,27,percentage,Nikki Glaser_Gleb Savchenko_27,Nikki Glaser_Gleb Savchenko_27,Nikki Glaser_Gleb Savchenko_27,True,True,True
+27_2,27,percentage,Danelle Umstead_Artem Chigvintsev_27,Danelle Umstead_Artem Chigvintsev_27,Danelle Umstead_Artem Chigvintsev_27,True,True,True
+27_3,27,percentage,Nancy McKeon_Valentin Chmerkovskiy_27,Joe Amabile_Jenna Johnson_27,Nancy McKeon_Valentin Chmerkovskiy_27,False,False,True
+27_4,27,percentage,Tinashe_Brandon Armstrong_27,Joe Amabile_Jenna Johnson_27,Tinashe_Brandon Armstrong_27,False,False,True
 27_6,27,percentage,Mary Lou Retton_Sasha Farber_27,John Schneider_Emma Slater_27,John Schneider_Emma Slater_27,True,False,False
-27_7,27,percentage,"['John Schneider_Emma Slater_27', 'DeMarcus Ware_Lindsay Arnold_27']",Joe Amabile_Jenna Johnson_27,Joe Amabile_Jenna Johnson_27,True,False,False
-27_8,27,percentage,"['Juan Pablo Di Pace_Cheryl Burke_27', 'Joe Amabile_Jenna Johnson_27']",Bobby Bones_Sharna Burgess_27,Bobby Bones_Sharna Burgess_27,True,False,False
+27_7,27,percentage,"['John Schneider_Emma Slater_27', 'DeMarcus Ware_Lindsay Arnold_27']",Joe Amabile_Jenna Johnson_27,DeMarcus Ware_Lindsay Arnold_27,False,False,True
+27_8,27,percentage,"['Juan Pablo Di Pace_Cheryl Burke_27', 'Joe Amabile_Jenna Johnson_27']",Bobby Bones_Sharna Burgess_27,Joe Amabile_Jenna Johnson_27,False,False,True
 28_10,28,rank,James Van Der Beek_Emma Slater_28,James Van Der Beek_Emma Slater_28,James Van Der Beek_Emma Slater_28,True,True,True
-28_2,28,rank,Mary Wilson_Brandon Armstrong_28,Lamar Odom_Peta Murgatroyd_28,Lamar Odom_Peta Murgatroyd_28,True,False,False
-28_4,28,rank,Lamar Odom_Peta Murgatroyd_28,Lamar Odom_Peta Murgatroyd_28,Sean Spicer_Lindsay Arnold_28,False,True,False
-28_6,28,rank,Sailor Brinkley-Cook_Valentin Chmerkovskiy_28,Sean Spicer_Lindsay Arnold_28,Sean Spicer_Lindsay Arnold_28,True,False,False
-28_7,28,rank,Karamo Brown_Jenna Johnson_28,Sean Spicer_Lindsay Arnold_28,Sean Spicer_Lindsay Arnold_28,True,False,False
-28_8,28,rank,Kate Flannery_Pasha Pashkov_28,Sean Spicer_Lindsay Arnold_28,Sean Spicer_Lindsay Arnold_28,True,False,False
-28_9,28,rank,Sean Spicer_Lindsay Arnold_28,Sean Spicer_Lindsay Arnold_28,Sean Spicer_Lindsay Arnold_28,True,True,True
-29_10,29,rank,"['Skai Jackson_Alan Bersten_29', 'Johnny Weir_Britt Stewart_29']",Nelly_Daniella Karagach_29,Nelly_Daniella Karagach_29,True,False,False
+28_2,28,rank,Mary Wilson_Brandon Armstrong_28,Mary Wilson_Brandon Armstrong_28,Mary Wilson_Brandon Armstrong_28,True,True,True
+28_4,28,rank,Lamar Odom_Peta Murgatroyd_28,Lamar Odom_Peta Murgatroyd_28,Lamar Odom_Peta Murgatroyd_28,True,True,True
+28_6,28,rank,Sailor Brinkley-Cook_Valentin Chmerkovskiy_28,Sean Spicer_Lindsay Arnold_28,Karamo Brown_Jenna Johnson_28,False,False,False
+28_7,28,rank,Karamo Brown_Jenna Johnson_28,Karamo Brown_Jenna Johnson_28,Karamo Brown_Jenna Johnson_28,True,True,True
+28_8,28,rank,Kate Flannery_Pasha Pashkov_28,Sean Spicer_Lindsay Arnold_28,Kate Flannery_Pasha Pashkov_28,False,False,True
+28_9,28,rank,Sean Spicer_Lindsay Arnold_28,Sean Spicer_Lindsay Arnold_28,James Van Der Beek_Emma Slater_28,False,True,False
+29_10,29,rank,"['Skai Jackson_Alan Bersten_29', 'Johnny Weir_Britt Stewart_29']",Johnny Weir_Britt Stewart_29,Johnny Weir_Britt Stewart_29,True,True,True
 29_2,29,rank,Charles Oakley_Emma Slater_29,Charles Oakley_Emma Slater_29,Charles Oakley_Emma Slater_29,True,True,True
 29_3,29,rank,Carole Baskin_Pasha Pashkov_29,Carole Baskin_Pasha Pashkov_29,Carole Baskin_Pasha Pashkov_29,True,True,True
-29_4,29,rank,Anne Heche_Keo Motsepe_29,Jeannie Mai_Brandon Armstrong_29,Jeannie Mai_Brandon Armstrong_29,True,False,False
+29_4,29,rank,Anne Heche_Keo Motsepe_29,Jeannie Mai_Brandon Armstrong_29,Anne Heche_Keo Motsepe_29,False,False,True
 29_5,29,rank,Jesse Metcalfe_Sharna Burgess_29,Chrishell Stause_Gleb Savchenko_29,Chrishell Stause_Gleb Savchenko_29,True,False,False
-29_6,29,rank,Veron Davis_Peta Murgatroyd_29,Skai Jackson_Alan Bersten_29,Skai Jackson_Alan Bersten_29,True,False,False
+29_6,29,rank,Veron Davis_Peta Murgatroyd_29,Veron Davis_Peta Murgatroyd_29,Veron Davis_Peta Murgatroyd_29,True,True,True
 29_7,29,rank,Monica Aldama_Valentin Chmerkovskiy_29,Monica Aldama_Valentin Chmerkovskiy_29,Monica Aldama_Valentin Chmerkovskiy_29,True,True,True
-29_8,29,rank,Chrishell Stause_Gleb Savchenko_29,Nelly_Daniella Karagach_29,Nelly_Daniella Karagach_29,True,False,False
-29_9,29,rank,AJ McLean_Cheryl Burke_29,Nelly_Daniella Karagach_29,Nelly_Daniella Karagach_29,True,False,False
-2_1,2,rank,Kenny Mayne_Andrea Hale_2,Master P_Ashly DelGrosso_2,Master P_Ashly DelGrosso_2,True,False,False
-2_2,2,rank,Tatum O'Neal_Nick Kosovich_2,Master P_Ashly DelGrosso_2,Master P_Ashly DelGrosso_2,True,False,False
-2_3,2,rank,Giselle Fernandez_Jonathan Roberts_2,Master P_Ashly DelGrosso_2,Master P_Ashly DelGrosso_2,True,False,False
+29_8,29,rank,Chrishell Stause_Gleb Savchenko_29,Nelly_Daniella Karagach_29,Chrishell Stause_Gleb Savchenko_29,False,False,True
+29_9,29,rank,AJ McLean_Cheryl Burke_29,AJ McLean_Cheryl Burke_29,AJ McLean_Cheryl Burke_29,True,True,True
+2_1,2,rank,Kenny Mayne_Andrea Hale_2,Kenny Mayne_Andrea Hale_2,Kenny Mayne_Andrea Hale_2,True,True,True
+2_2,2,rank,Tatum O'Neal_Nick Kosovich_2,Tatum O'Neal_Nick Kosovich_2,Tatum O'Neal_Nick Kosovich_2,True,True,True
+2_3,2,rank,Giselle Fernandez_Jonathan Roberts_2,Master P_Ashly DelGrosso_2,Giselle Fernandez_Jonathan Roberts_2,False,False,True
 2_4,2,rank,Master P_Ashly DelGrosso_2,Master P_Ashly DelGrosso_2,Master P_Ashly DelGrosso_2,True,True,True
 2_5,2,rank,Tia Carrere_Maksim Chmerkoskiy_2,Tia Carrere_Maksim Chmerkoskiy_2,Tia Carrere_Maksim Chmerkoskiy_2,True,True,True
-2_6,2,rank,George Hamilton_Edyta Sliwinska_2,Jerry Rice_Anna Trebunskaya_2,Jerry Rice_Anna Trebunskaya_2,True,False,False
-2_7,2,rank,Lisa Rinna_Louis van Amstel_2,Jerry Rice_Anna Trebunskaya_2,Jerry Rice_Anna Trebunskaya_2,True,False,False
+2_6,2,rank,George Hamilton_Edyta Sliwinska_2,George Hamilton_Edyta Sliwinska_2,George Hamilton_Edyta Sliwinska_2,True,True,True
+2_7,2,rank,Lisa Rinna_Louis van Amstel_2,Lisa Rinna_Louis van Amstel_2,Lisa Rinna_Louis van Amstel_2,True,True,True
 30_2,30,rank,Martin Kove_Britt Stewart_30,Martin Kove_Britt Stewart_30,Martin Kove_Britt Stewart_30,True,True,True
-30_3,30,rank,Christine Chiu_Pasha Pashkov_30,Cody Rigsby_Cheryl Burke_30,Cody Rigsby_Cheryl Burke_30,True,False,False
+30_3,30,rank,Christine Chiu_Pasha Pashkov_30,Cody Rigsby_Cheryl Burke_30,Christine Chiu_Pasha Pashkov_30,False,False,True
 30_4,30,rank,"['Brian Austin Green_Sharna Burgess_30', 'Matt James_Lindsay Arnold_30']",Brian Austin Green_Sharna Burgess_30,Brian Austin Green_Sharna Burgess_30,True,True,True
-30_5,30,rank,Melanie C_Gleb Savchenko_30,Iman Shumpert_Daniella Karagach_30,Iman Shumpert_Daniella Karagach_30,True,False,False
+30_5,30,rank,Melanie C_Gleb Savchenko_30,Iman Shumpert_Daniella Karagach_30,Suni Lee_Sasha Farber_30,False,False,False
 30_6,30,rank,Kenya Moore_Brandon Armstrong_30,Kenya Moore_Brandon Armstrong_30,Kenya Moore_Brandon Armstrong_30,True,True,True
-30_7,30,rank,"Mike ""The Miz"" Mizanin_Witney Carson_30","Mike ""The Miz"" Mizanin_Witney Carson_30","Mike ""The Miz"" Mizanin_Witney Carson_30",True,True,True
+30_7,30,rank,"Mike ""The Miz"" Mizanin_Witney Carson_30","Mike ""The Miz"" Mizanin_Witney Carson_30",Suni Lee_Sasha Farber_30,False,True,False
 30_8,30,rank,"['Jimmie Allen_Emma Slater_30', 'Olivia Jade_Valentin Chmerkovskiy_30']",Jimmie Allen_Emma Slater_30,Jimmie Allen_Emma Slater_30,True,True,True
-30_9,30,rank,"['Melora Hardin_Artem Chigvintsev_30', 'Suni Lee_Sasha Farber_30']",Cody Rigsby_Cheryl Burke_30,Cody Rigsby_Cheryl Burke_30,True,False,False
-31_1,31,rank,Jason Lewis_Peta Murgatroyd_31,Vinny Guadagnino_Koko Iwasaki_31,Vinny Guadagnino_Koko Iwasaki_31,True,False,False
-31_2,31,rank,Teresa Giudice_Pasha Pashkov_31,Cheryl Ladd_Louis van Amstel_31,Cheryl Ladd_Louis van Amstel_31,True,False,False
-31_3,31,rank,Cheryl Ladd_Louis van Amstel_31,Vinny Guadagnino_Koko Iwasaki_31,Vinny Guadagnino_Koko Iwasaki_31,True,False,False
+30_9,30,rank,"['Melora Hardin_Artem Chigvintsev_30', 'Suni Lee_Sasha Farber_30']",Melora Hardin_Artem Chigvintsev_30,Melora Hardin_Artem Chigvintsev_30,True,True,True
+31_1,31,rank,Jason Lewis_Peta Murgatroyd_31,Jason Lewis_Peta Murgatroyd_31,Jason Lewis_Peta Murgatroyd_31,True,True,True
+31_2,31,rank,Teresa Giudice_Pasha Pashkov_31,Teresa Giudice_Pasha Pashkov_31,Teresa Giudice_Pasha Pashkov_31,True,True,True
+31_3,31,rank,Cheryl Ladd_Louis van Amstel_31,Cheryl Ladd_Louis van Amstel_31,Cheryl Ladd_Louis van Amstel_31,True,True,True
 31_4,31,rank,Sam Champion_Cheryl Burke_31,Sam Champion_Cheryl Burke_31,Sam Champion_Cheryl Burke_31,True,True,True
-31_5,31,rank,Joseph Baena_Daniella Karagach_31,Vinny Guadagnino_Koko Iwasaki_31,Vinny Guadagnino_Koko Iwasaki_31,True,False,False
-31_6,31,rank,Jessie James Decker_Alan Bersten_31,Vinny Guadagnino_Koko Iwasaki_31,Vinny Guadagnino_Koko Iwasaki_31,True,False,False
-31_7,31,rank,Jordin Sparks_Brandon Armstrong_31,Vinny Guadagnino_Koko Iwasaki_31,Vinny Guadagnino_Koko Iwasaki_31,True,False,False
+31_5,31,rank,Joseph Baena_Daniella Karagach_31,Joseph Baena_Daniella Karagach_31,Joseph Baena_Daniella Karagach_31,True,True,True
+31_6,31,rank,Jessie James Decker_Alan Bersten_31,Jessie James Decker_Alan Bersten_31,Jessie James Decker_Alan Bersten_31,True,True,True
+31_7,31,rank,Jordin Sparks_Brandon Armstrong_31,Jordin Sparks_Brandon Armstrong_31,Jordin Sparks_Brandon Armstrong_31,True,True,True
 31_8,31,rank,"[""Heidi D'Amelio_Artem Chigvintsev_31"", 'Vinny Guadagnino_Koko Iwasaki_31']",Vinny Guadagnino_Koko Iwasaki_31,Vinny Guadagnino_Koko Iwasaki_31,True,True,True
 31_9,31,rank,"['Trevor Donovan_Emma Slater_31', 'Daniel Durant_Britt Stewart_31']",Trevor Donovan_Emma Slater_31,Trevor Donovan_Emma Slater_31,True,True,True
-32_1,32,rank,Matt Walsh_Koko Iwasaki_32,Harry Jowsey_Rylee Arnold_32,Harry Jowsey_Rylee Arnold_32,True,False,False
-32_2,32,rank,Jamie Lynn Spears_Alan Bersten_32,Mauricio Umansky_Emma Slater_32,Mauricio Umansky_Emma Slater_32,True,False,False
-32_3,32,rank,Tyson Beckford_Jenna Johnson_32,Tyson Beckford_Jenna Johnson_32,Tyson Beckford_Jenna Johnson_32,True,True,True
-32_4,32,rank,Adrian Peterson_Britt Stewart_32,Alyson Hannigan_Sasha Farber_32,Alyson Hannigan_Sasha Farber_32,True,False,False
-32_5,32,rank,Mira Sorvino_Gleb Savchenko_32,Harry Jowsey_Rylee Arnold_32,Harry Jowsey_Rylee Arnold_32,True,False,False
-32_6,32,rank,Mauricio Umansky_Emma Slater_32,Harry Jowsey_Rylee Arnold_32,Harry Jowsey_Rylee Arnold_32,True,False,False
-32_7,32,rank,Lele Pons_Brandon Armstrong_32,Harry Jowsey_Rylee Arnold_32,Harry Jowsey_Rylee Arnold_32,True,False,False
-32_8,32,rank,Barry Williams_Peta Murgatroyd_32,Harry Jowsey_Rylee Arnold_32,Harry Jowsey_Rylee Arnold_32,True,False,False
-32_9,32,rank,Harry Jowsey_Rylee Arnold_32,Harry Jowsey_Rylee Arnold_32,Harry Jowsey_Rylee Arnold_32,True,True,True
-33_2,33,rank,"['Tori Spelling_Pasha Pashkov_33', 'Anna Delvey_Ezra Sosa_33']",Reginald VelJohnson_Emma Slater_33,Reginald VelJohnson_Emma Slater_33,True,False,False
+32_1,32,rank,Matt Walsh_Koko Iwasaki_32,Matt Walsh_Koko Iwasaki_32,Matt Walsh_Koko Iwasaki_32,True,True,True
+32_2,32,rank,Jamie Lynn Spears_Alan Bersten_32,Mauricio Umansky_Emma Slater_32,Jamie Lynn Spears_Alan Bersten_32,False,False,True
+32_3,32,rank,Tyson Beckford_Jenna Johnson_32,Tyson Beckford_Jenna Johnson_32,Mauricio Umansky_Emma Slater_32,False,True,False
+32_4,32,rank,Adrian Peterson_Britt Stewart_32,Mauricio Umansky_Emma Slater_32,Mauricio Umansky_Emma Slater_32,True,False,False
+32_5,32,rank,Mira Sorvino_Gleb Savchenko_32,Mira Sorvino_Gleb Savchenko_32,Mira Sorvino_Gleb Savchenko_32,True,True,True
+32_6,32,rank,Mauricio Umansky_Emma Slater_32,Harry Jowsey_Rylee Arnold_32,Mauricio Umansky_Emma Slater_32,False,False,True
+32_7,32,rank,Lele Pons_Brandon Armstrong_32,Harry Jowsey_Rylee Arnold_32,Charity Lawson_Artem Chigvintsev_32,False,False,False
+32_8,32,rank,Barry Williams_Peta Murgatroyd_32,Harry Jowsey_Rylee Arnold_32,Barry Williams_Peta Murgatroyd_32,False,False,True
+32_9,32,rank,Harry Jowsey_Rylee Arnold_32,Harry Jowsey_Rylee Arnold_32,Ariana Madix_Pasha Pashkov_32,False,True,False
+33_2,33,rank,"['Tori Spelling_Pasha Pashkov_33', 'Anna Delvey_Ezra Sosa_33']",Anna Delvey_Ezra Sosa_33,Anna Delvey_Ezra Sosa_33,True,True,True
 33_3,33,rank,"['Eric Roberts_Britt Stewart_33', 'Reginald VelJohnson_Emma Slater_33']",Reginald VelJohnson_Emma Slater_33,Reginald VelJohnson_Emma Slater_33,True,True,True
-33_4,33,rank,Brooks Nader_Gleb Savchenko_33,Dwight Howard _Daniella Karagach_33,Dwight Howard _Daniella Karagach_33,True,False,False
+33_4,33,rank,Brooks Nader_Gleb Savchenko_33,Dwight Howard _Daniella Karagach_33,Brooks Nader_Gleb Savchenko_33,False,False,True
 33_5,33,rank,Phaedra Parks_Val Chmerkovskiy_33,Phaedra Parks_Val Chmerkovskiy_33,Phaedra Parks_Val Chmerkovskiy_33,True,True,True
-33_6,33,rank,Jenn Tran_Sasha Farber_33,Ilona Maher_Alan Bersten_33,Ilona Maher_Alan Bersten_33,True,False,False
+33_6,33,rank,Jenn Tran_Sasha Farber_33,Ilona Maher_Alan Bersten_33,Dwight Howard _Daniella Karagach_33,False,False,False
 33_7,33,rank,Dwight Howard _Daniella Karagach_33,Dwight Howard _Daniella Karagach_33,Dwight Howard _Daniella Karagach_33,True,True,True
-34_10,34,rank,Whitney Leavitt_Mark Ballas_34,Dylan Efron_Daniella Karagach (Rumer Willis week 9)_34,Dylan Efron_Daniella Karagach (Rumer Willis week 9)_34,True,False,False
+34_10,34,rank,Whitney Leavitt_Mark Ballas_34,Jordan Chiles_Ezra Sosa (Apolo Anton Ohno week 9)_34,Jordan Chiles_Ezra Sosa (Apolo Anton Ohno week 9)_34,True,False,False
 34_2,34,rank,"['Corey Feldman_Jenna Johnson_34', 'Baron Davis_Britt Stewart_34']",Corey Feldman_Jenna Johnson_34,Corey Feldman_Jenna Johnson_34,True,True,True
 34_3,34,rank,Lauren Jauregui_Brandon Armstrong_34,Lauren Jauregui_Brandon Armstrong_34,Lauren Jauregui_Brandon Armstrong_34,True,True,True
-34_4,34,rank,Hilaria Baldwin_Gleb Savchenko_34,Andy Richter_Emma Slater/Kaitlyn Bristowe (week 9)_34,Andy Richter_Emma Slater/Kaitlyn Bristowe (week 9)_34,True,False,False
-34_6,34,rank,Scott Hoying_Rylee Arnold_34,Andy Richter_Emma Slater/Kaitlyn Bristowe (week 9)_34,Andy Richter_Emma Slater/Kaitlyn Bristowe (week 9)_34,True,False,False
-34_7,34,rank,Jen Affleck_Jan Ravnik_34,Andy Richter_Emma Slater/Kaitlyn Bristowe (week 9)_34,Andy Richter_Emma Slater/Kaitlyn Bristowe (week 9)_34,True,False,False
-34_8,34,rank,Danielle Fishel_Pasha Pashkov_34,Andy Richter_Emma Slater/Kaitlyn Bristowe (week 9)_34,Andy Richter_Emma Slater/Kaitlyn Bristowe (week 9)_34,True,False,False
+34_4,34,rank,Hilaria Baldwin_Gleb Savchenko_34,Andy Richter_Emma Slater/Kaitlyn Bristowe (week 9)_34,Hilaria Baldwin_Gleb Savchenko_34,False,False,True
+34_6,34,rank,Scott Hoying_Rylee Arnold_34,Scott Hoying_Rylee Arnold_34,Scott Hoying_Rylee Arnold_34,True,True,True
+34_7,34,rank,Jen Affleck_Jan Ravnik_34,Jen Affleck_Jan Ravnik_34,Jen Affleck_Jan Ravnik_34,True,True,True
+34_8,34,rank,Danielle Fishel_Pasha Pashkov_34,Danielle Fishel_Pasha Pashkov_34,Danielle Fishel_Pasha Pashkov_34,True,True,True
 34_9,34,rank,Andy Richter_Emma Slater/Kaitlyn Bristowe (week 9)_34,Andy Richter_Emma Slater/Kaitlyn Bristowe (week 9)_34,Andy Richter_Emma Slater/Kaitlyn Bristowe (week 9)_34,True,True,True
 3_1,3,percentage,Tucker Carlson_Elena Grinenko_3,Tucker Carlson_Elena Grinenko_3,Tucker Carlson_Elena Grinenko_3,True,True,True
-3_2,3,percentage,Shanna Moakler_Jesse DeSoto_3,Jerry Springer_Kym Johnson_3,Jerry Springer_Kym Johnson_3,True,False,False
-3_3,3,percentage,Harry Hamlin_Ashly DelGrosso_3,Emmitt Smith_Cheryl Burke_3,Emmitt Smith_Cheryl Burke_3,True,False,False
-3_4,3,percentage,Vivica A. Fox_Nick Kosovich_3,Sara Evans_Tony Dovolani_3,Sara Evans_Tony Dovolani_3,True,False,False
-3_5,3,percentage,Willa Ford_Maksim Chmerkoskiy_3,Jerry Springer_Kym Johnson_3,Jerry Springer_Kym Johnson_3,True,False,False
+3_2,3,percentage,Shanna Moakler_Jesse DeSoto_3,Jerry Springer_Kym Johnson_3,Harry Hamlin_Ashly DelGrosso_3,False,False,False
+3_3,3,percentage,Harry Hamlin_Ashly DelGrosso_3,Emmitt Smith_Cheryl Burke_3,Harry Hamlin_Ashly DelGrosso_3,False,False,True
+3_4,3,percentage,Vivica A. Fox_Nick Kosovich_3,Sara Evans_Tony Dovolani_3,Vivica A. Fox_Nick Kosovich_3,False,False,True
+3_5,3,percentage,Willa Ford_Maksim Chmerkoskiy_3,Jerry Springer_Kym Johnson_3,Sara Evans_Tony Dovolani_3,False,False,False
 3_7,3,percentage,Jerry Springer_Kym Johnson_3,Jerry Springer_Kym Johnson_3,Jerry Springer_Kym Johnson_3,True,True,True
 3_8,3,percentage,Monique Coleman_Louis van Amstel_3,Monique Coleman_Louis van Amstel_3,Monique Coleman_Louis van Amstel_3,True,True,True
-4_2,4,percentage,Paulina Porizkova_Alec Mazo_4,Clyde Drexler_Elena Grinenko_4,Clyde Drexler_Elena Grinenko_4,True,False,False
+4_2,4,percentage,Paulina Porizkova_Alec Mazo_4,Clyde Drexler_Elena Grinenko_4,Leeza Gibbons_Tony Dovolani_4,False,False,False
 4_3,4,percentage,Shandi Finnessey_Brian Fortuna_4,Clyde Drexler_Elena Grinenko_4,Clyde Drexler_Elena Grinenko_4,True,False,False
 4_4,4,percentage,Leeza Gibbons_Tony Dovolani_4,Clyde Drexler_Elena Grinenko_4,Clyde Drexler_Elena Grinenko_4,True,False,False
 4_5,4,percentage,Clyde Drexler_Elena Grinenko_4,Clyde Drexler_Elena Grinenko_4,Clyde Drexler_Elena Grinenko_4,True,True,True
@@ -221,45 +221,45 @@ season_week,season,actual_method,actual_elim,pred_rank,pred_pct,methods_agree,ra
 4_8,4,percentage,Billy Ray Cyrus_Karina Smirnoff_4,Billy Ray Cyrus_Karina Smirnoff_4,Billy Ray Cyrus_Karina Smirnoff_4,True,True,True
 4_9,4,percentage,Ian Ziering_Cheryl Burke_4,Ian Ziering_Cheryl Burke_4,Ian Ziering_Cheryl Burke_4,True,True,True
 5_1,5,percentage,Josie Maran_Alec Mazo_5,Josie Maran_Alec Mazo_5,Josie Maran_Alec Mazo_5,True,True,True
-5_2,5,percentage,Albert Reed_Anna Trebunskaya_5,Wayne Newton_Cheryl Burke_5,Wayne Newton_Cheryl Burke_5,True,False,False
+5_2,5,percentage,Albert Reed_Anna Trebunskaya_5,Wayne Newton_Cheryl Burke_5,Albert Reed_Anna Trebunskaya_5,False,False,True
 5_3,5,percentage,Wayne Newton_Cheryl Burke_5,Wayne Newton_Cheryl Burke_5,Wayne Newton_Cheryl Burke_5,True,True,True
-5_4,5,percentage,Floyd Mayweather Jr. _Karina Smirnoff_5,Mark Cuban_Kym Johnson_5,Mark Cuban_Kym Johnson_5,True,False,False
+5_4,5,percentage,Floyd Mayweather Jr. _Karina Smirnoff_5,Mark Cuban_Kym Johnson_5,Floyd Mayweather Jr. _Karina Smirnoff_5,False,False,True
 5_5,5,percentage,Mark Cuban_Kym Johnson_5,Mark Cuban_Kym Johnson_5,Mark Cuban_Kym Johnson_5,True,True,True
 5_6,5,percentage,Sabrina Bryan_Mark Ballas_5,Jane Seymour_Tony Dovolani_5,Jane Seymour_Tony Dovolani_5,True,False,False
 5_7,5,percentage,Jane Seymour_Tony Dovolani_5,Jane Seymour_Tony Dovolani_5,Jane Seymour_Tony Dovolani_5,True,True,True
-5_8,5,percentage,Cameron Mathison_Edyta Sliwinska_5,Marie Osmond_Jonathan Roberts_5,Marie Osmond_Jonathan Roberts_5,True,False,False
-5_9,5,percentage,Jennie Garth_Derek Hough_5,Marie Osmond_Jonathan Roberts_5,Marie Osmond_Jonathan Roberts_5,True,False,False
+5_8,5,percentage,Cameron Mathison_Edyta Sliwinska_5,Marie Osmond_Jonathan Roberts_5,Cameron Mathison_Edyta Sliwinska_5,False,False,True
+5_9,5,percentage,Jennie Garth_Derek Hough_5,Marie Osmond_Jonathan Roberts_5,Jennie Garth_Derek Hough_5,False,False,True
 6_2,6,percentage,"['Monica Seles_Jonathan Roberts_6', 'Penn Jillette_Kym Johnson_6']",Monica Seles_Jonathan Roberts_6,Monica Seles_Jonathan Roberts_6,True,True,True
-6_3,6,percentage,Steve Guttenberg_Anna Trebunskaya_6,Marissa Jaret Winokur_Tony Dovolani_6,Marissa Jaret Winokur_Tony Dovolani_6,True,False,False
+6_3,6,percentage,Steve Guttenberg_Anna Trebunskaya_6,Marissa Jaret Winokur_Tony Dovolani_6,Steve Guttenberg_Anna Trebunskaya_6,False,False,True
 6_4,6,percentage,Adam Carolla_Julianne Hough_6,Adam Carolla_Julianne Hough_6,Adam Carolla_Julianne Hough_6,True,True,True
 6_5,6,percentage,Priscilla Presley_Louis van Amstel_6,Priscilla Presley_Louis van Amstel_6,Priscilla Presley_Louis van Amstel_6,True,True,True
 6_6,6,percentage,Marlee Matlin_Fabian Sanchez_6,Marlee Matlin_Fabian Sanchez_6,Marlee Matlin_Fabian Sanchez_6,True,True,True
-6_7,6,percentage,Shannon Elizabeth_Derek Hough_6,Cristian de la Fuente_Cheryl Burke_6,Cristian de la Fuente_Cheryl Burke_6,True,False,False
-6_8,6,percentage,Mario_Karina Smirnoff_6,Marissa Jaret Winokur_Tony Dovolani_6,Marissa Jaret Winokur_Tony Dovolani_6,True,False,False
+6_7,6,percentage,Shannon Elizabeth_Derek Hough_6,Cristian de la Fuente_Cheryl Burke_6,Shannon Elizabeth_Derek Hough_6,False,False,True
+6_8,6,percentage,Mario_Karina Smirnoff_6,Marissa Jaret Winokur_Tony Dovolani_6,Mario_Karina Smirnoff_6,False,False,True
 6_9,6,percentage,Marissa Jaret Winokur_Tony Dovolani_6,Marissa Jaret Winokur_Tony Dovolani_6,Marissa Jaret Winokur_Tony Dovolani_6,True,True,True
 7_1,7,percentage,"['Ted McGinley_Inna Brayer_7', 'Jeffrey Ross_Edyta Sliwinska_7']",Jeffrey Ross_Edyta Sliwinska_7,Jeffrey Ross_Edyta Sliwinska_7,True,True,True
 7_2,7,percentage,Kim Kardashian_Mark Ballas_7,Cloris Leachman_Corky Ballas_7,Cloris Leachman_Corky Ballas_7,True,False,False
 7_4,7,percentage,Rocco DiSpirito_Karina Smirnoff_7,Rocco DiSpirito_Karina Smirnoff_7,Rocco DiSpirito_Karina Smirnoff_7,True,True,True
-7_5,7,percentage,Toni Braxton_Alec Mazo_7,Lance Bass_Lacey Schwimmer_7,Lance Bass_Lacey Schwimmer_7,True,False,False
+7_5,7,percentage,Toni Braxton_Alec Mazo_7,Lance Bass_Lacey Schwimmer_7,Cloris Leachman_Corky Ballas_7,False,False,False
 7_6,7,percentage,Cloris Leachman_Corky Ballas_7,Cloris Leachman_Corky Ballas_7,Cloris Leachman_Corky Ballas_7,True,True,True
-7_7,7,percentage,Susan Lucci_Tony Dovolani_7,Warren Sapp_Kym Johnson_7,Warren Sapp_Kym Johnson_7,True,False,False
+7_7,7,percentage,Susan Lucci_Tony Dovolani_7,Warren Sapp_Kym Johnson_7,Susan Lucci_Tony Dovolani_7,False,False,True
 7_8,7,percentage,Maurice Greene_Cheryl Burke_7,Maurice Greene_Cheryl Burke_7,Maurice Greene_Cheryl Burke_7,True,True,True
 7_9,7,percentage,Cody Linley_Julianne Hough_7,Cody Linley_Julianne Hough_7,Cody Linley_Julianne Hough_7,True,True,True
 8_10,8,percentage,Ty Murray_Chelsie Hightower_8,Ty Murray_Chelsie Hightower_8,Ty Murray_Chelsie Hightower_8,True,True,True
-8_2,8,percentage,Belinda Carlisle_Jonathan Roberts_8,Steve-O_Lacey Schwimmer_8,Steve-O_Lacey Schwimmer_8,True,False,False
+8_2,8,percentage,Belinda Carlisle_Jonathan Roberts_8,Steve-O_Lacey Schwimmer_8,Belinda Carlisle_Jonathan Roberts_8,False,False,True
 8_3,8,percentage,Denise Richards_Maksim Chmerkoskiy_8,Steve Wozniak_Karina Smirnoff_8,Steve Wozniak_Karina Smirnoff_8,True,False,False
 8_4,8,percentage,"['Steve Wozniak_Karina Smirnoff_8', 'Holly Madison_Dmitry Chaplin_8']",Steve Wozniak_Karina Smirnoff_8,Steve Wozniak_Karina Smirnoff_8,True,True,True
 8_5,8,percentage,David Alan Grier_Kym Johnson_8,Steve-O_Lacey Schwimmer_8,Steve-O_Lacey Schwimmer_8,True,False,False
 8_6,8,percentage,Steve-O_Lacey Schwimmer_8,Steve-O_Lacey Schwimmer_8,Steve-O_Lacey Schwimmer_8,True,True,True
 8_7,8,percentage,Lawrence Taylor_Edyta Sliwinska_8,Lawrence Taylor_Edyta Sliwinska_8,Lawrence Taylor_Edyta Sliwinska_8,True,True,True
-8_8,8,percentage,Chuck Wicks_Julianne Hough_8,Melissa Rycroft_Tony Dovolani_8,Melissa Rycroft_Tony Dovolani_8,True,False,False
-8_9,8,percentage,Lil' Kim_Derek Hough_8,Ty Murray_Chelsie Hightower_8,Ty Murray_Chelsie Hightower_8,True,False,False
+8_8,8,percentage,Chuck Wicks_Julianne Hough_8,Melissa Rycroft_Tony Dovolani_8,Chuck Wicks_Julianne Hough_8,False,False,True
+8_9,8,percentage,Lil' Kim_Derek Hough_8,Ty Murray_Chelsie Hightower_8,Lil' Kim_Derek Hough_8,False,False,True
 9_1,9,percentage,"['Ashley Hamiliton_Edyta Sliwinska_9', 'Macy Gray_Jonathan Roberts_9']",Macy Gray_Jonathan Roberts_9,Macy Gray_Jonathan Roberts_9,True,True,True
-9_2,9,percentage,Kathy Ireland_Tony Dovolani_9,Tom DeLay_Cheryl Burke_9,Tom DeLay_Cheryl Burke_9,True,False,False
-9_3,9,percentage,Debi Mazar_Maksim Chmerkoskiy_9,Michael Irvin_Anna Demidova_9,Michael Irvin_Anna Demidova_9,True,False,False
-9_4,9,percentage,Chuck Liddell_Anna Trebunskaya_9,Michael Irvin_Anna Demidova_9,Michael Irvin_Anna Demidova_9,True,False,False
-9_5,9,percentage,Natalie Coughlin_Alec Mazo_9,Michael Irvin_Anna Demidova_9,Michael Irvin_Anna Demidova_9,True,False,False
+9_2,9,percentage,Kathy Ireland_Tony Dovolani_9,Tom DeLay_Cheryl Burke_9,Kathy Ireland_Tony Dovolani_9,False,False,True
+9_3,9,percentage,Debi Mazar_Maksim Chmerkoskiy_9,Tom DeLay_Cheryl Burke_9,Tom DeLay_Cheryl Burke_9,True,False,False
+9_4,9,percentage,Chuck Liddell_Anna Trebunskaya_9,Michael Irvin_Anna Demidova_9,Chuck Liddell_Anna Trebunskaya_9,False,False,True
+9_5,9,percentage,Natalie Coughlin_Alec Mazo_9,Michael Irvin_Anna Demidova_9,Natalie Coughlin_Alec Mazo_9,False,False,True
 9_6,9,percentage,"['Melissa Joan Hart_Mark Ballas_9', 'Louie Vito_Chelsie Hightower_9']",Michael Irvin_Anna Demidova_9,Michael Irvin_Anna Demidova_9,True,False,False
 9_7,9,percentage,"['Mark Dacascos_Lacey Schwimmer_9', 'Michael Irvin_Anna Demidova_9']",Mark Dacascos_Lacey Schwimmer_9,Mark Dacascos_Lacey Schwimmer_9,True,True,True
-9_8,9,percentage,Aaron Carter_Karina Smirnoff_9,Donny Osmond_Kym Johnson_9,Donny Osmond_Kym Johnson_9,True,False,False
-9_9,9,percentage,Joanna Krupa_Derek Hough_9,Donny Osmond_Kym Johnson_9,Donny Osmond_Kym Johnson_9,True,False,False
+9_8,9,percentage,Aaron Carter_Karina Smirnoff_9,Donny Osmond_Kym Johnson_9,Aaron Carter_Karina Smirnoff_9,False,False,True
+9_9,9,percentage,Joanna Krupa_Derek Hough_9,Donny Osmond_Kym Johnson_9,Joanna Krupa_Derek Hough_9,False,False,True

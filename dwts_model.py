@@ -264,6 +264,12 @@ class DWTSDataPreprocessor:
                     # 是否被淘汰
                     is_eliminated = 1 if contestant_name in eliminated_this_week else 0
 
+                    # Actual outcome proxy for ranking consistency:
+                    # later elimination => better "true rank" within a season (finalists use 999).
+                    true_elim_week = row.get("elimination_week", np.nan)
+                    if pd.isna(true_elim_week):
+                        true_elim_week = 999
+
                     sample = {
                         "contestant_id": contestant_key,
                         "season": season,
@@ -274,6 +280,7 @@ class DWTSDataPreprocessor:
                         / float(season_num_contestants)
                         if season_num_contestants > 0
                         else 0.0,
+                        "true_elim_week": float(true_elim_week),
                         # 静态特征
                         "age": float(personal_info["age_A"]),
                         "fame": float(personal_info["Frame_A"]),
@@ -1337,34 +1344,33 @@ def predict_fan_votes(model, weekly_df, method="rank"):
     ]
     context_features = ["is_all_star", "no_elim", "multi_elim", "week_pct", "contestants_pct"]
 
-    predictions = []
-
     with torch.no_grad():
-        for season_week, group in weekly_df.groupby("season_week"):
-            try:
-                x_static = torch.tensor(
-                    group[static_features].values, dtype=torch.float32
-                ).to(device)
-                x_dynamic = torch.tensor(
-                    group[dynamic_features].values, dtype=torch.float32
-                ).to(device)
-                x_context = torch.tensor(
-                    group[context_features].values, dtype=torch.float32
-                ).to(device)
-                judge_scores = torch.tensor(
-                    group["judge_score"].values, dtype=torch.float32
-                ).to(device)
+        out = weekly_df.copy()
+        out["predicted_fan_vote"] = np.nan
 
-                combined_scores, P_fan = model(
-                    x_static, x_dynamic, x_context, judge_scores, method=method
+        for season_week, group in out.groupby("season_week"):
+            if len(group) < 2:
+                continue
+            try:
+                x_static = torch.tensor(group[static_features].values, dtype=torch.float32).to(
+                    device
+                )
+                x_dynamic = torch.tensor(group[dynamic_features].values, dtype=torch.float32).to(
+                    device
+                )
+                x_context = torch.tensor(group[context_features].values, dtype=torch.float32).to(
+                    device
+                )
+                judge_scores = torch.tensor(group["judge_score"].values, dtype=torch.float32).to(
+                    device
                 )
 
-                predictions.extend(P_fan.cpu().numpy())
-            except:
-                predictions.extend([np.nan] * len(group))
+                _, P_fan = model(x_static, x_dynamic, x_context, judge_scores, method=method)
+                out.loc[group.index, "predicted_fan_vote"] = P_fan.cpu().numpy()
+            except Exception:
+                out.loc[group.index, "predicted_fan_vote"] = np.nan
 
-    weekly_df["predicted_fan_vote"] = predictions
-    return weekly_df
+    return out
 
 
 def predict_fan_votes_unified(model, weekly_df):
@@ -1388,41 +1394,45 @@ def predict_fan_votes_unified(model, weekly_df):
     ]
     context_features = ["is_all_star", "no_elim", "multi_elim", "week_pct", "contestants_pct"]
 
-    predictions = []
-    methods = []
-
     with torch.no_grad():
-        for season_week, group in weekly_df.groupby("season_week"):
+        out = weekly_df.copy()
+        out["predicted_fan_vote"] = np.nan
+        out["combined_score"] = np.nan
+        out["method_used"] = "unknown"
+
+        for season_week, group in out.groupby("season_week"):
+            if len(group) < 2:
+                continue
+
             try:
                 season = int(group["season"].values[0])
-                x_static = torch.tensor(
-                    group[static_features].values, dtype=torch.float32
-                ).to(device)
-                x_dynamic = torch.tensor(
-                    group[dynamic_features].values, dtype=torch.float32
-                ).to(device)
-                x_context = torch.tensor(
-                    group[context_features].values, dtype=torch.float32
-                ).to(device)
-                judge_scores = torch.tensor(
-                    group["judge_score"].values, dtype=torch.float32
-                ).to(device)
+                x_static = torch.tensor(group[static_features].values, dtype=torch.float32).to(
+                    device
+                )
+                x_dynamic = torch.tensor(group[dynamic_features].values, dtype=torch.float32).to(
+                    device
+                )
+                x_context = torch.tensor(group[context_features].values, dtype=torch.float32).to(
+                    device
+                )
+                judge_scores = torch.tensor(group["judge_score"].values, dtype=torch.float32).to(
+                    device
+                )
                 contestant_idx = torch.tensor(
                     group["contestant_idx"].values, dtype=torch.long
                 ).to(device)
 
-                _, P_fan, method_used = model(
+                combined_scores, P_fan, method_used = model(
                     x_static, x_dynamic, x_context, judge_scores, contestant_idx, season
                 )
-                predictions.extend(P_fan.cpu().numpy().tolist())
-                methods.extend([method_used] * len(group))
+                out.loc[group.index, "predicted_fan_vote"] = P_fan.cpu().numpy()
+                out.loc[group.index, "combined_score"] = combined_scores.cpu().numpy()
+                out.loc[group.index, "method_used"] = method_used
             except Exception:
-                predictions.extend([np.nan] * len(group))
-                methods.extend(["unknown"] * len(group))
+                out.loc[group.index, "predicted_fan_vote"] = np.nan
+                out.loc[group.index, "combined_score"] = np.nan
+                out.loc[group.index, "method_used"] = "unknown"
 
-    out = weekly_df.copy()
-    out["predicted_fan_vote"] = predictions
-    out["method_used"] = methods
     return out
 
 
@@ -1794,6 +1804,515 @@ def evaluate_predictions_unified(weekly_df, model):
     print(f"  - Percentage weeks HitRate: {pct_hit:.2%} (weeks={weeks_pct})")
 
     return {"hit_rate": overall_hit, "exact_match": overall_exact, "weeks": total}
+
+
+# ==================== Evaluation Metrics (paper-ready) ====================
+
+
+def _sign(x: float) -> int:
+    if x > 0:
+        return 1
+    if x < 0:
+        return -1
+    return 0
+
+
+def kendall_tau_rank_score(rank_values: np.ndarray, score_values: np.ndarray) -> float:
+    """
+    Kendall-style consistency as described in the prompt:
+      tau = (2 / (n(n-1))) * sum_{i<j} sign(rank_i - rank_j) * sign(score_i - score_j)
+
+    Notes:
+    - This is a tau-a-like form; ties contribute 0 through sign(0)=0.
+    - rank_values: larger means better rank (e.g., later elimination week = better).
+    - score_values: larger means better (our combined_score is "higher is better").
+    """
+    r = np.asarray(rank_values, dtype=float)
+    s = np.asarray(score_values, dtype=float)
+    n = int(len(r))
+    if n < 2:
+        return float("nan")
+
+    pair_sum = 0.0
+    for i in range(n - 1):
+        for j in range(i + 1, n):
+            pair_sum += _sign(r[i] - r[j]) * _sign(s[i] - s[j])
+
+    return (2.0 / (n * (n - 1))) * float(pair_sum)
+
+
+def build_weekly_accuracy_table(
+    weekly_df_with_score: pd.DataFrame,
+    score_col: str = "combined_score",
+    group_col: str = "season_week",
+    eliminated_col: str = "is_eliminated",
+    no_elim_col: str = "no_elim",
+    skip_no_elim: bool = True,
+) -> pd.DataFrame:
+    """
+    Per-week accuracy table:
+      Predict eliminated set as the |E_w| contestants with the lowest score (higher=better).
+    """
+    rows = []
+    for sw, g in weekly_df_with_score.groupby(group_col):
+        if len(g) < 2:
+            continue
+        if skip_no_elim and no_elim_col in g.columns and float(g[no_elim_col].values[0]) == 1.0:
+            continue
+
+        actual_idx = g[g[eliminated_col] == 1].index
+        if len(actual_idx) == 0:
+            continue
+        k = int(len(actual_idx))
+
+        scores = g[score_col]
+        if scores.isna().any():
+            continue
+
+        pred_idx = g.sort_values(score_col, ascending=True).head(k).index
+        pred_set = set(pred_idx.tolist())
+        actual_set = set(actual_idx.tolist())
+        hits = len(pred_set & actual_set)
+
+        season = int(g["season"].values[0]) if "season" in g.columns else None
+        week = int(g["week"].values[0]) if "week" in g.columns else None
+        method = UnifiedDWTSModel.choose_method_by_season(int(season)) if season is not None else None
+
+        rows.append(
+            {
+                group_col: sw,
+                "season": season,
+                "week": week,
+                "method": method,
+                "n": int(len(g)),
+                "k": k,
+                "hits": hits,
+                "hit_rate": hits / k if k > 0 else float("nan"),
+                "exact_match": 1 if hits == k else 0,
+            }
+        )
+
+    return pd.DataFrame(rows)
+
+
+def build_weekly_kendall_tau_table(
+    weekly_df_with_score: pd.DataFrame,
+    score_col: str = "combined_score",
+    actual_rank_col: str = "true_elim_week",
+    group_col: str = "season_week",
+    no_elim_col: str = "no_elim",
+    skip_no_elim: bool = True,
+) -> pd.DataFrame:
+    """
+    Per-week Kendall's tau consistency between:
+      - actual_rank_col (proxy for true rank; larger=better), and
+      - predicted score_col (larger=better).
+
+    Recommended actual_rank_col:
+      - true_elim_week (later elimination => better; finalists use 999).
+    """
+    if actual_rank_col not in weekly_df_with_score.columns:
+        raise ValueError(f"Missing column for actual ranking: {actual_rank_col}")
+
+    rows = []
+    for sw, g in weekly_df_with_score.groupby(group_col):
+        if len(g) < 2:
+            continue
+        if skip_no_elim and no_elim_col in g.columns and float(g[no_elim_col].values[0]) == 1.0:
+            continue
+
+        scores = g[score_col]
+        ranks = g[actual_rank_col]
+        if scores.isna().any() or ranks.isna().any():
+            continue
+
+        season = int(g["season"].values[0]) if "season" in g.columns else None
+        week = int(g["week"].values[0]) if "week" in g.columns else None
+        method = UnifiedDWTSModel.choose_method_by_season(int(season)) if season is not None else None
+
+        tau = kendall_tau_rank_score(ranks.values, scores.values)
+        rows.append(
+            {
+                group_col: sw,
+                "season": season,
+                "week": week,
+                "method": method,
+                "n": int(len(g)),
+                "tau": float(tau),
+            }
+        )
+
+    return pd.DataFrame(rows)
+
+
+def shannon_entropy(p: np.ndarray) -> float:
+    p = np.asarray(p, dtype=float)
+    p = p[np.isfinite(p)]
+    if len(p) == 0:
+        return float("nan")
+    s = float(p.sum())
+    if s <= 0:
+        return float("nan")
+    p = p / s
+    p = np.clip(p, 1e-12, 1.0)
+    return float(-(p * np.log(p)).sum())
+
+
+def add_weekly_entropy_columns(
+    weekly_df_with_prob: pd.DataFrame,
+    prob_col: str = "predicted_fan_vote",
+    group_col: str = "season_week",
+    out_entropy_col: str = "entropy",
+    out_entropy_norm_col: str = "entropy_norm",
+) -> pd.DataFrame:
+    """
+    Adds per-row week entropy columns based on the week-level probability distribution.
+      H = -sum p log p
+      H_norm = H / log(N_w)
+    """
+    out = weekly_df_with_prob.copy()
+    out[out_entropy_col] = np.nan
+    out[out_entropy_norm_col] = np.nan
+
+    for sw, g in out.groupby(group_col):
+        if len(g) < 1:
+            continue
+
+        p = g[prob_col].values
+        H = shannon_entropy(p)
+        n = int(len(g))
+        if not np.isfinite(H) or n <= 1:
+            Hn = float("nan") if not np.isfinite(H) else 0.0
+        else:
+            Hn = float(H) / float(np.log(n))
+
+        out.loc[g.index, out_entropy_col] = float(H) if np.isfinite(H) else np.nan
+        out.loc[g.index, out_entropy_norm_col] = float(Hn) if np.isfinite(Hn) else np.nan
+
+    return out
+
+
+def compute_contestant_uncertainty(
+    weekly_df_with_entropy: pd.DataFrame,
+    entropy_norm_col: str = "entropy_norm",
+    contestant_col: str = "contestant_id",
+    group_col: str = "season_week",
+) -> pd.DataFrame:
+    """
+    U_i = (1/T_i) * sum_{w in W_i} H_norm(P_w)
+    """
+    if entropy_norm_col not in weekly_df_with_entropy.columns:
+        raise ValueError(f"Missing column: {entropy_norm_col}")
+    if contestant_col not in weekly_df_with_entropy.columns:
+        raise ValueError(f"Missing column: {contestant_col}")
+
+    df = weekly_df_with_entropy[[contestant_col, group_col, entropy_norm_col]].dropna()
+    # unique weeks participated, to match definition (avoid counting duplicates if present)
+    df_unique = df.drop_duplicates([contestant_col, group_col])
+    agg = df_unique.groupby(contestant_col)[entropy_norm_col].agg(["mean", "count"]).reset_index()
+    agg = agg.rename(columns={"mean": "U_i", "count": "T_i"})
+    return agg
+
+
+def compute_week_uncertainty(
+    weekly_df_with_entropy: pd.DataFrame,
+    entropy_norm_col: str = "entropy_norm",
+    group_col: str = "season_week",
+) -> pd.DataFrame:
+    """
+    U_w = (1/N_w) * sum_{i in C_w} H_norm(P_w)
+    Since H_norm(P_w) is week-level, U_w equals that same value.
+    """
+    if entropy_norm_col not in weekly_df_with_entropy.columns:
+        raise ValueError(f"Missing column: {entropy_norm_col}")
+
+    rows = []
+    for sw, g in weekly_df_with_entropy.groupby(group_col):
+        n = int(len(g))
+        val = g[entropy_norm_col].dropna()
+        U = float(val.iloc[0]) if len(val) > 0 else float("nan")
+        rows.append({group_col: sw, "N_w": n, "U_w": U})
+    return pd.DataFrame(rows)
+
+
+def anova_oneway(values: np.ndarray, groups: np.ndarray) -> dict:
+    """
+    One-way ANOVA (manual), returns F statistic and degrees of freedom.
+    p-value is included only if scipy is available.
+    """
+    y = np.asarray(values, dtype=float)
+    g = np.asarray(groups)
+    mask = np.isfinite(y)
+    y = y[mask]
+    g = g[mask]
+
+    uniq = pd.unique(g)
+    k = int(len(uniq))
+    N = int(len(y))
+    if k < 2 or N <= k:
+        return {"F": float("nan"), "df1": k - 1, "df2": N - k, "p_value": float("nan")}
+
+    overall_mean = float(y.mean())
+    ss_between = 0.0
+    ss_within = 0.0
+
+    for gi in uniq:
+        yi = y[g == gi]
+        ni = int(len(yi))
+        if ni == 0:
+            continue
+        mi = float(yi.mean())
+        ss_between += ni * (mi - overall_mean) ** 2
+        ss_within += float(((yi - mi) ** 2).sum())
+
+    df1 = k - 1
+    df2 = N - k
+    ms_between = ss_between / df1 if df1 > 0 else float("nan")
+    ms_within = ss_within / df2 if df2 > 0 else float("nan")
+    F = ms_between / ms_within if ms_within and ms_within > 0 else float("nan")
+
+    p_value = float("nan")
+    try:
+        from scipy.stats import f as f_dist  # type: ignore
+
+        if np.isfinite(F):
+            p_value = float(1.0 - f_dist.cdf(F, df1, df2))
+    except Exception:
+        pass
+
+    return {"F": float(F), "df1": int(df1), "df2": int(df2), "p_value": p_value}
+
+
+def bootstrap_unified_predictions(
+    weekly_df: pd.DataFrame,
+    B: int = 30,
+    num_epochs: int = 80,
+    fan_utility: str = "linear",
+    hidden: int = 64,
+    dropout: float = 0.15,
+    lr: float = 0.003,
+    weight_decay: float = 0.001,
+    focal_gamma: float | None = None,
+    seed: int = 0,
+    ci_alpha: float = 0.05,
+    return_linear_param_stats: bool = True,
+):
+    """
+    Bootstrap uncertainty (parameter + prediction) by resampling supervised weeks (season_week) with replacement.
+
+    Returns:
+      {
+        "predictions": df_with_mean_std_ci,
+        "linear_params": df_or_none
+      }
+
+    Notes:
+    - Each bootstrap replicate creates unique season_week keys to avoid merging duplicate weeks.
+    - For "linear" fan_utility, we also report bootstrap stats for feature weights (fan_linear).
+    """
+    if B <= 1:
+        raise ValueError("B must be >= 2")
+
+    rng = np.random.default_rng(int(seed))
+    base_df = weekly_df.reset_index(drop=True).copy()
+
+    # Collect supervised weeks
+    supervised = []
+    groups = {sw: g.copy() for sw, g in base_df.groupby("season_week")}
+    for sw, g in groups.items():
+        if len(g) < 2:
+            continue
+        if "no_elim" in g.columns and float(g["no_elim"].values[0]) == 1.0:
+            continue
+        if "is_eliminated" in g.columns and int((g["is_eliminated"] == 1).sum()) == 0:
+            continue
+        supervised.append(sw)
+
+    if len(supervised) == 0:
+        raise ValueError("No supervised weeks found for bootstrap.")
+
+    n_rows = int(len(base_df))
+    P = np.zeros((B, n_rows), dtype=np.float32)
+    S = np.zeros((B, n_rows), dtype=np.float32)
+
+    # Precompute week groups and k=|E_w| from the base data for decision-boundary confidence.
+    week_groups: dict[str, np.ndarray] = {}
+    week_k: dict[str, int] = {}
+    for sw, g in base_df.groupby("season_week"):
+        idx = g.index.to_numpy(dtype=int)
+        week_groups[str(sw)] = idx
+        if "no_elim" in g.columns and float(g["no_elim"].values[0]) == 1.0:
+            week_k[str(sw)] = 0
+        elif "is_eliminated" in g.columns:
+            week_k[str(sw)] = int((g["is_eliminated"] == 1).sum())
+        else:
+            week_k[str(sw)] = 0
+
+    w_samples = []
+
+    for b in range(B):
+        sampled = rng.choice(supervised, size=len(supervised), replace=True).tolist()
+        boot_parts = []
+        for r, sw in enumerate(sampled):
+            g = groups[sw].copy()
+            g["season_week"] = f"{sw}__boot{b}_{r}"
+            boot_parts.append(g)
+        boot_df = pd.concat(boot_parts, ignore_index=True)
+
+        torch.manual_seed(int(seed) + b)
+        np.random.seed(int(seed) + b)
+        model, _ = train_unified_model(
+            boot_df,
+            num_epochs=num_epochs,
+            lr=lr,
+            weight_decay=weight_decay,
+            hidden=hidden,
+            dropout=dropout,
+            learn_mixing_weights=False,
+            fan_utility=fan_utility,
+            focal_gamma=focal_gamma,
+            skip_unsupervised_weeks=True,
+        )
+
+        pred = predict_fan_votes_unified(model, base_df)
+        P[b, :] = pred["predicted_fan_vote"].to_numpy(dtype=np.float32)
+        S[b, :] = pred["combined_score"].to_numpy(dtype=np.float32)
+
+        if return_linear_param_stats and fan_utility == "linear" and hasattr(model, "fan_linear"):
+            w = model.fan_linear.weight.detach().cpu().numpy().reshape(-1)
+            w_samples.append(w.astype(np.float64, copy=False))
+
+    alpha = float(ci_alpha)
+    q_lo = alpha / 2.0
+    q_hi = 1.0 - alpha / 2.0
+
+    p_mean = P.mean(axis=0)
+    p_std = P.std(axis=0, ddof=0)
+    p_lo = np.quantile(P, q_lo, axis=0)
+    p_hi = np.quantile(P, q_hi, axis=0)
+    p_cv = np.where(p_mean != 0, p_std / np.clip(p_mean, 1e-12, None), np.nan)
+
+    s_mean = S.mean(axis=0)
+    s_std = S.std(axis=0, ddof=0)
+    s_lo = np.quantile(S, q_lo, axis=0)
+    s_hi = np.quantile(S, q_hi, axis=0)
+    s_cv = np.where(s_mean != 0, s_std / np.clip(np.abs(s_mean), 1e-12, None), np.nan)
+
+    out = base_df.copy()
+    out["predicted_fan_vote_mean"] = p_mean
+    out["predicted_fan_vote_std"] = p_std
+    out["predicted_fan_vote_ci_low"] = p_lo
+    out["predicted_fan_vote_ci_high"] = p_hi
+    out["predicted_fan_vote_cv"] = p_cv
+
+    out["combined_score_mean"] = s_mean
+    out["combined_score_std"] = s_std
+    out["combined_score_ci_low"] = s_lo
+    out["combined_score_ci_high"] = s_hi
+    out["combined_score_cv"] = s_cv
+
+    # Decision-boundary confidence via bootstrap Monte Carlo propagation:
+    # For each week w with k=|E_w|, compute:
+    #   - elim_prob(i,w): P( i is in bottom-k by combined_score ) across bootstrap replicates
+    #   - cutoff score distribution: the k-th smallest combined_score in that week
+    #   - boundary certainty (week-level): 1 - normalized entropy of elim_prob distribution (normalized by k)
+    elim_counts = np.zeros(n_rows, dtype=np.int32)
+    cutoff_draws: dict[str, np.ndarray] = {}
+    for sw, idx in week_groups.items():
+        cutoff_draws[sw] = np.full(B, np.nan, dtype=np.float32)
+
+    for b in range(B):
+        s_b = S[b, :]
+        for sw, idx in week_groups.items():
+            k = int(week_k.get(sw, 0))
+            if k <= 0:
+                continue
+            if k >= len(idx):
+                # Degenerate: everyone eliminated (shouldn't happen); mark all as eliminated.
+                elim_counts[idx] += 1
+                cutoff_draws[sw][b] = float(np.nanmin(s_b[idx]))
+                continue
+
+            scores = s_b[idx]
+            # bottom-k (lowest scores => eliminated)
+            pos = np.argpartition(scores, kth=k - 1)[:k]
+            elim_idx = idx[pos]
+            elim_counts[elim_idx] += 1
+            # boundary cutoff is the max score among bottom-k (k-th smallest)
+            cutoff_draws[sw][b] = float(np.max(scores[pos]))
+
+    elim_prob = elim_counts.astype(np.float32) / float(B)
+    out["elim_prob"] = elim_prob
+    out["elim_prob_se"] = np.sqrt(np.clip(elim_prob * (1.0 - elim_prob), 0.0, 1.0) / float(B))
+
+    out["week_elim_k"] = np.nan
+    out["week_cutoff_mean"] = np.nan
+    out["week_cutoff_std"] = np.nan
+    out["week_cutoff_ci_low"] = np.nan
+    out["week_cutoff_ci_high"] = np.nan
+    out["week_elim_entropy_norm"] = np.nan
+    out["week_elim_boundary_certainty"] = np.nan
+    out["boundary_margin_mean"] = np.nan
+
+    for sw, idx in week_groups.items():
+        k = int(week_k.get(sw, 0))
+        out.loc[idx, "week_elim_k"] = float(k)
+        if k <= 0:
+            continue
+
+        cd = cutoff_draws[sw]
+        if not np.isfinite(cd).any():
+            continue
+        c_mean = float(np.nanmean(cd))
+        c_std = float(np.nanstd(cd, ddof=0))
+        c_lo = float(np.nanquantile(cd, q_lo))
+        c_hi = float(np.nanquantile(cd, q_hi))
+        out.loc[idx, "week_cutoff_mean"] = c_mean
+        out.loc[idx, "week_cutoff_std"] = c_std
+        out.loc[idx, "week_cutoff_ci_low"] = c_lo
+        out.loc[idx, "week_cutoff_ci_high"] = c_hi
+        out.loc[idx, "boundary_margin_mean"] = out.loc[idx, "combined_score_mean"] - c_mean
+
+        # Week-level boundary certainty from membership distribution:
+        # q_i = elim_prob_i / k (distribution over eliminated slots), entropy normalized by log(n).
+        p = out.loc[idx, "elim_prob"].to_numpy(dtype=float)
+        n = int(len(p))
+        denom = float(k) if k > 0 else float("nan")
+        q = p / denom if denom and np.isfinite(denom) else np.full_like(p, np.nan, dtype=float)
+        q = np.clip(q, 1e-12, 1.0)
+        q = q / float(q.sum()) if np.isfinite(q).all() and float(q.sum()) > 0 else q
+        H = float(-(q * np.log(q)).sum()) if np.isfinite(q).all() else float("nan")
+        Hn = float(H / np.log(n)) if np.isfinite(H) and n > 1 else float("nan")
+        out.loc[idx, "week_elim_entropy_norm"] = Hn
+        out.loc[idx, "week_elim_boundary_certainty"] = (1.0 - Hn) if np.isfinite(Hn) else np.nan
+
+    param_df = None
+    if return_linear_param_stats and len(w_samples) > 1:
+        W = np.stack(w_samples, axis=0)  # [B, d]
+        w_mean = W.mean(axis=0)
+        w_se = W.std(axis=0, ddof=1)
+        w_lo = np.quantile(W, q_lo, axis=0)
+        w_hi = np.quantile(W, q_hi, axis=0)
+        w_cv = np.where(np.abs(w_mean) > 1e-12, w_se / np.abs(w_mean), np.nan)
+
+        static_features = ["age_normalized", "fame_normalized", "gender", "industry", "experience", "is_hetero"]
+        dynamic_features = ["state_normalized", "max_score_normalized", "sharpness", "prev_rank"]
+        context_features = ["is_all_star", "no_elim", "multi_elim", "week_pct", "contestants_pct"]
+        base_feature_names = static_features + dynamic_features + context_features + ["judge_score_z"]
+
+        names = base_feature_names[: len(w_mean)]
+        param_df = pd.DataFrame(
+            {
+                "param": names,
+                "mean": w_mean[: len(names)],
+                "SE_boot": w_se[: len(names)],
+                "CI_low": w_lo[: len(names)],
+                "CI_high": w_hi[: len(names)],
+                "CV": w_cv[: len(names)],
+            }
+        )
+
+    return {"predictions": out, "linear_params": param_df}
 
 
 def _build_train_contestant_index(train_df: pd.DataFrame) -> dict:
