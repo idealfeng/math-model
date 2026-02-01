@@ -427,40 +427,70 @@ class DWTSLoss(nn.Module):
         if len(eliminated_idx) == 0 or len(survived_idx) == 0:
             return combined_scores.sum() * 0.0
 
-        # GPL成对比较
-        log_likelihood = torch.zeros((), device=combined_scores.device)
-
-        for i in eliminated_idx:
-            for j in survived_idx:
-                # j应该比i分数高（j存活，i淘汰）
-                diff = combined_scores[j] - combined_scores[i]
-
-                # 数值稳定的log-sigmoid
-                log_prob = torch.nn.functional.logsigmoid(diff)
-                log_likelihood += log_prob
-
+        # Vectorized pairwise loss: sum_{j in survived, i in eliminated} log(sigmoid(score_j - score_i))
+        survived_scores = combined_scores[survived_idx]  # [S]
+        eliminated_scores = combined_scores[eliminated_idx]  # [E]
+        diff = survived_scores.unsqueeze(1) - eliminated_scores.unsqueeze(0)  # [S, E]
+        log_likelihood = torch.nn.functional.logsigmoid(diff).sum()
         return -log_likelihood
 
 
 class UnifiedDWTSModel(nn.Module):
     """统一 Fan Vote 模型：参数唯一，组合规则按 season 自动选择。"""
 
-    def __init__(self, n_static, n_dynamic, n_context, tau=0.5):
+    def __init__(
+        self,
+        n_static,
+        n_dynamic,
+        n_context,
+        tau=0.5,
+        hidden=32,
+        dropout=0.1,
+    ):
         super().__init__()
-        self.beta = nn.Parameter(torch.randn(n_static) * 0.1)
-        self.gamma = nn.Parameter(torch.randn(n_dynamic) * 0.1)
-        self.delta = nn.Parameter(torch.randn(n_context) * 0.1)
         self.tau = tau
 
-    def compute_fan_prob(self, x_static, x_dynamic, x_context):
-        eta = (
-            torch.matmul(x_static, self.beta)
-            + torch.matmul(x_dynamic, self.gamma)
-            + torch.matmul(x_context, self.delta)
+        # Fan-utility network (allows nonlinear interactions).
+        # We also allow current performance (judge score) to influence fan vote as a proxy for "performance effect".
+        in_dim = n_static + n_dynamic + n_context + 1  # + judge_score_z
+        self.fan_net = nn.Sequential(
+            nn.Linear(in_dim, hidden),
+            nn.ReLU(),
+            nn.Dropout(dropout),
+            nn.Linear(hidden, hidden),
+            nn.ReLU(),
+            nn.Dropout(dropout),
+            nn.Linear(hidden, 1),
         )
-        eta = torch.clamp(eta, -10, 10)
-        exp_eta = torch.exp(eta - eta.max())
+
+        # Learnable mixing weights between judge component and fan component.
+        # Use softplus to keep weights positive and avoid sign flips.
+        self._w_j_rank = nn.Parameter(torch.tensor(0.0))
+        self._w_f_rank = nn.Parameter(torch.tensor(0.0))
+        self._w_j_pct = nn.Parameter(torch.tensor(0.0))
+        self._w_f_pct = nn.Parameter(torch.tensor(0.0))
+
+    @staticmethod
+    def _softmax_stable(eta):
+        eta = eta - eta.max()
+        exp_eta = torch.exp(eta)
         return exp_eta / (exp_eta.sum() + 1e-12)
+
+    def compute_fan_prob(self, x_static, x_dynamic, x_context, judge_scores):
+        # Standardize judge scores within the week to a stable scale (performance effect).
+        mean = judge_scores.mean()
+        std = judge_scores.std(unbiased=False)
+        if std < 1e-6:
+            judge_z = judge_scores * 0.0
+        else:
+            judge_z = (judge_scores - mean) / std
+
+        x = torch.cat(
+            [x_static, x_dynamic, x_context, judge_z.unsqueeze(1)], dim=1
+        )  # [n, in_dim]
+        eta = self.fan_net(x).squeeze(1)  # [n]
+        eta = torch.clamp(eta, -10, 10)
+        return self._softmax_stable(eta)
 
     def soft_rank(self, P):
         diff = P.unsqueeze(0) - P.unsqueeze(1)  # P_j - P_i
@@ -473,13 +503,18 @@ class UnifiedDWTSModel(nn.Module):
         if method == "rank":
             j_rank = torch.argsort(torch.argsort(judge_scores, descending=True)).float() + 1
             f_rank = self.soft_rank(P_fan)
-            combined = j_rank + f_rank
-            return (2 * n) - combined  # 转成高分=好
+            w_j = torch.nn.functional.softplus(self._w_j_rank) + 1e-6
+            w_f = torch.nn.functional.softplus(self._w_f_rank) + 1e-6
+            combined = w_j * j_rank + w_f * f_rank
+            # 转成高分=好
+            return (2 * n) - combined
 
         # percentage
         j_rank = torch.argsort(torch.argsort(judge_scores, descending=True))
         j_pct = (n - j_rank.float() - 1) / max(n - 1, 1)
-        return j_pct + P_fan
+        w_j = torch.nn.functional.softplus(self._w_j_pct) + 1e-6
+        w_f = torch.nn.functional.softplus(self._w_f_pct) + 1e-6
+        return w_j * j_pct + w_f * P_fan
 
     @staticmethod
     def choose_method_by_season(season: int) -> str:
@@ -487,7 +522,7 @@ class UnifiedDWTSModel(nn.Module):
         return "rank" if (season in [1, 2] or season >= 28) else "percentage"
 
     def forward(self, x_static, x_dynamic, x_context, judge_scores, season: int):
-        P_fan = self.compute_fan_prob(x_static, x_dynamic, x_context)
+        P_fan = self.compute_fan_prob(x_static, x_dynamic, x_context, judge_scores)
         method = self.choose_method_by_season(int(season))
         combined_score = self.combine_scores(P_fan, judge_scores, method)
         return combined_score, P_fan, method
@@ -604,7 +639,14 @@ def train_dwts_model(weekly_df, num_epochs=1000, lr=0.001, method="rank", weight
     return model, losses
 
 
-def train_unified_model(weekly_df, num_epochs=1000, lr=0.001, weight_decay=0.01):
+def train_unified_model(
+    weekly_df,
+    num_epochs=600,
+    lr=0.003,
+    weight_decay=0.001,
+    hidden=64,
+    dropout=0.15,
+):
     """训练统一模型（只有一套参数，按 season 自动选组合方式）。"""
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -629,6 +671,8 @@ def train_unified_model(weekly_df, num_epochs=1000, lr=0.001, weight_decay=0.01)
         n_dynamic=len(dynamic_features),
         n_context=len(context_features),
         tau=0.5,
+        hidden=hidden,
+        dropout=dropout,
     ).to(device)
 
     criterion = DWTSLoss()
@@ -637,60 +681,63 @@ def train_unified_model(weekly_df, num_epochs=1000, lr=0.001, weight_decay=0.01)
         optimizer, mode="min", factor=0.5, patience=50
     )
 
+    # Cache per-week tensors once (much faster than regrouping every epoch)
+    batches = []
+    for season_week, group in weekly_df.groupby("season_week"):
+        if len(group) < 2:
+            continue
+
+        season = int(group["season"].values[0])
+        no_elim = float(group["no_elim"].values[0])
+
+        x_static = torch.tensor(group[static_features].values, dtype=torch.float32).to(
+            device
+        )
+        x_dynamic = torch.tensor(group[dynamic_features].values, dtype=torch.float32).to(
+            device
+        )
+        x_context = torch.tensor(group[context_features].values, dtype=torch.float32).to(
+            device
+        )
+        judge_scores = torch.tensor(group["judge_score"].values, dtype=torch.float32).to(
+            device
+        )
+        eliminated_mask = torch.tensor(
+            group["is_eliminated"].values, dtype=torch.float32
+        ).to(device)
+
+        batches.append(
+            (season, no_elim, x_static, x_dynamic, x_context, judge_scores, eliminated_mask)
+        )
+
     losses = []
 
     for epoch in range(num_epochs):
         epoch_loss = 0.0
         num_weeks = 0
 
-        for season_week, group in weekly_df.groupby("season_week"):
-            if len(group) < 2:
+        for season, no_elim, x_static, x_dynamic, x_context, judge_scores, eliminated_mask in batches:
+            combined_scores, _, _ = model(
+                x_static, x_dynamic, x_context, judge_scores, season
+            )
+            loss = criterion(combined_scores, eliminated_mask, no_elim)
+
+            if torch.isnan(loss):
                 continue
 
-            try:
-                season = int(group["season"].values[0])
-                no_elim = group["no_elim"].values[0]
+            optimizer.zero_grad()
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=5.0)
+            optimizer.step()
 
-                x_static = torch.tensor(
-                    group[static_features].values, dtype=torch.float32
-                ).to(device)
-                x_dynamic = torch.tensor(
-                    group[dynamic_features].values, dtype=torch.float32
-                ).to(device)
-                x_context = torch.tensor(
-                    group[context_features].values, dtype=torch.float32
-                ).to(device)
-                judge_scores = torch.tensor(
-                    group["judge_score"].values, dtype=torch.float32
-                ).to(device)
-                eliminated_mask = torch.tensor(
-                    group["is_eliminated"].values, dtype=torch.float32
-                ).to(device)
-
-                combined_scores, _, _ = model(
-                    x_static, x_dynamic, x_context, judge_scores, season
-                )
-                loss = criterion(combined_scores, eliminated_mask, no_elim)
-
-                if torch.isnan(loss):
-                    continue
-
-                optimizer.zero_grad()
-                loss.backward()
-                torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=5.0)
-                optimizer.step()
-
-                epoch_loss += float(loss.item())
-                num_weeks += 1
-
-            except Exception:
-                continue
+            epoch_loss += float(loss.item())
+            num_weeks += 1
 
         avg_loss = epoch_loss / num_weeks if num_weeks > 0 else 0.0
         losses.append(avg_loss)
         scheduler.step(avg_loss)
 
-        if (epoch + 1) % 100 == 0:
+        if (epoch + 1) % 50 == 0:
             print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {avg_loss:.4f}")
 
     return model, losses
@@ -881,6 +928,71 @@ def counterfactual_analysis(model, weekly_df):
     return pd.DataFrame(records)
 
 
+def run_diagnostics(model, weekly_df_with_pred, model_accuracy=None):
+    print("\n" + "=" * 60)
+    print("DIAGNOSTIC ANALYSIS")
+    print("=" * 60)
+
+    def judge_only_accuracy(df):
+        correct = 0
+        total = 0
+
+        for _, g in df.groupby("season_week"):
+            if len(g) < 2:
+                continue
+            pred = g["judge_score"].idxmin()
+            actual = g[g["is_eliminated"] == 1].index
+            if len(actual) > 0 and pred in actual.tolist():
+                correct += 1
+            total += 1
+
+        return correct / total if total > 0 else 0.0
+
+    judge_acc = judge_only_accuracy(weekly_df_with_pred)
+    print(f"\n[1] Judge-only accuracy: {judge_acc:.2%}")
+    if model_accuracy is not None:
+        print(f"    Model accuracy: {model_accuracy:.2%}")
+        print(f"    Fan vote contribution: {(model_accuracy - judge_acc) * 100:.2f} pp")
+
+    print("\n[2] Fan vote variance check:")
+    eligible = weekly_df_with_pred.groupby("season_week").filter(lambda x: len(x) >= 5)
+    if len(eligible) == 0:
+        print("  Not enough weeks with >=5 contestants.")
+    else:
+        sample_weeks = eligible.groupby("season_week").head(1).sample(
+            n=min(3, eligible["season_week"].nunique()), random_state=0
+        )
+        for _, row in sample_weeks.iterrows():
+            sw = row["season_week"]
+            g = weekly_df_with_pred[weekly_df_with_pred["season_week"] == sw]
+            mean_v = g["predicted_fan_vote"].mean()
+            std_v = g["predicted_fan_vote"].std()
+            cv = std_v / mean_v if mean_v and mean_v != 0 else float("nan")
+            print(
+                f"  {sw}: CV={cv:.3f}, range=[{g['predicted_fan_vote'].min():.4f}, {g['predicted_fan_vote'].max():.4f}]"
+            )
+
+    print("\n[3] Implicit weight analysis:")
+    for sw in ["12_2", "5_9", "27_10"]:
+        g = weekly_df_with_pred[weekly_df_with_pred["season_week"] == sw]
+        if len(g) == 0:
+            continue
+        judge_corr = g["judge_score"].corr(g["is_eliminated"])
+        fan_corr = g["predicted_fan_vote"].corr(g["is_eliminated"])
+        print(f"  {sw}: Judge corr={judge_corr:.3f}, Fan corr={fan_corr:.3f}")
+
+    print("\n[4] Context feature actual impact:")
+    print(f"  Delta coefficients: {model.delta.detach().cpu().numpy()}")
+    all_star_elim = weekly_df_with_pred[weekly_df_with_pred["is_all_star"] == 1][
+        "is_eliminated"
+    ].mean()
+    regular_elim = weekly_df_with_pred[weekly_df_with_pred["is_all_star"] == 0][
+        "is_eliminated"
+    ].mean()
+    print(f"  All-star weeks eliminated: {all_star_elim:.2%}")
+    print(f"  Regular weeks eliminated: {regular_elim:.2%}")
+
+
 def validate_feature_effects(model_rank, model_pct):
     """Validate sign consistency against simple priors."""
     feature_labels = ["age", "fame", "gender", "industry", "experience", "is_hetero"]
@@ -962,6 +1074,173 @@ def evaluate_predictions(weekly_df_pred):
     return accuracy
 
 
+def evaluate_predictions_unified(weekly_df, model):
+    """
+    Correct evaluation for the unified model:
+    - Use the same combined-score rule as training (rank/percentage chosen by season).
+    - Predict eliminated contestant as the one with the lowest combined_score.
+    """
+    device = next(model.parameters()).device
+    model.eval()
+
+    static_features = [
+        "age_normalized",
+        "fame_normalized",
+        "gender",
+        "industry",
+        "experience",
+        "is_hetero",
+    ]
+    dynamic_features = [
+        "state_normalized",
+        "max_score_normalized",
+        "sharpness",
+        "prev_rank",
+    ]
+    context_features = ["is_all_star", "no_elim", "multi_elim"]
+
+    total = 0
+    correct = 0
+    weeks_rank = 0
+    weeks_pct = 0
+    correct_rank = 0
+    correct_pct = 0
+
+    with torch.no_grad():
+        for season_week, group in weekly_df.groupby("season_week"):
+            if len(group) < 2:
+                continue
+
+            actual_elim_idx = group[group["is_eliminated"] == 1].index
+            if len(actual_elim_idx) == 0:
+                continue
+
+            season = int(group["season"].values[0])
+            method = UnifiedDWTSModel.choose_method_by_season(season)
+            if method == "rank":
+                weeks_rank += 1
+            else:
+                weeks_pct += 1
+
+            x_static = torch.tensor(group[static_features].values, dtype=torch.float32).to(
+                device
+            )
+            x_dynamic = torch.tensor(group[dynamic_features].values, dtype=torch.float32).to(
+                device
+            )
+            x_context = torch.tensor(group[context_features].values, dtype=torch.float32).to(
+                device
+            )
+            judge_scores = torch.tensor(group["judge_score"].values, dtype=torch.float32).to(
+                device
+            )
+
+            combined_scores, _, _ = model(
+                x_static, x_dynamic, x_context, judge_scores, season
+            )
+
+            pred_pos = int(torch.argmin(combined_scores).item())
+            predicted_elim_idx = group.index[pred_pos]
+            ok = predicted_elim_idx in actual_elim_idx.tolist()
+
+            total += 1
+            if ok:
+                correct += 1
+                if method == "rank":
+                    correct_rank += 1
+                else:
+                    correct_pct += 1
+
+    overall_acc = correct / total if total > 0 else 0.0
+    rank_acc = correct_rank / weeks_rank if weeks_rank > 0 else 0.0
+    pct_acc = correct_pct / weeks_pct if weeks_pct > 0 else 0.0
+
+    print("\n" + "=" * 60)
+    print("CORRECT EVALUATION RESULTS")
+    print("=" * 60)
+    print(f"Overall Accuracy (combined score): {overall_acc:.2%} ({correct}/{total})")
+    print(f"  - Rank method weeks: {rank_acc:.2%} ({correct_rank}/{weeks_rank})")
+    print(f"  - Percentage method weeks: {pct_acc:.2%} ({correct_pct}/{weeks_pct})")
+
+    return overall_acc
+
+
+def compare_elimination_methods(weekly_df, model):
+    """
+    Counterfactual comparison:
+    - Use the unified fan-vote probabilities P_fan.
+    - Compare rank vs percentage combination rules in terms of predicted eliminated contestant.
+    - Also record correctness against actual elimination (when labeled).
+    """
+    device = next(model.parameters()).device
+    model.eval()
+
+    static_features = [
+        "age_normalized",
+        "fame_normalized",
+        "gender",
+        "industry",
+        "experience",
+        "is_hetero",
+    ]
+    dynamic_features = [
+        "state_normalized",
+        "max_score_normalized",
+        "sharpness",
+        "prev_rank",
+    ]
+    context_features = ["is_all_star", "no_elim", "multi_elim"]
+
+    rows = []
+    with torch.no_grad():
+        for season_week, group in weekly_df.groupby("season_week"):
+            if len(group) < 2:
+                continue
+
+            season = int(group["season"].values[0])
+            actual_elim = group[group["is_eliminated"] == 1]["contestant_id"].tolist()
+            if len(actual_elim) == 0:
+                continue
+
+            x_static = torch.tensor(group[static_features].values, dtype=torch.float32).to(
+                device
+            )
+            x_dynamic = torch.tensor(group[dynamic_features].values, dtype=torch.float32).to(
+                device
+            )
+            x_context = torch.tensor(group[context_features].values, dtype=torch.float32).to(
+                device
+            )
+            judge_scores = torch.tensor(group["judge_score"].values, dtype=torch.float32).to(
+                device
+            )
+
+            P_fan = model.compute_fan_prob(x_static, x_dynamic, x_context)
+            score_rank = model.combine_scores(P_fan, judge_scores, "rank")
+            score_pct = model.combine_scores(P_fan, judge_scores, "percentage")
+
+            pred_rank = group.iloc[int(torch.argmin(score_rank).item())]["contestant_id"]
+            pred_pct = group.iloc[int(torch.argmin(score_pct).item())]["contestant_id"]
+
+            actual_method = UnifiedDWTSModel.choose_method_by_season(season)
+
+            rows.append(
+                {
+                    "season_week": season_week,
+                    "season": season,
+                    "actual_method": actual_method,
+                    "actual_elim": actual_elim[0] if len(actual_elim) == 1 else str(actual_elim),
+                    "pred_rank": pred_rank,
+                    "pred_pct": pred_pct,
+                    "methods_agree": pred_rank == pred_pct,
+                    "rank_correct": pred_rank in actual_elim,
+                    "pct_correct": pred_pct in actual_elim,
+                }
+            )
+
+    return pd.DataFrame(rows)
+
+
 def analyze_fame_effect(weekly_df):
     """Compare elimination rates between high-fame and low-fame groups."""
     if "fame_normalized" not in weekly_df.columns:
@@ -1008,9 +1287,7 @@ if __name__ == "__main__":
 
     # 2. 训练统一模型
     print("\n[2/3] Training unified fan vote model...")
-    model, losses = train_unified_model(
-        weekly_df, num_epochs=1000, lr=0.001, weight_decay=0.01
-    )
+    model, losses = train_unified_model(weekly_df)
 
     # 3. 预测与保存
     print("\n[3/3] Predicting and saving results...")
@@ -1031,7 +1308,10 @@ if __name__ == "__main__":
     print("\nDone! Check predictions_unified.csv")
 
     # ==================== Post-run validation ====================
-    evaluate_predictions(weekly_df_unified)
+    # (1) The old evaluation uses min fan-vote; keep it for reference if needed.
+    # evaluate_predictions(weekly_df_unified)
+    # (2) Correct evaluation uses the combined score (same rule as training).
+    model_acc = evaluate_predictions_unified(weekly_df, model)
     analyze_fame_effect(weekly_df)
 
     print("\n=== Context Feature Coverage ===")
@@ -1066,3 +1346,10 @@ if __name__ == "__main__":
     else:
         print(f"Weeks where methods agree: {int(cf['methods_agree'].sum())}/{len(cf)}")
         print(f"Agreement rate: {cf['methods_agree'].mean():.2%}")
+
+    run_diagnostics(model, weekly_df_unified, model_accuracy=model_acc)
+
+    # Save detailed method comparison (correct)
+    comparison_results = compare_elimination_methods(weekly_df, model)
+    comparison_results.to_csv("method_comparison_results.csv", index=False)
+    print("\nDetailed comparison saved to method_comparison_results.csv")
