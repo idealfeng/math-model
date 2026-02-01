@@ -456,33 +456,59 @@ class UnifiedDWTSModel(nn.Module):
         dropout=0.1,
         num_contestants=None,
         emb_dim=8,
+        learn_mixing_weights: bool = False,
+        fan_utility: str = "mlp",  # "mlp" or "linear"
     ):
         super().__init__()
         self.tau = tau
+        self.learn_mixing_weights = bool(learn_mixing_weights)
+        self.fan_utility = str(fan_utility).lower().strip()
 
         # Fan-utility network (allows nonlinear interactions).
         # We also allow current performance (judge score) to influence fan vote as a proxy for "performance effect".
         if num_contestants is None:
             raise ValueError("num_contestants is required for the unified model.")
 
-        self.contestant_emb = nn.Embedding(num_contestants, emb_dim)
-        in_dim = n_static + n_dynamic + n_context + 1 + emb_dim  # + judge_score_z + emb
-        self.fan_net = nn.Sequential(
-            nn.Linear(in_dim, hidden),
-            nn.ReLU(),
-            nn.Dropout(dropout),
-            nn.Linear(hidden, hidden),
-            nn.ReLU(),
-            nn.Dropout(dropout),
-            nn.Linear(hidden, 1),
-        )
+        base_dim = n_static + n_dynamic + n_context + 1  # + judge_score_z
+        if self.fan_utility == "mlp":
+            self.contestant_emb = nn.Embedding(num_contestants, emb_dim)
+            in_dim = base_dim + emb_dim  # + emb
+            self.fan_net = nn.Sequential(
+                nn.Linear(in_dim, hidden),
+                nn.ReLU(),
+                nn.Dropout(dropout),
+                nn.Linear(hidden, hidden),
+                nn.ReLU(),
+                nn.Dropout(dropout),
+                nn.Linear(hidden, 1),
+            )
+            self.fan_linear = None
+            self.contestant_bias = None
+        elif self.fan_utility == "linear":
+            # Linear eta_{i,w,s} = theta_i + w^T x_{i,w,s}
+            # theta_i is implemented as a learned per-contestant scalar bias (random effect).
+            self.contestant_emb = None
+            self.fan_net = None
+            self.fan_linear = nn.Linear(base_dim, 1, bias=False)
+            self.contestant_bias = nn.Embedding(num_contestants, 1)
+        else:
+            raise ValueError("fan_utility must be 'mlp' or 'linear'.")
 
-        # Learnable mixing weights between judge component and fan component.
+        # Mixing weights between judge component and fan component.
+        # IMPORTANT:
+        # - For "official-rule" reproduction/counterfactuals, keep weights fixed (1,1).
+        # - Learnable weights can improve in-sample fit but entangle fan-vote estimates with reweighting.
         # Use softplus to keep weights positive and avoid sign flips.
-        self._w_j_rank = nn.Parameter(torch.tensor(0.0))
-        self._w_f_rank = nn.Parameter(torch.tensor(0.0))
-        self._w_j_pct = nn.Parameter(torch.tensor(0.0))
-        self._w_f_pct = nn.Parameter(torch.tensor(0.0))
+        if self.learn_mixing_weights:
+            self._w_j_rank = nn.Parameter(torch.tensor(0.0))
+            self._w_f_rank = nn.Parameter(torch.tensor(0.0))
+            self._w_j_pct = nn.Parameter(torch.tensor(0.0))
+            self._w_f_pct = nn.Parameter(torch.tensor(0.0))
+        else:
+            self._w_j_rank = None
+            self._w_f_rank = None
+            self._w_j_pct = None
+            self._w_f_pct = None
 
     @staticmethod
     def _softmax_stable(eta):
@@ -499,11 +525,16 @@ class UnifiedDWTSModel(nn.Module):
         else:
             judge_z = (judge_scores - mean) / std
 
-        emb = self.contestant_emb(contestant_idx)  # [n, emb_dim]
-        x = torch.cat(
-            [x_static, x_dynamic, x_context, judge_z.unsqueeze(1), emb], dim=1
-        )  # [n, in_dim]
-        eta = self.fan_net(x).squeeze(1)  # [n]
+        x_base = torch.cat([x_static, x_dynamic, x_context, judge_z.unsqueeze(1)], dim=1)
+
+        if self.fan_utility == "mlp":
+            emb = self.contestant_emb(contestant_idx)  # [n, emb_dim]
+            x = torch.cat([x_base, emb], dim=1)  # [n, in_dim]
+            eta = self.fan_net(x).squeeze(1)  # [n]
+        else:
+            eta = self.fan_linear(x_base).squeeze(1)  # [n]
+            eta = eta + self.contestant_bias(contestant_idx).squeeze(1)
+
         eta = torch.clamp(eta, -10, 10)
         return self._softmax_stable(eta)
 
@@ -518,18 +549,38 @@ class UnifiedDWTSModel(nn.Module):
         if method == "rank":
             j_rank = torch.argsort(torch.argsort(judge_scores, descending=True)).float() + 1
             f_rank = self.soft_rank(P_fan)
-            w_j = torch.nn.functional.softplus(self._w_j_rank) + 1e-6
-            w_f = torch.nn.functional.softplus(self._w_f_rank) + 1e-6
+            if self.learn_mixing_weights:
+                w_j = torch.nn.functional.softplus(self._w_j_rank) + 1e-6
+                w_f = torch.nn.functional.softplus(self._w_f_rank) + 1e-6
+            else:
+                w_j = 1.0
+                w_f = 1.0
             combined = w_j * j_rank + w_f * f_rank
             # 转成高分=好
             return (2 * n) - combined
 
         # percentage
-        j_rank = torch.argsort(torch.argsort(judge_scores, descending=True))
-        j_pct = (n - j_rank.float() - 1) / max(n - 1, 1)
-        w_j = torch.nn.functional.softplus(self._w_j_pct) + 1e-6
-        w_f = torch.nn.functional.softplus(self._w_f_pct) + 1e-6
+        # DWTS percent rule: judge percent is score share (not rank percentile).
+        denom = judge_scores.sum() + 1e-12
+        j_pct = judge_scores / denom
+        if self.learn_mixing_weights:
+            w_j = torch.nn.functional.softplus(self._w_j_pct) + 1e-6
+            w_f = torch.nn.functional.softplus(self._w_f_pct) + 1e-6
+        else:
+            w_j = 1.0
+            w_f = 1.0
         return w_j * j_pct + w_f * P_fan
+
+    def get_mixing_weights(self) -> dict:
+        """Return effective mixing weights for reporting/debugging."""
+        if not self.learn_mixing_weights:
+            return {"mode": "fixed", "rank": (1.0, 1.0), "percentage": (1.0, 1.0)}
+
+        w_j_rank = float(torch.nn.functional.softplus(self._w_j_rank).detach().cpu().item()) + 1e-6
+        w_f_rank = float(torch.nn.functional.softplus(self._w_f_rank).detach().cpu().item()) + 1e-6
+        w_j_pct = float(torch.nn.functional.softplus(self._w_j_pct).detach().cpu().item()) + 1e-6
+        w_f_pct = float(torch.nn.functional.softplus(self._w_f_pct).detach().cpu().item()) + 1e-6
+        return {"mode": "learned", "rank": (w_j_rank, w_f_rank), "percentage": (w_j_pct, w_f_pct)}
 
     @staticmethod
     def choose_method_by_season(season: int) -> str:
@@ -663,6 +714,8 @@ def train_unified_model(
     weight_decay=0.001,
     hidden=64,
     dropout=0.15,
+    learn_mixing_weights: bool = False,
+    fan_utility: str = "mlp",
 ):
     """训练统一模型（只有一套参数，按 season 自动选组合方式）。"""
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -693,6 +746,8 @@ def train_unified_model(
         dropout=dropout,
         num_contestants=num_contestants,
         emb_dim=8,
+        learn_mixing_weights=learn_mixing_weights,
+        fan_utility=fan_utility,
     ).to(device)
 
     criterion = DWTSLoss()
@@ -782,6 +837,57 @@ def train_unified_model(
             print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {avg_loss:.4f}")
 
     return model, losses
+
+
+def benchmark_linear_vs_mlp(
+    weekly_df: pd.DataFrame,
+    num_epochs: int = 150,
+    lr_mlp: float = 0.003,
+    lr_linear: float = 0.01,
+    hidden: int = 64,
+    dropout: float = 0.15,
+    weight_decay: float = 0.001,
+    seed: int = 0,
+):
+    """Train/evaluate linear vs MLP fan-utility models under fixed DWTS equal-weight combining."""
+    torch.manual_seed(seed)
+    np.random.seed(seed)
+
+    print("\n" + "=" * 60)
+    print("BENCHMARK: LINEAR vs MLP (fixed equal-weight combining)")
+    print("=" * 60)
+
+    print("\n[1/2] Training LINEAR utility model...")
+    model_lin, _ = train_unified_model(
+        weekly_df,
+        num_epochs=num_epochs,
+        lr=lr_linear,
+        hidden=hidden,
+        dropout=dropout,
+        weight_decay=weight_decay,
+        learn_mixing_weights=False,
+        fan_utility="linear",
+    )
+    acc_lin = evaluate_predictions_unified(weekly_df, model_lin)
+
+    print("\n[2/2] Training MLP utility model...")
+    model_mlp, _ = train_unified_model(
+        weekly_df,
+        num_epochs=num_epochs,
+        lr=lr_mlp,
+        hidden=hidden,
+        dropout=dropout,
+        weight_decay=weight_decay,
+        learn_mixing_weights=False,
+        fan_utility="mlp",
+    )
+    acc_mlp = evaluate_predictions_unified(weekly_df, model_mlp)
+
+    print("\n=== SUMMARY (same data, same evaluation) ===")
+    print(f"Linear  HitRate@|E_w|: {float(acc_lin['hit_rate']):.2%}, ExactMatch: {float(acc_lin['exact_match']):.2%}, weeks={int(acc_lin['weeks'])}")
+    print(f"MLP     HitRate@|E_w|: {float(acc_mlp['hit_rate']):.2%}, ExactMatch: {float(acc_mlp['exact_match']):.2%}, weeks={int(acc_mlp['weeks'])}")
+
+    return {"linear": acc_lin, "mlp": acc_mlp}
 
 
 def predict_fan_votes(model, weekly_df, method="rank"):
@@ -982,26 +1088,52 @@ def run_diagnostics(model, weekly_df_with_pred, model_accuracy=None):
     print("DIAGNOSTIC ANALYSIS")
     print("=" * 60)
 
-    def judge_only_accuracy(df):
-        correct = 0
+    def judge_only_metrics(df):
+        """Judge-only baseline using lowest judge scores as eliminated."""
         total = 0
+        hit_sum = 0.0
+        exact = 0
 
         for _, g in df.groupby("season_week"):
             if len(g) < 2:
                 continue
-            pred = g["judge_score"].idxmin()
-            actual = g[g["is_eliminated"] == 1].index
-            if len(actual) > 0 and pred in actual.tolist():
-                correct += 1
+
+            # If this is tagged as no-elimination, skip for fairness.
+            if "no_elim" in g.columns and float(g["no_elim"].values[0]) == 1.0:
+                continue
+
+            actual_elim_idx = g[g["is_eliminated"] == 1].index
+            if len(actual_elim_idx) == 0:
+                continue
+            k = int(len(actual_elim_idx))
+
+            pred_positions = g["judge_score"].sort_values(ascending=True).head(k).index
+            pred_set = set(pred_positions.tolist())
+            actual_set = set(actual_elim_idx.tolist())
+            hits = len(pred_set & actual_set)
+            hit_rate = hits / k if k > 0 else 0.0
+
             total += 1
+            hit_sum += hit_rate
+            exact += 1 if hits == k else 0
 
-        return correct / total if total > 0 else 0.0
+        return {
+            "weeks": total,
+            "hit_rate": (hit_sum / total if total > 0 else 0.0),
+            "exact_match": (exact / total if total > 0 else 0.0),
+        }
 
-    judge_acc = judge_only_accuracy(weekly_df_with_pred)
-    print(f"\n[1] Judge-only accuracy: {judge_acc:.2%}")
+    judge_base = judge_only_metrics(weekly_df_with_pred)
+    print(f"\n[1] Judge-only HitRate@|E_w|: {judge_base['hit_rate']:.2%} (weeks={judge_base['weeks']})")
+    print(f"    Judge-only ExactMatch@|E_w|: {judge_base['exact_match']:.2%} (weeks={judge_base['weeks']})")
     if model_accuracy is not None:
-        print(f"    Model accuracy: {model_accuracy:.2%}")
-        print(f"    Fan vote contribution: {(model_accuracy - judge_acc) * 100:.2f} pp")
+        if isinstance(model_accuracy, dict) and "hit_rate" in model_accuracy:
+            model_hit = float(model_accuracy["hit_rate"])
+            print(f"    Model HitRate@|E_w|: {model_hit:.2%}")
+            print(f"    (Note) Baseline uses judge_score only; model uses judge+fan via DWTS rule.")
+        else:
+            print(f"    Model accuracy: {model_accuracy:.2%}")
+            # If user still passes a legacy scalar accuracy, avoid claiming a fan-vote contribution here.
 
     print("\n[2] Fan vote variance check:")
     eligible = weekly_df_with_pred.groupby("season_week").filter(lambda x: len(x) >= 5)
@@ -1031,7 +1163,15 @@ def run_diagnostics(model, weekly_df_with_pred, model_accuracy=None):
         print(f"  {sw}: Judge corr={judge_corr:.3f}, Fan corr={fan_corr:.3f}")
 
     print("\n[4] Context feature actual impact:")
-    print(f"  Delta coefficients: {model.delta.detach().cpu().numpy()}")
+    if hasattr(model, "delta"):
+        print(f"  Delta coefficients: {model.delta.detach().cpu().numpy()}")
+    elif hasattr(model, "get_mixing_weights"):
+        w = model.get_mixing_weights()
+        print(f"  Mixing weights mode: {w['mode']}")
+        print(f"  Rank weights (judge, fan): {w['rank']}")
+        print(f"  Percentage weights (judge, fan): {w['percentage']}")
+    else:
+        print("  (No context coefficients exposed by this model class.)")
     all_star_elim = weekly_df_with_pred[weekly_df_with_pred["is_all_star"] == 1][
         "is_eliminated"
     ].mean()
@@ -1149,11 +1289,12 @@ def evaluate_predictions_unified(weekly_df, model):
     context_features = ["is_all_star", "no_elim", "multi_elim"]
 
     total = 0
-    correct = 0
+    hit_sum = 0.0
+    exact_match = 0
     weeks_rank = 0
     weeks_pct = 0
-    correct_rank = 0
-    correct_pct = 0
+    hit_sum_rank = 0.0
+    hit_sum_pct = 0.0
 
     with torch.no_grad():
         for season_week, group in weekly_df.groupby("season_week"):
@@ -1163,6 +1304,7 @@ def evaluate_predictions_unified(weekly_df, model):
             actual_elim_idx = group[group["is_eliminated"] == 1].index
             if len(actual_elim_idx) == 0:
                 continue
+            k = int(len(actual_elim_idx))
 
             season = int(group["season"].values[0])
             method = UnifiedDWTSModel.choose_method_by_season(season)
@@ -1192,30 +1334,81 @@ def evaluate_predictions_unified(weekly_df, model):
                 x_static, x_dynamic, x_context, judge_scores, contestant_idx, season
             )
 
-            pred_pos = int(torch.argmin(combined_scores).item())
-            predicted_elim_idx = group.index[pred_pos]
-            ok = predicted_elim_idx in actual_elim_idx.tolist()
+            # Predict the lowest-|E_w| contestants as eliminated
+            pred_positions = torch.argsort(combined_scores)[:k].tolist()
+            predicted_elim_idx = set(group.index[pred_positions].tolist())
+            actual_set = set(actual_elim_idx.tolist())
+            hits = len(predicted_elim_idx & actual_set)
+            hit_rate = hits / k if k > 0 else 0.0
+            is_exact = 1 if hits == k else 0
 
             total += 1
-            if ok:
-                correct += 1
-                if method == "rank":
-                    correct_rank += 1
-                else:
-                    correct_pct += 1
+            hit_sum += hit_rate
+            exact_match += is_exact
+            if method == "rank":
+                hit_sum_rank += hit_rate
+            else:
+                hit_sum_pct += hit_rate
 
-    overall_acc = correct / total if total > 0 else 0.0
-    rank_acc = correct_rank / weeks_rank if weeks_rank > 0 else 0.0
-    pct_acc = correct_pct / weeks_pct if weeks_pct > 0 else 0.0
+    overall_hit = hit_sum / total if total > 0 else 0.0
+    overall_exact = exact_match / total if total > 0 else 0.0
+    rank_hit = hit_sum_rank / weeks_rank if weeks_rank > 0 else 0.0
+    pct_hit = hit_sum_pct / weeks_pct if weeks_pct > 0 else 0.0
 
     print("\n" + "=" * 60)
     print("CORRECT EVALUATION RESULTS")
     print("=" * 60)
-    print(f"Overall Accuracy (combined score): {overall_acc:.2%} ({correct}/{total})")
-    print(f"  - Rank method weeks: {rank_acc:.2%} ({correct_rank}/{weeks_rank})")
-    print(f"  - Percentage method weeks: {pct_acc:.2%} ({correct_pct}/{weeks_pct})")
+    print(f"HitRate@|E_w| (combined score): {overall_hit:.2%} (weeks={total})")
+    print(f"ExactMatch@|E_w|: {overall_exact:.2%} (weeks={total})")
+    print(f"  - Rank weeks HitRate: {rank_hit:.2%} (weeks={weeks_rank})")
+    print(f"  - Percentage weeks HitRate: {pct_hit:.2%} (weeks={weeks_pct})")
 
-    return overall_acc
+    return {"hit_rate": overall_hit, "exact_match": overall_exact, "weeks": total}
+
+
+def _build_train_contestant_index(train_df: pd.DataFrame) -> dict:
+    """Map contestant_id to contiguous indices; reserve 0 for unseen contestants at test time."""
+    ids = train_df["contestant_id"].astype(str).unique().tolist()
+    return {cid: i + 1 for i, cid in enumerate(ids)}
+
+
+def _apply_contestant_index(df: pd.DataFrame, mapping: dict) -> pd.DataFrame:
+    out = df.copy()
+    out["contestant_idx"] = out["contestant_id"].map(mapping).fillna(0).astype(int)
+    return out
+
+
+def validate_generalization_time_split(
+    weekly_df: pd.DataFrame,
+    train_max_season: int = 25,
+    num_epochs: int = 80,
+):
+    """
+    Time-based generalization check:
+      Train on seasons <= train_max_season, test on seasons > train_max_season.
+    Important: contestant embeddings are fit on train contestants only; unseen test contestants map to idx=0.
+    """
+    train_df = weekly_df[weekly_df["season"] <= train_max_season].copy()
+    test_df = weekly_df[weekly_df["season"] > train_max_season].copy()
+
+    if len(train_df) == 0 or len(test_df) == 0:
+        print("\n=== GENERALIZATION CHECK (TIME SPLIT) ===")
+        print("Not enough data for the requested split.")
+        return None
+
+    mapping = _build_train_contestant_index(train_df)
+    train_df = _apply_contestant_index(train_df, mapping)
+    test_df = _apply_contestant_index(test_df, mapping)
+
+    model, _ = train_unified_model(train_df, num_epochs=num_epochs)
+    print("\n" + "=" * 60)
+    print("GENERALIZATION CHECK (TIME SPLIT)")
+    print("=" * 60)
+    print(f"Train seasons: <= {train_max_season} (samples={len(train_df)})")
+    print(f"Test seasons:  > {train_max_season} (samples={len(test_df)})")
+
+    metrics = evaluate_predictions_unified(test_df, model)
+    return metrics
 
 
 def compare_elimination_methods(weekly_df, model):
@@ -1346,7 +1539,8 @@ if __name__ == "__main__":
 
     # 2. 训练统一模型
     print("\n[2/3] Training unified fan vote model...")
-    model, losses = train_unified_model(weekly_df)
+    # Keep mixing weights fixed by default to match the show's rule (judge component + fan component).
+    model, losses = train_unified_model(weekly_df, learn_mixing_weights=False)
 
     # 3. 预测与保存
     print("\n[3/3] Predicting and saving results...")
@@ -1359,10 +1553,17 @@ if __name__ == "__main__":
     print("=" * 60)
 
     print(f"Final Loss: {losses[-1]:.4f}")
-    print("Feature Coefficients:")
-    print(f"  Beta (static):  {model.beta.detach().cpu().numpy()}")
-    print(f"  Gamma (dynamic): {model.gamma.detach().cpu().numpy()}")
-    print(f"  Delta (context): {model.delta.detach().cpu().numpy()}")
+    if hasattr(model, "get_mixing_weights"):
+        w = model.get_mixing_weights()
+        print(f"Mixing weights mode: {w['mode']}")
+        print(f"  Rank weights (judge, fan): {w['rank']}")
+        print(f"  Percentage weights (judge, fan): {w['percentage']}")
+    if hasattr(model, "fan_utility"):
+        print(f"Fan utility type: {model.fan_utility}")
+    if getattr(model, "fan_net", None) is not None:
+        print(f"Fan utility model: {model.fan_net.__class__.__name__} (MLP)")
+    elif getattr(model, "fan_linear", None) is not None:
+        print("Fan utility model: Linear")
 
     print("\nDone! Check predictions_unified.csv")
 
