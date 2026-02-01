@@ -443,6 +443,45 @@ class DWTSLoss(nn.Module):
         return -log_likelihood
 
 
+class DWTSFocalPairwiseLoss(nn.Module):
+    """
+    Focal-style pairwise loss for elimination comparisons.
+
+    For each survived-vs-eliminated pair, we want p = sigmoid(score_surv - score_elim) -> 1.
+    Focal weighting down-weights easy pairs:
+        loss = - Σ (1 - p)^gamma * log(p)
+    """
+
+    def __init__(self, gamma: float = 2.0):
+        super().__init__()
+        if gamma < 0:
+            raise ValueError("gamma must be >= 0")
+        self.gamma = float(gamma)
+
+    def forward(self, combined_scores, eliminated_mask, no_elim_flag):
+        if no_elim_flag == 1:
+            return combined_scores.sum() * 0.0
+
+        eliminated_idx = torch.where(eliminated_mask == 1)[0]
+        survived_idx = torch.where(eliminated_mask == 0)[0]
+
+        if len(eliminated_idx) == 0 or len(survived_idx) == 0:
+            return combined_scores.sum() * 0.0
+
+        survived_scores = combined_scores[survived_idx]  # [S]
+        eliminated_scores = combined_scores[eliminated_idx]  # [E]
+        diff = survived_scores.unsqueeze(1) - eliminated_scores.unsqueeze(0)  # [S, E]
+
+        # p = sigmoid(diff), log(p) = logsigmoid(diff)
+        logp = torch.nn.functional.logsigmoid(diff)
+        if self.gamma == 0.0:
+            return -logp.sum()
+
+        p = torch.sigmoid(diff)
+        w = torch.pow(1.0 - p.detach(), self.gamma)
+        return -(w * logp).sum()
+
+
 class UnifiedDWTSModel(nn.Module):
     """统一 Fan Vote 模型：参数唯一，组合规则按 season 自动选择。"""
 
@@ -716,6 +755,8 @@ def train_unified_model(
     dropout=0.15,
     learn_mixing_weights: bool = False,
     fan_utility: str = "mlp",
+    focal_gamma: float | None = None,
+    skip_unsupervised_weeks: bool = True,
 ):
     """训练统一模型（只有一套参数，按 season 自动选组合方式）。"""
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -750,7 +791,10 @@ def train_unified_model(
         fan_utility=fan_utility,
     ).to(device)
 
-    criterion = DWTSLoss()
+    if focal_gamma is None:
+        criterion = DWTSLoss()
+    else:
+        criterion = DWTSFocalPairwiseLoss(gamma=float(focal_gamma))
     optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(
         optimizer, mode="min", factor=0.5, patience=50
@@ -797,6 +841,18 @@ def train_unified_model(
             )
         )
 
+    if skip_unsupervised_weeks:
+        filtered = []
+        for b in batches:
+            season, no_elim, x_static, x_dynamic, x_context, judge_scores, contestant_idx, eliminated_mask = b
+            if no_elim == 1.0:
+                continue
+            k = float(eliminated_mask.sum().detach().cpu().item())
+            if k <= 0.0 or k >= float(eliminated_mask.shape[0]):
+                continue
+            filtered.append(b)
+        batches = filtered
+
     losses = []
 
     for epoch in range(num_epochs):
@@ -837,6 +893,231 @@ def train_unified_model(
             print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {avg_loss:.4f}")
 
     return model, losses
+
+
+def train_unified_ensemble(
+    weekly_df: pd.DataFrame,
+    ensemble_size: int = 5,
+    seeds: list[int] | None = None,
+    num_epochs: int = 80,
+    hidden: int = 64,
+    dropout: float = 0.15,
+    lr: float = 0.003,
+    weight_decay: float = 0.001,
+    fan_utility: str = "mlp",
+    focal_gamma: float | None = None,
+):
+    """Train multiple unified models with different random seeds (bagging by init)."""
+    if ensemble_size <= 0:
+        raise ValueError("ensemble_size must be >= 1")
+
+    if seeds is None:
+        seeds = list(range(ensemble_size))
+    if len(seeds) < ensemble_size:
+        raise ValueError("seeds length must be >= ensemble_size")
+
+    models = []
+    for i in range(ensemble_size):
+        seed = int(seeds[i])
+        torch.manual_seed(seed)
+        np.random.seed(seed)
+        model, _ = train_unified_model(
+            weekly_df,
+            num_epochs=num_epochs,
+            lr=lr,
+            weight_decay=weight_decay,
+            hidden=hidden,
+            dropout=dropout,
+            learn_mixing_weights=False,
+            fan_utility=fan_utility,
+            focal_gamma=focal_gamma,
+            skip_unsupervised_weeks=True,
+        )
+        models.append(model)
+    return models
+
+
+def evaluate_predictions_unified_ensemble(weekly_df: pd.DataFrame, models: list[nn.Module]):
+    """
+    Evaluate an ensemble by averaging per-model combined scores (higher=better) within each week.
+    Predict eliminated contestants as the k lowest average combined-scores.
+    """
+    if len(models) == 0:
+        raise ValueError("models must be non-empty")
+
+    device = next(models[0].parameters()).device
+    for m in models[1:]:
+        if next(m.parameters()).device != device:
+            raise ValueError("All ensemble models must be on the same device.")
+
+    for m in models:
+        m.eval()
+
+    static_features = [
+        "age_normalized",
+        "fame_normalized",
+        "gender",
+        "industry",
+        "experience",
+        "is_hetero",
+    ]
+    dynamic_features = [
+        "state_normalized",
+        "max_score_normalized",
+        "sharpness",
+        "prev_rank",
+    ]
+    context_features = ["is_all_star", "no_elim", "multi_elim"]
+
+    total = 0
+    hit_sum = 0.0
+    exact_match = 0
+
+    weeks_rank = 0
+    weeks_pct = 0
+    hit_sum_rank = 0.0
+    hit_sum_pct = 0.0
+
+    with torch.no_grad():
+        for season_week, group in weekly_df.groupby("season_week"):
+            if len(group) < 2:
+                continue
+            if float(group["no_elim"].values[0]) == 1.0:
+                continue
+
+            actual_elim_idx = group[group["is_eliminated"] == 1].index
+            if len(actual_elim_idx) == 0:
+                continue
+            k = int(len(actual_elim_idx))
+
+            season = int(group["season"].values[0])
+            method = UnifiedDWTSModel.choose_method_by_season(season)
+            if method == "rank":
+                weeks_rank += 1
+            else:
+                weeks_pct += 1
+
+            x_static = torch.tensor(group[static_features].values, dtype=torch.float32).to(device)
+            x_dynamic = torch.tensor(group[dynamic_features].values, dtype=torch.float32).to(device)
+            x_context = torch.tensor(group[context_features].values, dtype=torch.float32).to(device)
+            judge_scores = torch.tensor(group["judge_score"].values, dtype=torch.float32).to(device)
+            contestant_idx = torch.tensor(group["contestant_idx"].values, dtype=torch.long).to(device)
+
+            scores = []
+            for m in models:
+                combined_scores, _, _ = m(x_static, x_dynamic, x_context, judge_scores, contestant_idx, season)
+                scores.append(combined_scores)
+            avg_scores = torch.stack(scores, dim=0).mean(dim=0)
+
+            pred_positions = torch.argsort(avg_scores)[:k].tolist()
+            predicted_elim_idx = set(group.index[pred_positions].tolist())
+            actual_set = set(actual_elim_idx.tolist())
+            hits = len(predicted_elim_idx & actual_set)
+            hit_rate = hits / k if k > 0 else 0.0
+            is_exact = 1 if hits == k else 0
+
+            total += 1
+            hit_sum += hit_rate
+            exact_match += is_exact
+            if method == "rank":
+                hit_sum_rank += hit_rate
+            else:
+                hit_sum_pct += hit_rate
+
+    overall_hit = hit_sum / total if total > 0 else 0.0
+    overall_exact = exact_match / total if total > 0 else 0.0
+    rank_hit = hit_sum_rank / weeks_rank if weeks_rank > 0 else 0.0
+    pct_hit = hit_sum_pct / weeks_pct if weeks_pct > 0 else 0.0
+
+    print("\n" + "=" * 60)
+    print("ENSEMBLE EVALUATION RESULTS")
+    print("=" * 60)
+    print(f"Ensemble size: {len(models)}")
+    print(f"HitRate@|E_w| (avg combined score): {overall_hit:.2%} (weeks={total})")
+    print(f"ExactMatch@|E_w|: {overall_exact:.2%} (weeks={total})")
+    print(f"  - Rank weeks HitRate: {rank_hit:.2%} (weeks={weeks_rank})")
+    print(f"  - Percentage weeks HitRate: {pct_hit:.2%} (weeks={weeks_pct})")
+
+    return {"hit_rate": overall_hit, "exact_match": overall_exact, "weeks": total}
+
+
+def predict_fan_votes_unified_ensemble(weekly_df: pd.DataFrame, models: list[nn.Module]):
+    """
+    Produce per-row ensemble fan-vote probability mean/std and combined-score mean/std.
+    Note: combined_score is the rule-consistent score used for elimination (higher=better).
+    """
+    if len(models) == 0:
+        raise ValueError("models must be non-empty")
+
+    device = next(models[0].parameters()).device
+    for m in models[1:]:
+        if next(m.parameters()).device != device:
+            raise ValueError("All ensemble models must be on the same device.")
+
+    for m in models:
+        m.eval()
+
+    static_features = [
+        "age_normalized",
+        "fame_normalized",
+        "gender",
+        "industry",
+        "experience",
+        "is_hetero",
+    ]
+    dynamic_features = [
+        "state_normalized",
+        "max_score_normalized",
+        "sharpness",
+        "prev_rank",
+    ]
+    context_features = ["is_all_star", "no_elim", "multi_elim"]
+
+    out = weekly_df.copy()
+    out["predicted_fan_vote_mean"] = np.nan
+    out["predicted_fan_vote_std"] = np.nan
+    out["combined_score_mean"] = np.nan
+    out["combined_score_std"] = np.nan
+    out["method_used"] = "unknown"
+
+    with torch.no_grad():
+        for season_week, group in out.groupby("season_week"):
+            if len(group) < 2:
+                continue
+
+            season = int(group["season"].values[0])
+            method = UnifiedDWTSModel.choose_method_by_season(season)
+
+            x_static = torch.tensor(group[static_features].values, dtype=torch.float32).to(device)
+            x_dynamic = torch.tensor(group[dynamic_features].values, dtype=torch.float32).to(device)
+            x_context = torch.tensor(group[context_features].values, dtype=torch.float32).to(device)
+            judge_scores = torch.tensor(group["judge_score"].values, dtype=torch.float32).to(device)
+            contestant_idx = torch.tensor(group["contestant_idx"].values, dtype=torch.long).to(device)
+
+            p_list = []
+            s_list = []
+            for m in models:
+                combined_scores, p_fan, _ = m(
+                    x_static, x_dynamic, x_context, judge_scores, contestant_idx, season
+                )
+                p_list.append(p_fan)
+                s_list.append(combined_scores)
+
+            P = torch.stack(p_list, dim=0)  # [M, n]
+            S = torch.stack(s_list, dim=0)  # [M, n]
+
+            p_mean = P.mean(dim=0).cpu().numpy()
+            p_std = P.std(dim=0, unbiased=False).cpu().numpy()
+            s_mean = S.mean(dim=0).cpu().numpy()
+            s_std = S.std(dim=0, unbiased=False).cpu().numpy()
+
+            out.loc[group.index, "predicted_fan_vote_mean"] = p_mean
+            out.loc[group.index, "predicted_fan_vote_std"] = p_std
+            out.loc[group.index, "combined_score_mean"] = s_mean
+            out.loc[group.index, "combined_score_std"] = s_std
+            out.loc[group.index, "method_used"] = method
+
+    return out
 
 
 def benchmark_linear_vs_mlp(
@@ -1299,6 +1580,10 @@ def evaluate_predictions_unified(weekly_df, model):
     with torch.no_grad():
         for season_week, group in weekly_df.groupby("season_week"):
             if len(group) < 2:
+                continue
+
+            # Weeks with no elimination provide no labeled elimination signal; skip for fair evaluation.
+            if "no_elim" in group.columns and float(group["no_elim"].values[0]) == 1.0:
                 continue
 
             actual_elim_idx = group[group["is_eliminated"] == 1].index
