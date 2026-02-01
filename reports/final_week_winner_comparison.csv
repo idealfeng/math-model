@@ -1,0 +1,35 @@
+season,final_week,n_final,winner_rank,winner_pct,winner_same,spearman_final
+1,6,2,John O'Hurley_Charlotte Jorgensen_1,John O'Hurley_Charlotte Jorgensen_1,True,
+2,8,3,Drew Lachey_Cheryl Burke_2,Jerry Rice_Anna Trebunskaya_2,False,0.5
+3,10,2,Emmitt Smith_Cheryl Burke_3,Mario Lopez_Karina Smirnoff_3,False,
+4,10,3,Apolo Anton Ohno_Julianne Hough_4,Laila Ali_Maksim Chmerkoskiy_4,False,-1.0
+5,10,3,Helio Castroneves_Julianne Hough_5,Helio Castroneves_Julianne Hough_5,True,1.0
+6,10,3,Kristi Yamaguchi_Mark Ballas_6,Kristi Yamaguchi_Mark Ballas_6,True,1.0
+7,10,3,Brooke Burke_Derek Hough_7,Lance Bass_Lacey Schwimmer_7,False,0.5
+8,11,3,Shawn Johnson_Mark Ballas_8,Shawn Johnson_Mark Ballas_8,True,1.0
+9,10,3,Donny Osmond_Kym Johnson_9,Donny Osmond_Kym Johnson_9,True,1.0
+10,10,3,Nicole Scherzinger_Derek Hough_10,Nicole Scherzinger_Derek Hough_10,True,1.0
+11,10,3,Jennifer Grey_Derek Hough_11,Jennifer Grey_Derek Hough_11,True,1.0
+12,10,3,Chelsea Kane_Mark Ballas_12,Chelsea Kane_Mark Ballas_12,True,1.0
+13,10,3,Rob Kardashian_Cheryl Burke_13,Ricki Lake_Derek Hough_13,False,0.5
+14,10,3,Donald Driver_Peta Murgatroyd_14,William Levy_Cheryl Burke_14,False,-0.5
+15,10,3,Melissa Rycroft_Tony Dovolani_15,Shawn Johnson_Derek Hough_15,False,0.5
+16,10,4,Kellie Pickler_Derek Hough_16,Kellie Pickler_Derek Hough_16,True,0.7999999999999999
+17,11,4,Amber Riley_Derek Hough_17,Amber Riley_Derek Hough_17,True,1.0
+18,10,4,Meryl Davis_Maksim Chmerkoskiy_18,Meryl Davis_Maksim Chmerkoskiy_18,True,1.0
+19,11,4,Alfonso Ribeiro_Witney Carson_19,Alfonso Ribeiro_Witney Carson_19,True,0.7999999999999999
+20,10,3,Riker Lynch_Allison Holker_20,Riker Lynch_Allison Holker_20,True,1.0
+21,11,4,Bindi Irwin_Derek Hough_21,Bindi Irwin_Derek Hough_21,True,0.7999999999999999
+22,10,3,Paige VanZant_Mark Ballas_22,Paige VanZant_Mark Ballas_22,True,1.0
+23,11,4,James Hinchcliffe_Sharna Burgess_23,James Hinchcliffe_Sharna Burgess_23,True,1.0
+24,10,3,Rashad Jennings_Emma Slater_24,Rashad Jennings_Emma Slater_24,True,0.5
+25,10,4,Jordan Fisher_Lindsay Arnold_25,Lindsey Stirling_Mark Ballas_25,False,0.7999999999999999
+26,4,3,Adam Rippon_Jenna Johnson_26,Josh Norman_Sharna Burgess_26,False,0.5
+27,9,4,Evanna Lynch_Keo Motsepe_27,Milo Manheim_Witney Carson_27,False,0.7999999999999999
+28,11,4,Ally Brooke_Sasha Farber_28,Lauren Alaina_Gleb Savchenko_28,False,0.19999999999999998
+29,11,4,Justina Machado_Sasha Farber_29,Nelly_Daniella Karagach_29,False,0.19999999999999998
+30,10,4,Iman Shumpert_Daniella Karagach_30,Iman Shumpert_Daniella Karagach_30,True,0.7999999999999999
+31,10,4,Charli D'Amelio_Mark Ballas_31,Shangela_Gleb Savchenko_31,False,0.7999999999999999
+32,11,5,Jason Mraz_Daniella Karagach_32,Jason Mraz_Daniella Karagach_32,True,0.49999999999999994
+33,9,5,Chandler Kinney_Brandon Armstrong_33,Ilona Maher_Alan Bersten_33,False,0.7999999999999999
+34,11,5,Alix Earle_Val Chmerkovskiy (Joey Graziadei week 9)_34,Elaine Hendrix_Alan Bersten (Rashad Jennings week 9)_34,False,0.19999999999999998

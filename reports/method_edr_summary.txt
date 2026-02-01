@@ -1,0 +1,5 @@
+Elimination Discrepancy Rate (EDR)
+EDR_result (overall): 17.94% (weeks=262)
+EDR_result (final stage, n<= 4): 17.39% (weeks=23)
+
+Interpretation: EDR is the fraction of elimination weeks where the predicted eliminated set differs between the rank and percentage combining rules.
